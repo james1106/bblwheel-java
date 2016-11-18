@@ -1,0 +1,27 @@
+<component name="libraryTable">
+  <library name="jetty-io-9.3.14.v20161028">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/jetty-io-9.3.14.v20161028.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jetty-http-9.3.14.v20161028.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jetcd-0.1.0-SNAPSHOT-jar-with-dependencies.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jetty-jaspi-9.3.14.v20161028.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jetty-jaas-9.3.14.v20161028.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jetty-servlet-9.3.14.v20161028.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jetty-rewrite-9.3.14.v20161028.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jetty-jmx-9.3.14.v20161028.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/junit-4.12.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jetty-servlets-9.3.14.v20161028.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/servlet-api-3.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jetty-util-9.3.14.v20161028.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jetty-webapp-9.3.14.v20161028.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jetty-server-9.3.14.v20161028.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jetty-quickstart-9.3.14.v20161028.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jetty-jndi-9.3.14.v20161028.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jetty-security-9.3.14.v20161028.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/lib/jetcd-0.1.0-SNAPSHOT-jar-with-dependencies.jar!/" />
+    </SOURCES>
+  </library>
+</component>
