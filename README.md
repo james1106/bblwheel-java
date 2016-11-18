@@ -1,5 +1,31 @@
 # bblwheel-java
 
+###如何运行与测试
+1. [下载ETCD](https://github.com/coreos/etcd/releases/)
+2. 解压并运行ETCD ./etcd
+3. 运行Leopard
+4. 用etcdctl工具跟踪key的变化
+    - ./etcdctl watch --prefix=true /v1/bblwheel/service
+5. 用etcdctl工具试着注册、变更服务和配置并观察Leopard程序控制台输出结果
+    - 注册依赖服务A 001 ./etcdctl put /v1/bblwheel/service/register/serviceA/001 < serviceA_001.json
+    - 注册依赖服务A 002 ./etcdctl put /v1/bblwheel/service/register/serviceA/002 < serviceA_002.json
+    - 注册依赖服务B 001./etcdctl put /v1/bblwheel/service/register/serviceB/001 < serviceB_001.json
+    - 注册依赖服务B 002 ./etcdctl put /v1/bblwheel/service/register/serviceB/002 < serviceB_002.json
+    - 变更服务状态A 00 ./etcdctl put /v1/bblwheel/service/register/serviceA/001 < serviceA_001_offline.json
+    - 变更服务配置stop ./etcdctl put /v1/bblwheel/service/config/testService1/001/stop 1
+    - 变更服务配置start ./etcdctl put /v1/bblwheel/service/config/testService1/001/start 1
+    - 变更服务配置restart ./etcdctl put /v1/bblwheel/service/config/testService1/001/restart 1
+6. 观察Leopard程序处理结果
+7. 暴力关闭etcd程序
+8. 5秒后重启etcd程序，观察Leopard是否从错误中恢复
+9. 暴力关闭etcd程序
+10. 30秒后重启etcd程序，观察Leopard是否从错误中恢复
+11. 暴力关闭etcd程序
+12. 10分钟后重启etcd程序，观察Leopard是否从错误中恢复，同时观察etcd watch控制台服务统计数据是否正常（内存占用等）
+13. 暴力关闭etcd程序
+14. 24小时后重启etcd程序，观察Leopard是否从错误中恢复，同时观察etcd watch控制台服务统计数据是否正常（内存占用等）
+
+    
 ```java
 package com.hemayun.sandbox.bblwheel;
 
