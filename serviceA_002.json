@@ -1,0 +1,11 @@
+{
+  "ID": "002",
+  "Address": "http://127.0.0.1:7321,grpc://0.0.0.0:7323,tcp://0.0.0.0:7325",
+  "DataCenter": "aliyun-huadong1",
+  "Node": "cloud-test-001",
+  "Weight": 0,
+  "Name": "serviceA",
+  "InstanceNum": 0,
+  "Status": "ONLINE",
+  "PID": "11066@appledeMacBook-Pro.local"
+}
