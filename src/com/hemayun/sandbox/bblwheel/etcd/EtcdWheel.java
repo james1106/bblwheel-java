@@ -11,10 +11,7 @@ import io.grpc.stub.StreamObserver;
 import sun.misc.Signal;
 import sun.misc.SignalHandler;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
@@ -157,9 +154,9 @@ public class EtcdWheel extends Wheel implements SignalHandler {
         } else if (key.startsWith(confPrefix) && cl != null) {
             String name = key.substring(confPrefix.length() + 1);
             if (type == Event.EventType.PUT) {
-                cl.onConfigUpdated(new Service.Config.Item(name, value == null ? "" : value));
+                cl.onConfigUpdated(name, value == null ? "" : value);
             } else if (type == Event.EventType.DELETE) {
-                cl.onConfigUpdated(new Service.Config.Item(name, ""));
+                cl.onConfigUpdated(name, "");
             }
         }
     }
@@ -248,10 +245,10 @@ public class EtcdWheel extends Wheel implements SignalHandler {
 
     private void syncConfig(Service provider) {
         Service.Config conf = lookupConfig(provider.ID, provider.Name);
-        for (Iterator<Service.Config.Item> iter = provider.Config.iterator(); iter.hasNext(); ) {
-            Service.Config.Item item = iter.next();
-            if (!conf.hasKey(item.name)) {
-                conf.setValue(item.name, item.value);
+        for (Iterator<Map.Entry<String, String>> iter = provider.Config.iterator(); iter.hasNext(); ) {
+            Map.Entry<String, String> item = iter.next();
+            if (!conf.hasKey(item.getKey())) {
+                conf.setValue(item.getKey(), item.getValue());
             }
         }
         provider.Config = conf;
@@ -259,12 +256,12 @@ public class EtcdWheel extends Wheel implements SignalHandler {
         ManagedChannel ch = connect(Arrays.asList(endpoints));
         try {
             KVGrpc.KVBlockingStub kvstub = KVGrpc.newBlockingStub(ch);
-            for (Iterator<Service.Config.Item> iter = conf.iterator(); iter.hasNext(); ) {
-                Service.Config.Item item = iter.next();
+            for (Iterator<Map.Entry<String, String>> iter = conf.iterator(); iter.hasNext(); ) {
+                Map.Entry<String, String> item = iter.next();
                 PutRequest req = PutRequest
                         .newBuilder()
-                        .setKey(createConfigKey(provider.Name, provider.ID, item.name))
-                        .setValue(ByteString.copyFromUtf8(item.value))
+                        .setKey(createConfigKey(provider.Name, provider.ID, item.getKey()))
+                        .setValue(ByteString.copyFromUtf8(item.getValue()))
                         .build();
                 kvstub.put(req);
                 //System.out.println(req.getKey().toStringUtf8()+" "+req.getValue().toStringUtf8());

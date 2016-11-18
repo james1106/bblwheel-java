@@ -112,7 +112,7 @@ public class Service {
     }
 
     public interface ConfigListener {
-        void onConfigUpdated(Config.Item item);
+        void onConfigUpdated(String key, String value);
     }
 
     public interface DiscoveryListener {
@@ -138,28 +138,28 @@ public class Service {
 
     public static class Config {
 
-        final private Map<String, Config.Item> items = new HashMap<String, Config.Item>();
+        final private Map<String, String> items = new HashMap<String, String>();
 
         public void setValue(String key, String val) {
-            items.put(key, new Config.Item(key, val));
+            items.put(key, val);
         }
 
         public String getValue(String name, String defValue) {
-            return items.getOrDefault(name, new Config.Item(name, defValue)).value;
+            return items.getOrDefault(name, defValue);
         }
 
         public boolean hasKey(String name) {
             return items.containsKey(name);
         }
 
-        public Iterator<Item> iterator() {
-            return items.values().iterator();
+        public Iterator<Map.Entry<String, String>> iterator() {
+            return items.entrySet().iterator();
         }
 
 
         public void dump() {
-            for (Config.Item i : items.values()) {
-                System.out.println(i.name + " = " + i.value);
+            for (Map.Entry<String, String> kv : items.entrySet()) {
+                System.out.println(kv.getKey() + " = " + kv.getValue());
             }
         }
 
@@ -167,17 +167,15 @@ public class Service {
             if (items.containsKey(
                     name
             )) {
-                return items.get(name).intValue();
+                return Integer.parseInt(items.get(name));
             }
             return defValue;
         }
 
 
         public long longValue(String name, long defValue) {
-            if (items.containsKey(
-                    name
-            )) {
-                return items.get(name).longValue();
+            if (items.containsKey(name)) {
+                return Long.parseLong(items.get(name));
             }
             return defValue;
         }
@@ -186,49 +184,18 @@ public class Service {
             if (items.containsKey(
                     name
             )) {
-                return items.get(name).floatValue();
+                return Float.parseFloat(items.get(name));
             }
             return defValue;
         }
 
-        public double ldoubleValue(String name, double defValue) {
+        public double doubleValue(String name, double defValue) {
             if (items.containsKey(
                     name
             )) {
-                return items.get(name).doubleValue();
+                return Double.parseDouble(items.get(name));
             }
             return defValue;
-        }
-
-
-        public static class Item {
-            public String name;
-            public String value;
-
-            Item() {
-
-            }
-
-            public Item(String key, String val) {
-                this.name = key;
-                this.value = val;
-            }
-
-            public int intValue() {
-                return Integer.parseInt(value);
-            }
-
-            public long longValue() {
-                return Long.parseLong(value);
-            }
-
-            public float floatValue() {
-                return Float.parseFloat(value);
-            }
-
-            public double doubleValue() {
-                return Double.parseDouble(value);
-            }
         }
     }
 }
