@@ -201,9 +201,9 @@ public class Leopard {
             //stat.other.put("ObjectName",""+ManagementFactory.getRuntimeMXBean().getObjectName());
         });
 
-        provider.setConfigListener(item -> {//设置配置变更监听接口
-            System.out.println("onConfigUpdated " + item.name + "=" + item.value);
-            if ("stop".equals(item.name) && jetty.server.isRunning()) {
+        provider.setConfigListener((k, v) -> {//设置配置变更监听接口
+            System.out.println("onConfigUpdated " + k + "=" + v);
+            if ("stop".equals(k) && jetty.server.isRunning()) {
                 provider.setStatus(Service.Status.MAINTENANCE);
                 jetty.stop();
                 try {
@@ -211,14 +211,14 @@ public class Leopard {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-            } else if ("start".equals(item.name) && jetty.server.isStopped()) {
+            } else if ("start".equals(k) && jetty.server.isStopped()) {
                 try {
                     jetty.start();
                     provider.setStatus(Service.Status.ONLINE);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-            } else if ("restart".equals(item.name)) {
+            } else if ("restart".equals(k)) {
                 jetty.stop();
                 try {
                     jetty.join();
@@ -250,6 +250,5 @@ public class Leopard {
     }
 
 }
-
 
 ```
