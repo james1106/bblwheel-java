@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 public class Const {
     public static final String SERVICE_REGISTER_PREFIX = "/v1/bblwheel/service/register";
 
-    public static final String SERVICE_STATUS_PREFIX = "/v1/bblwheel/service/status";
+    public static final String SERVICE_GRANT_PREFIX = "/v1/bblwheel/service/grant";
 
     public static final String SERVICE_CONFIG_PREFIX = "/v1/bblwheel/service/config";
 

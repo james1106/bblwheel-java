@@ -106,6 +106,7 @@ public class EtcdWheel extends Wheel implements SignalHandler {
         //keepAliveThread.setDaemon(true);
         keepAliveThread.start();
 
+        //TODO 增加服务授权验证机制
         Thread watchThread = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -428,8 +429,8 @@ public class EtcdWheel extends Wheel implements SignalHandler {
         return ByteString.copyFromUtf8(sb.toString());
     }
 
-    private ByteString createStatusKey(String... suffix) {
-        StringBuilder sb = new StringBuilder(Const.SERVICE_STATUS_PREFIX);
+    private ByteString createGrantKey(String... suffix) {
+        StringBuilder sb = new StringBuilder(Const.SERVICE_GRANT_PREFIX);
         for (String s : suffix) {
             if ("/".equals(s))
                 sb.append(s);
