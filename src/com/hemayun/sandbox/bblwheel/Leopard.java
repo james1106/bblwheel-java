@@ -174,35 +174,35 @@ public class Leopard {
 
         provider.setConfigListener((k, v) -> {//设置配置变更监听接口
             System.out.println("onConfigUpdated " + k + "=" + v);
-            if ("stop".equals(k) && jetty.server.isRunning()) {
-                provider.setStatus(Service.Status.MAINTENANCE);
-                jetty.stop();
-                try {
-                    jetty.join();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            } else if ("start".equals(k) && jetty.server.isStopped()) {
-                try {
-                    jetty.start();
-                    provider.setStatus(Service.Status.ONLINE);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            } else if ("restart".equals(k)) {
-                jetty.stop();
-                try {
-                    jetty.join();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                try {
-                    jetty.start();
-                    provider.setStatus(Service.Status.ONLINE);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
+//            if ("stop".equals(k) && jetty.server.isRunning()) {
+//                provider.setStatus(Service.Status.MAINTENANCE);
+//                jetty.stop();
+//                try {
+//                    jetty.join();
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
+//            } else if ("start".equals(k) && jetty.server.isStopped()) {
+//                try {
+//                    jetty.start();
+//                    provider.setStatus(Service.Status.ONLINE);
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+//            } else if ("restart".equals(k)) {
+//                jetty.stop();
+//                try {
+//                    jetty.join();
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
+//                try {
+//                    jetty.start();
+//                    provider.setStatus(Service.Status.ONLINE);
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+//            }
         });
 
         provider.setDiscoveryListener(service -> {//设置服务发现监听接口
@@ -218,6 +218,7 @@ public class Leopard {
 
         Wheel wheel = Wheel.getWheel();
         wheel.register(provider);//注册服务
+
     }
 
 }
