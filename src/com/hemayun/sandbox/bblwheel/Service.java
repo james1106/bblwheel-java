@@ -27,7 +27,7 @@ public class Service {
     public String Name;
     public String[] Tags;
     public String[] Dependencies = new String[]{};
-    public int InstanceNum;
+    public boolean Single;
     public String PID;
 
     public transient Config Config = new Config();

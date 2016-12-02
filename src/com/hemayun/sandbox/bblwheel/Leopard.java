@@ -123,7 +123,7 @@ public class Leopard {
         provider.Address = "http://127.0.0.1:7321,grpc://0.0.0.0:7323,tcp://0.0.0.0:7325";
         provider.DataCenter = "aliyun-huadong1";
         provider.Node = "cloud-test-001";
-        provider.InstanceNum = 1;
+        provider.Single = true;
         provider.Dependencies = new String[]{"serviceA", "serviceB"};//依赖的服务
         provider.PID = ManagementFactory.getRuntimeMXBean().getName();//获取进程id@hostName|userName
         provider.Config = new Service.Config() {{//设置默认配置参数

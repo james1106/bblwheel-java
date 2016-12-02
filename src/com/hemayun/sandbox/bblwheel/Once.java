@@ -10,7 +10,7 @@ public class Once {
 
     private AtomicInteger done = new AtomicInteger(0);
 
-    public void run(Runnable r) {
+    public void once(Runnable r) {
         if (done.get() == 1) return;
         if (done.compareAndSet(0, 1)) {
             r.run();
