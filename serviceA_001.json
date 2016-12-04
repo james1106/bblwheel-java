@@ -5,7 +5,7 @@
   "Node": "cloud-test-001",
   "Weight": 0,
   "Name": "serviceA",
-  "InstanceNum": 0,
-  "Status": "ONLINE",
+  "Single": false,
+  "Status": 1,
   "PID": "11068@appledeMacBook-Pro.local"
 }

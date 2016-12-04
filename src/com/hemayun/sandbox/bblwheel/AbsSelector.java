@@ -1,5 +1,7 @@
 package com.hemayun.sandbox.bblwheel;
 
+import com.hemayun.bblwheel.Bblwheel;
+import com.hemayun.bblwheel.Bblwheel.Service;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.locks.Lock;
@@ -17,13 +19,13 @@ public abstract class AbsSelector implements Selector {
     private Lock lock = new ReentrantLock();
 
     @Override
-    public void addService(Service srv) {
-        Set<Service> ins = instances.get(srv.Name);
+    public void addService(Bblwheel.Service srv) {
+        Set<Service> ins = instances.get(srv.getName());
         if (ins == null) {
             lock.lock();
             ins = new HashSet<Service>();
             lock.unlock();
-            instances.put(srv.Name, ins);
+            instances.put(srv.getName(), ins);
         }
         lock.lock();
         try {
@@ -42,7 +44,7 @@ public abstract class AbsSelector implements Selector {
             try {
                 for (Iterator<Service> iter = ins.iterator(); iter.hasNext(); ) {
                     Service srv = iter.next();
-                    if (srv.ID.equals(id)) {
+                    if (srv.getID().equals(id)) {
                         iter.remove();
                         break;
                     }
@@ -65,7 +67,7 @@ public abstract class AbsSelector implements Selector {
         List<Service> onlineService = new ArrayList<Service>();
         try {
             for (Service srv : ins) {
-                if (srv.isOnline()) {
+                if (srv.getStatus()== Service.Status.ONLINE) {
                     onlineService.add(srv);
                 }
             }

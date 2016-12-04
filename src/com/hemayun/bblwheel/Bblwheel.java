@@ -379,6 +379,1183 @@ public final class Bblwheel {
 
   }
 
+  public interface RegisterResultOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:bblwheel.RegisterResult)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional string Desc = 1;</code>
+     */
+    java.lang.String getDesc();
+    /**
+     * <code>optional string Desc = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getDescBytes();
+
+    /**
+     * <code>repeated .bblwheel.Service Service = 2;</code>
+     */
+    java.util.List<com.hemayun.bblwheel.Bblwheel.Service> 
+        getServiceList();
+    /**
+     * <code>repeated .bblwheel.Service Service = 2;</code>
+     */
+    com.hemayun.bblwheel.Bblwheel.Service getService(int index);
+    /**
+     * <code>repeated .bblwheel.Service Service = 2;</code>
+     */
+    int getServiceCount();
+    /**
+     * <code>repeated .bblwheel.Service Service = 2;</code>
+     */
+    java.util.List<? extends com.hemayun.bblwheel.Bblwheel.ServiceOrBuilder> 
+        getServiceOrBuilderList();
+    /**
+     * <code>repeated .bblwheel.Service Service = 2;</code>
+     */
+    com.hemayun.bblwheel.Bblwheel.ServiceOrBuilder getServiceOrBuilder(
+        int index);
+
+    /**
+     * <code>map&lt;string, .bblwheel.Config&gt; Configs = 3;</code>
+     */
+    int getConfigsCount();
+    /**
+     * <code>map&lt;string, .bblwheel.Config&gt; Configs = 3;</code>
+     */
+    boolean containsConfigs(
+        java.lang.String key);
+    /**
+     * Use {@link #getConfigsMap()} instead.
+     */
+    @java.lang.Deprecated
+    java.util.Map<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config>
+    getConfigs();
+    /**
+     * <code>map&lt;string, .bblwheel.Config&gt; Configs = 3;</code>
+     */
+    java.util.Map<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config>
+    getConfigsMap();
+    /**
+     * <code>map&lt;string, .bblwheel.Config&gt; Configs = 3;</code>
+     */
+
+    com.hemayun.bblwheel.Bblwheel.Config getConfigsOrDefault(
+        java.lang.String key,
+        com.hemayun.bblwheel.Bblwheel.Config defaultValue);
+    /**
+     * <code>map&lt;string, .bblwheel.Config&gt; Configs = 3;</code>
+     */
+
+    com.hemayun.bblwheel.Bblwheel.Config getConfigsOrThrow(
+        java.lang.String key);
+  }
+  /**
+   * Protobuf type {@code bblwheel.RegisterResult}
+   */
+  public  static final class RegisterResult extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:bblwheel.RegisterResult)
+      RegisterResultOrBuilder {
+    // Use RegisterResult.newBuilder() to construct.
+    private RegisterResult(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private RegisterResult() {
+      desc_ = "";
+      service_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    }
+    private RegisterResult(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              desc_ = s;
+              break;
+            }
+            case 18: {
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                service_ = new java.util.ArrayList<com.hemayun.bblwheel.Bblwheel.Service>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              service_.add(
+                  input.readMessage(com.hemayun.bblwheel.Bblwheel.Service.parser(), extensionRegistry));
+              break;
+            }
+            case 26: {
+              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+                configs_ = com.google.protobuf.MapField.newMapField(
+                    ConfigsDefaultEntryHolder.defaultEntry);
+                mutable_bitField0_ |= 0x00000004;
+              }
+              com.google.protobuf.MapEntry<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config>
+              configs__ = input.readMessage(
+                  ConfigsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              configs_.getMutableMap().put(
+                  configs__.getKey(), configs__.getValue());
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+          service_ = java.util.Collections.unmodifiableList(service_);
+        }
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.hemayun.bblwheel.Bblwheel.internal_static_bblwheel_RegisterResult_descriptor;
+    }
+
+    @SuppressWarnings({"rawtypes"})
+    protected com.google.protobuf.MapField internalGetMapField(
+        int number) {
+      switch (number) {
+        case 3:
+          return internalGetConfigs();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.hemayun.bblwheel.Bblwheel.internal_static_bblwheel_RegisterResult_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.hemayun.bblwheel.Bblwheel.RegisterResult.class, com.hemayun.bblwheel.Bblwheel.RegisterResult.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int DESC_FIELD_NUMBER = 1;
+    private volatile java.lang.Object desc_;
+    /**
+     * <code>optional string Desc = 1;</code>
+     */
+    public java.lang.String getDesc() {
+      java.lang.Object ref = desc_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        desc_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string Desc = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getDescBytes() {
+      java.lang.Object ref = desc_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        desc_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int SERVICE_FIELD_NUMBER = 2;
+    private java.util.List<com.hemayun.bblwheel.Bblwheel.Service> service_;
+    /**
+     * <code>repeated .bblwheel.Service Service = 2;</code>
+     */
+    public java.util.List<com.hemayun.bblwheel.Bblwheel.Service> getServiceList() {
+      return service_;
+    }
+    /**
+     * <code>repeated .bblwheel.Service Service = 2;</code>
+     */
+    public java.util.List<? extends com.hemayun.bblwheel.Bblwheel.ServiceOrBuilder> 
+        getServiceOrBuilderList() {
+      return service_;
+    }
+    /**
+     * <code>repeated .bblwheel.Service Service = 2;</code>
+     */
+    public int getServiceCount() {
+      return service_.size();
+    }
+    /**
+     * <code>repeated .bblwheel.Service Service = 2;</code>
+     */
+    public com.hemayun.bblwheel.Bblwheel.Service getService(int index) {
+      return service_.get(index);
+    }
+    /**
+     * <code>repeated .bblwheel.Service Service = 2;</code>
+     */
+    public com.hemayun.bblwheel.Bblwheel.ServiceOrBuilder getServiceOrBuilder(
+        int index) {
+      return service_.get(index);
+    }
+
+    public static final int CONFIGS_FIELD_NUMBER = 3;
+    private static final class ConfigsDefaultEntryHolder {
+      static final com.google.protobuf.MapEntry<
+          java.lang.String, com.hemayun.bblwheel.Bblwheel.Config> defaultEntry =
+              com.google.protobuf.MapEntry
+              .<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config>newDefaultInstance(
+                  com.hemayun.bblwheel.Bblwheel.internal_static_bblwheel_RegisterResult_ConfigsEntry_descriptor, 
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "",
+                  com.google.protobuf.WireFormat.FieldType.MESSAGE,
+                  com.hemayun.bblwheel.Bblwheel.Config.getDefaultInstance());
+    }
+    private com.google.protobuf.MapField<
+        java.lang.String, com.hemayun.bblwheel.Bblwheel.Config> configs_;
+    private com.google.protobuf.MapField<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config>
+    internalGetConfigs() {
+      if (configs_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            ConfigsDefaultEntryHolder.defaultEntry);
+      }
+      return configs_;
+    }
+
+    public int getConfigsCount() {
+      return internalGetConfigs().getMap().size();
+    }
+    /**
+     * <code>map&lt;string, .bblwheel.Config&gt; Configs = 3;</code>
+     */
+
+    public boolean containsConfigs(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      return internalGetConfigs().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getConfigsMap()} instead.
+     */
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config> getConfigs() {
+      return getConfigsMap();
+    }
+    /**
+     * <code>map&lt;string, .bblwheel.Config&gt; Configs = 3;</code>
+     */
+
+    public java.util.Map<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config> getConfigsMap() {
+      return internalGetConfigs().getMap();
+    }
+    /**
+     * <code>map&lt;string, .bblwheel.Config&gt; Configs = 3;</code>
+     */
+
+    public com.hemayun.bblwheel.Bblwheel.Config getConfigsOrDefault(
+        java.lang.String key,
+        com.hemayun.bblwheel.Bblwheel.Config defaultValue) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config> map =
+          internalGetConfigs().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <code>map&lt;string, .bblwheel.Config&gt; Configs = 3;</code>
+     */
+
+    public com.hemayun.bblwheel.Bblwheel.Config getConfigsOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config> map =
+          internalGetConfigs().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getDescBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, desc_);
+      }
+      for (int i = 0; i < service_.size(); i++) {
+        output.writeMessage(2, service_.get(i));
+      }
+      com.google.protobuf.GeneratedMessageV3
+        .serializeStringMapTo(
+          output,
+          internalGetConfigs(),
+          ConfigsDefaultEntryHolder.defaultEntry,
+          3);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getDescBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, desc_);
+      }
+      for (int i = 0; i < service_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, service_.get(i));
+      }
+      for (java.util.Map.Entry<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config> entry
+           : internalGetConfigs().getMap().entrySet()) {
+        com.google.protobuf.MapEntry<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config>
+        configs__ = ConfigsDefaultEntryHolder.defaultEntry.newBuilderForType()
+            .setKey(entry.getKey())
+            .setValue(entry.getValue())
+            .build();
+        size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(3, configs__);
+      }
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.hemayun.bblwheel.Bblwheel.RegisterResult)) {
+        return super.equals(obj);
+      }
+      com.hemayun.bblwheel.Bblwheel.RegisterResult other = (com.hemayun.bblwheel.Bblwheel.RegisterResult) obj;
+
+      boolean result = true;
+      result = result && getDesc()
+          .equals(other.getDesc());
+      result = result && getServiceList()
+          .equals(other.getServiceList());
+      result = result && internalGetConfigs().equals(
+          other.internalGetConfigs());
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (37 * hash) + DESC_FIELD_NUMBER;
+      hash = (53 * hash) + getDesc().hashCode();
+      if (getServiceCount() > 0) {
+        hash = (37 * hash) + SERVICE_FIELD_NUMBER;
+        hash = (53 * hash) + getServiceList().hashCode();
+      }
+      if (!internalGetConfigs().getMap().isEmpty()) {
+        hash = (37 * hash) + CONFIGS_FIELD_NUMBER;
+        hash = (53 * hash) + internalGetConfigs().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.hemayun.bblwheel.Bblwheel.RegisterResult parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.hemayun.bblwheel.Bblwheel.RegisterResult parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.hemayun.bblwheel.Bblwheel.RegisterResult parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.hemayun.bblwheel.Bblwheel.RegisterResult parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.hemayun.bblwheel.Bblwheel.RegisterResult parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.hemayun.bblwheel.Bblwheel.RegisterResult parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.hemayun.bblwheel.Bblwheel.RegisterResult parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.hemayun.bblwheel.Bblwheel.RegisterResult parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.hemayun.bblwheel.Bblwheel.RegisterResult parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.hemayun.bblwheel.Bblwheel.RegisterResult parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.hemayun.bblwheel.Bblwheel.RegisterResult prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code bblwheel.RegisterResult}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:bblwheel.RegisterResult)
+        com.hemayun.bblwheel.Bblwheel.RegisterResultOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.hemayun.bblwheel.Bblwheel.internal_static_bblwheel_RegisterResult_descriptor;
+      }
+
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMapField(
+          int number) {
+        switch (number) {
+          case 3:
+            return internalGetConfigs();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMutableMapField(
+          int number) {
+        switch (number) {
+          case 3:
+            return internalGetMutableConfigs();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.hemayun.bblwheel.Bblwheel.internal_static_bblwheel_RegisterResult_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.hemayun.bblwheel.Bblwheel.RegisterResult.class, com.hemayun.bblwheel.Bblwheel.RegisterResult.Builder.class);
+      }
+
+      // Construct using com.hemayun.bblwheel.Bblwheel.RegisterResult.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getServiceFieldBuilder();
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        desc_ = "";
+
+        if (serviceBuilder_ == null) {
+          service_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        } else {
+          serviceBuilder_.clear();
+        }
+        internalGetMutableConfigs().clear();
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.hemayun.bblwheel.Bblwheel.internal_static_bblwheel_RegisterResult_descriptor;
+      }
+
+      public com.hemayun.bblwheel.Bblwheel.RegisterResult getDefaultInstanceForType() {
+        return com.hemayun.bblwheel.Bblwheel.RegisterResult.getDefaultInstance();
+      }
+
+      public com.hemayun.bblwheel.Bblwheel.RegisterResult build() {
+        com.hemayun.bblwheel.Bblwheel.RegisterResult result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.hemayun.bblwheel.Bblwheel.RegisterResult buildPartial() {
+        com.hemayun.bblwheel.Bblwheel.RegisterResult result = new com.hemayun.bblwheel.Bblwheel.RegisterResult(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        result.desc_ = desc_;
+        if (serviceBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) == 0x00000002)) {
+            service_ = java.util.Collections.unmodifiableList(service_);
+            bitField0_ = (bitField0_ & ~0x00000002);
+          }
+          result.service_ = service_;
+        } else {
+          result.service_ = serviceBuilder_.build();
+        }
+        result.configs_ = internalGetConfigs();
+        result.configs_.makeImmutable();
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.hemayun.bblwheel.Bblwheel.RegisterResult) {
+          return mergeFrom((com.hemayun.bblwheel.Bblwheel.RegisterResult)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.hemayun.bblwheel.Bblwheel.RegisterResult other) {
+        if (other == com.hemayun.bblwheel.Bblwheel.RegisterResult.getDefaultInstance()) return this;
+        if (!other.getDesc().isEmpty()) {
+          desc_ = other.desc_;
+          onChanged();
+        }
+        if (serviceBuilder_ == null) {
+          if (!other.service_.isEmpty()) {
+            if (service_.isEmpty()) {
+              service_ = other.service_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+            } else {
+              ensureServiceIsMutable();
+              service_.addAll(other.service_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.service_.isEmpty()) {
+            if (serviceBuilder_.isEmpty()) {
+              serviceBuilder_.dispose();
+              serviceBuilder_ = null;
+              service_ = other.service_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+              serviceBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getServiceFieldBuilder() : null;
+            } else {
+              serviceBuilder_.addAllMessages(other.service_);
+            }
+          }
+        }
+        internalGetMutableConfigs().mergeFrom(
+            other.internalGetConfigs());
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.hemayun.bblwheel.Bblwheel.RegisterResult parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.hemayun.bblwheel.Bblwheel.RegisterResult) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object desc_ = "";
+      /**
+       * <code>optional string Desc = 1;</code>
+       */
+      public java.lang.String getDesc() {
+        java.lang.Object ref = desc_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          desc_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string Desc = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getDescBytes() {
+        java.lang.Object ref = desc_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          desc_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string Desc = 1;</code>
+       */
+      public Builder setDesc(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        desc_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string Desc = 1;</code>
+       */
+      public Builder clearDesc() {
+        
+        desc_ = getDefaultInstance().getDesc();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string Desc = 1;</code>
+       */
+      public Builder setDescBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        desc_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<com.hemayun.bblwheel.Bblwheel.Service> service_ =
+        java.util.Collections.emptyList();
+      private void ensureServiceIsMutable() {
+        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+          service_ = new java.util.ArrayList<com.hemayun.bblwheel.Bblwheel.Service>(service_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.hemayun.bblwheel.Bblwheel.Service, com.hemayun.bblwheel.Bblwheel.Service.Builder, com.hemayun.bblwheel.Bblwheel.ServiceOrBuilder> serviceBuilder_;
+
+      /**
+       * <code>repeated .bblwheel.Service Service = 2;</code>
+       */
+      public java.util.List<com.hemayun.bblwheel.Bblwheel.Service> getServiceList() {
+        if (serviceBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(service_);
+        } else {
+          return serviceBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .bblwheel.Service Service = 2;</code>
+       */
+      public int getServiceCount() {
+        if (serviceBuilder_ == null) {
+          return service_.size();
+        } else {
+          return serviceBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .bblwheel.Service Service = 2;</code>
+       */
+      public com.hemayun.bblwheel.Bblwheel.Service getService(int index) {
+        if (serviceBuilder_ == null) {
+          return service_.get(index);
+        } else {
+          return serviceBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .bblwheel.Service Service = 2;</code>
+       */
+      public Builder setService(
+          int index, com.hemayun.bblwheel.Bblwheel.Service value) {
+        if (serviceBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureServiceIsMutable();
+          service_.set(index, value);
+          onChanged();
+        } else {
+          serviceBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .bblwheel.Service Service = 2;</code>
+       */
+      public Builder setService(
+          int index, com.hemayun.bblwheel.Bblwheel.Service.Builder builderForValue) {
+        if (serviceBuilder_ == null) {
+          ensureServiceIsMutable();
+          service_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          serviceBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .bblwheel.Service Service = 2;</code>
+       */
+      public Builder addService(com.hemayun.bblwheel.Bblwheel.Service value) {
+        if (serviceBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureServiceIsMutable();
+          service_.add(value);
+          onChanged();
+        } else {
+          serviceBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .bblwheel.Service Service = 2;</code>
+       */
+      public Builder addService(
+          int index, com.hemayun.bblwheel.Bblwheel.Service value) {
+        if (serviceBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureServiceIsMutable();
+          service_.add(index, value);
+          onChanged();
+        } else {
+          serviceBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .bblwheel.Service Service = 2;</code>
+       */
+      public Builder addService(
+          com.hemayun.bblwheel.Bblwheel.Service.Builder builderForValue) {
+        if (serviceBuilder_ == null) {
+          ensureServiceIsMutable();
+          service_.add(builderForValue.build());
+          onChanged();
+        } else {
+          serviceBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .bblwheel.Service Service = 2;</code>
+       */
+      public Builder addService(
+          int index, com.hemayun.bblwheel.Bblwheel.Service.Builder builderForValue) {
+        if (serviceBuilder_ == null) {
+          ensureServiceIsMutable();
+          service_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          serviceBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .bblwheel.Service Service = 2;</code>
+       */
+      public Builder addAllService(
+          java.lang.Iterable<? extends com.hemayun.bblwheel.Bblwheel.Service> values) {
+        if (serviceBuilder_ == null) {
+          ensureServiceIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, service_);
+          onChanged();
+        } else {
+          serviceBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .bblwheel.Service Service = 2;</code>
+       */
+      public Builder clearService() {
+        if (serviceBuilder_ == null) {
+          service_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+          onChanged();
+        } else {
+          serviceBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .bblwheel.Service Service = 2;</code>
+       */
+      public Builder removeService(int index) {
+        if (serviceBuilder_ == null) {
+          ensureServiceIsMutable();
+          service_.remove(index);
+          onChanged();
+        } else {
+          serviceBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .bblwheel.Service Service = 2;</code>
+       */
+      public com.hemayun.bblwheel.Bblwheel.Service.Builder getServiceBuilder(
+          int index) {
+        return getServiceFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .bblwheel.Service Service = 2;</code>
+       */
+      public com.hemayun.bblwheel.Bblwheel.ServiceOrBuilder getServiceOrBuilder(
+          int index) {
+        if (serviceBuilder_ == null) {
+          return service_.get(index);  } else {
+          return serviceBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .bblwheel.Service Service = 2;</code>
+       */
+      public java.util.List<? extends com.hemayun.bblwheel.Bblwheel.ServiceOrBuilder> 
+           getServiceOrBuilderList() {
+        if (serviceBuilder_ != null) {
+          return serviceBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(service_);
+        }
+      }
+      /**
+       * <code>repeated .bblwheel.Service Service = 2;</code>
+       */
+      public com.hemayun.bblwheel.Bblwheel.Service.Builder addServiceBuilder() {
+        return getServiceFieldBuilder().addBuilder(
+            com.hemayun.bblwheel.Bblwheel.Service.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .bblwheel.Service Service = 2;</code>
+       */
+      public com.hemayun.bblwheel.Bblwheel.Service.Builder addServiceBuilder(
+          int index) {
+        return getServiceFieldBuilder().addBuilder(
+            index, com.hemayun.bblwheel.Bblwheel.Service.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .bblwheel.Service Service = 2;</code>
+       */
+      public java.util.List<com.hemayun.bblwheel.Bblwheel.Service.Builder> 
+           getServiceBuilderList() {
+        return getServiceFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.hemayun.bblwheel.Bblwheel.Service, com.hemayun.bblwheel.Bblwheel.Service.Builder, com.hemayun.bblwheel.Bblwheel.ServiceOrBuilder> 
+          getServiceFieldBuilder() {
+        if (serviceBuilder_ == null) {
+          serviceBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              com.hemayun.bblwheel.Bblwheel.Service, com.hemayun.bblwheel.Bblwheel.Service.Builder, com.hemayun.bblwheel.Bblwheel.ServiceOrBuilder>(
+                  service_,
+                  ((bitField0_ & 0x00000002) == 0x00000002),
+                  getParentForChildren(),
+                  isClean());
+          service_ = null;
+        }
+        return serviceBuilder_;
+      }
+
+      private com.google.protobuf.MapField<
+          java.lang.String, com.hemayun.bblwheel.Bblwheel.Config> configs_;
+      private com.google.protobuf.MapField<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config>
+      internalGetConfigs() {
+        if (configs_ == null) {
+          return com.google.protobuf.MapField.emptyMapField(
+              ConfigsDefaultEntryHolder.defaultEntry);
+        }
+        return configs_;
+      }
+      private com.google.protobuf.MapField<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config>
+      internalGetMutableConfigs() {
+        onChanged();;
+        if (configs_ == null) {
+          configs_ = com.google.protobuf.MapField.newMapField(
+              ConfigsDefaultEntryHolder.defaultEntry);
+        }
+        if (!configs_.isMutable()) {
+          configs_ = configs_.copy();
+        }
+        return configs_;
+      }
+
+      public int getConfigsCount() {
+        return internalGetConfigs().getMap().size();
+      }
+      /**
+       * <code>map&lt;string, .bblwheel.Config&gt; Configs = 3;</code>
+       */
+
+      public boolean containsConfigs(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        return internalGetConfigs().getMap().containsKey(key);
+      }
+      /**
+       * Use {@link #getConfigsMap()} instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config> getConfigs() {
+        return getConfigsMap();
+      }
+      /**
+       * <code>map&lt;string, .bblwheel.Config&gt; Configs = 3;</code>
+       */
+
+      public java.util.Map<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config> getConfigsMap() {
+        return internalGetConfigs().getMap();
+      }
+      /**
+       * <code>map&lt;string, .bblwheel.Config&gt; Configs = 3;</code>
+       */
+
+      public com.hemayun.bblwheel.Bblwheel.Config getConfigsOrDefault(
+          java.lang.String key,
+          com.hemayun.bblwheel.Bblwheel.Config defaultValue) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config> map =
+            internalGetConfigs().getMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
+      }
+      /**
+       * <code>map&lt;string, .bblwheel.Config&gt; Configs = 3;</code>
+       */
+
+      public com.hemayun.bblwheel.Bblwheel.Config getConfigsOrThrow(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config> map =
+            internalGetConfigs().getMap();
+        if (!map.containsKey(key)) {
+          throw new java.lang.IllegalArgumentException();
+        }
+        return map.get(key);
+      }
+
+      public Builder clearConfigs() {
+        getMutableConfigs().clear();
+        return this;
+      }
+      /**
+       * <code>map&lt;string, .bblwheel.Config&gt; Configs = 3;</code>
+       */
+
+      public Builder removeConfigs(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        getMutableConfigs().remove(key);
+        return this;
+      }
+      /**
+       * Use alternate mutation accessors instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config>
+      getMutableConfigs() {
+        return internalGetMutableConfigs().getMutableMap();
+      }
+      /**
+       * <code>map&lt;string, .bblwheel.Config&gt; Configs = 3;</code>
+       */
+      public Builder putConfigs(
+          java.lang.String key,
+          com.hemayun.bblwheel.Bblwheel.Config value) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (value == null) { throw new java.lang.NullPointerException(); }
+        getMutableConfigs().put(key, value);
+        return this;
+      }
+      /**
+       * <code>map&lt;string, .bblwheel.Config&gt; Configs = 3;</code>
+       */
+
+      public Builder putAllConfigs(
+          java.util.Map<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config> values) {
+        getMutableConfigs().putAll(values);
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:bblwheel.RegisterResult)
+    }
+
+    // @@protoc_insertion_point(class_scope:bblwheel.RegisterResult)
+    private static final com.hemayun.bblwheel.Bblwheel.RegisterResult DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.hemayun.bblwheel.Bblwheel.RegisterResult();
+    }
+
+    public static com.hemayun.bblwheel.Bblwheel.RegisterResult getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<RegisterResult>
+        PARSER = new com.google.protobuf.AbstractParser<RegisterResult>() {
+      public RegisterResult parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new RegisterResult(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<RegisterResult> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<RegisterResult> getParserForType() {
+      return PARSER;
+    }
+
+    public com.hemayun.bblwheel.Bblwheel.RegisterResult getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface ServiceOrBuilder extends
       // @@protoc_insertion_point(interface_extends:bblwheel.Service)
       com.google.protobuf.MessageOrBuilder {
@@ -5134,6 +6311,16 @@ public final class Bblwheel {
 
     java.lang.String getOtherOrThrow(
         java.lang.String key);
+
+    /**
+     * <code>optional string Errors = 13;</code>
+     */
+    java.lang.String getErrors();
+    /**
+     * <code>optional string Errors = 13;</code>
+     */
+    com.google.protobuf.ByteString
+        getErrorsBytes();
   }
   /**
    * Protobuf type {@code bblwheel.Stats}
@@ -5158,6 +6345,7 @@ public final class Bblwheel {
       minRespTime_ = 0L;
       maxRespTime_ = 0L;
       lastActiveTime_ = 0L;
+      errors_ = "";
     }
 
     @java.lang.Override
@@ -5253,6 +6441,12 @@ public final class Bblwheel {
                   OtherDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
               other_.getMutableMap().put(
                   other__.getKey(), other__.getValue());
+              break;
+            }
+            case 106: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              errors_ = s;
               break;
             }
           }
@@ -5515,6 +6709,40 @@ public final class Bblwheel {
       return map.get(key);
     }
 
+    public static final int ERRORS_FIELD_NUMBER = 13;
+    private volatile java.lang.Object errors_;
+    /**
+     * <code>optional string Errors = 13;</code>
+     */
+    public java.lang.String getErrors() {
+      java.lang.Object ref = errors_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        errors_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string Errors = 13;</code>
+     */
+    public com.google.protobuf.ByteString
+        getErrorsBytes() {
+      java.lang.Object ref = errors_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        errors_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -5566,6 +6794,9 @@ public final class Bblwheel {
           internalGetOther(),
           OtherDefaultEntryHolder.defaultEntry,
           12);
+      if (!getErrorsBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 13, errors_);
+      }
     }
 
     public int getSerializedSize() {
@@ -5625,6 +6856,9 @@ public final class Bblwheel {
         size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(12, other__);
       }
+      if (!getErrorsBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(13, errors_);
+      }
       memoizedSize = size;
       return size;
     }
@@ -5665,6 +6899,8 @@ public final class Bblwheel {
           == other.getLastActiveTime());
       result = result && internalGetOther().equals(
           other.internalGetOther());
+      result = result && getErrors()
+          .equals(other.getErrors());
       return result;
     }
 
@@ -5710,6 +6946,8 @@ public final class Bblwheel {
         hash = (37 * hash) + OTHER_FIELD_NUMBER;
         hash = (53 * hash) + internalGetOther().hashCode();
       }
+      hash = (37 * hash) + ERRORS_FIELD_NUMBER;
+      hash = (53 * hash) + getErrors().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -5873,6 +7111,8 @@ public final class Bblwheel {
         lastActiveTime_ = 0L;
 
         internalGetMutableOther().clear();
+        errors_ = "";
+
         return this;
       }
 
@@ -5910,6 +7150,7 @@ public final class Bblwheel {
         result.lastActiveTime_ = lastActiveTime_;
         result.other_ = internalGetOther();
         result.other_.makeImmutable();
+        result.errors_ = errors_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -5989,6 +7230,10 @@ public final class Bblwheel {
         }
         internalGetMutableOther().mergeFrom(
             other.internalGetOther());
+        if (!other.getErrors().isEmpty()) {
+          errors_ = other.errors_;
+          onChanged();
+        }
         onChanged();
         return this;
       }
@@ -6506,6 +7751,75 @@ public final class Bblwheel {
         getMutableOther().putAll(values);
         return this;
       }
+
+      private java.lang.Object errors_ = "";
+      /**
+       * <code>optional string Errors = 13;</code>
+       */
+      public java.lang.String getErrors() {
+        java.lang.Object ref = errors_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          errors_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string Errors = 13;</code>
+       */
+      public com.google.protobuf.ByteString
+          getErrorsBytes() {
+        java.lang.Object ref = errors_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          errors_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string Errors = 13;</code>
+       */
+      public Builder setErrors(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        errors_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string Errors = 13;</code>
+       */
+      public Builder clearErrors() {
+        
+        errors_ = getDefaultInstance().getErrors();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string Errors = 13;</code>
+       */
+      public Builder setErrorsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        errors_ = value;
+        onChanged();
+        return this;
+      }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return this;
@@ -6569,28 +7883,17 @@ public final class Bblwheel {
     com.hemayun.bblwheel.Bblwheel.Event.EventType getType();
 
     /**
-     * <code>repeated .bblwheel.Service Service = 2;</code>
+     * <code>optional .bblwheel.Service Service = 2;</code>
      */
-    java.util.List<com.hemayun.bblwheel.Bblwheel.Service> 
-        getServiceList();
+    boolean hasService();
     /**
-     * <code>repeated .bblwheel.Service Service = 2;</code>
+     * <code>optional .bblwheel.Service Service = 2;</code>
      */
-    com.hemayun.bblwheel.Bblwheel.Service getService(int index);
+    com.hemayun.bblwheel.Bblwheel.Service getService();
     /**
-     * <code>repeated .bblwheel.Service Service = 2;</code>
+     * <code>optional .bblwheel.Service Service = 2;</code>
      */
-    int getServiceCount();
-    /**
-     * <code>repeated .bblwheel.Service Service = 2;</code>
-     */
-    java.util.List<? extends com.hemayun.bblwheel.Bblwheel.ServiceOrBuilder> 
-        getServiceOrBuilderList();
-    /**
-     * <code>repeated .bblwheel.Service Service = 2;</code>
-     */
-    com.hemayun.bblwheel.Bblwheel.ServiceOrBuilder getServiceOrBuilder(
-        int index);
+    com.hemayun.bblwheel.Bblwheel.ServiceOrBuilder getServiceOrBuilder();
 
     /**
      * <code>optional .bblwheel.ConfigEntry Item = 3;</code>
@@ -6606,48 +7909,22 @@ public final class Bblwheel {
     com.hemayun.bblwheel.Bblwheel.ConfigEntryOrBuilder getItemOrBuilder();
 
     /**
-     * <code>map&lt;string, .bblwheel.Config&gt; Configs = 4;</code>
+     * <pre>
+     *start,restart,stop
+     * </pre>
+     *
+     * <code>optional string Command = 4;</code>
      */
-    int getConfigsCount();
+    java.lang.String getCommand();
     /**
-     * <code>map&lt;string, .bblwheel.Config&gt; Configs = 4;</code>
-     */
-    boolean containsConfigs(
-        java.lang.String key);
-    /**
-     * Use {@link #getConfigsMap()} instead.
-     */
-    @java.lang.Deprecated
-    java.util.Map<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config>
-    getConfigs();
-    /**
-     * <code>map&lt;string, .bblwheel.Config&gt; Configs = 4;</code>
-     */
-    java.util.Map<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config>
-    getConfigsMap();
-    /**
-     * <code>map&lt;string, .bblwheel.Config&gt; Configs = 4;</code>
-     */
-
-    com.hemayun.bblwheel.Bblwheel.Config getConfigsOrDefault(
-        java.lang.String key,
-        com.hemayun.bblwheel.Bblwheel.Config defaultValue);
-    /**
-     * <code>map&lt;string, .bblwheel.Config&gt; Configs = 4;</code>
-     */
-
-    com.hemayun.bblwheel.Bblwheel.Config getConfigsOrThrow(
-        java.lang.String key);
-
-    /**
-     * <code>optional string Desc = 5;</code>
-     */
-    java.lang.String getDesc();
-    /**
-     * <code>optional string Desc = 5;</code>
+     * <pre>
+     *start,restart,stop
+     * </pre>
+     *
+     * <code>optional string Command = 4;</code>
      */
     com.google.protobuf.ByteString
-        getDescBytes();
+        getCommandBytes();
   }
   /**
    * Protobuf type {@code bblwheel.Event}
@@ -6662,8 +7939,7 @@ public final class Bblwheel {
     }
     private Event() {
       type_ = 0;
-      service_ = java.util.Collections.emptyList();
-      desc_ = "";
+      command_ = "";
     }
 
     @java.lang.Override
@@ -6698,12 +7974,16 @@ public final class Bblwheel {
               break;
             }
             case 18: {
-              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-                service_ = new java.util.ArrayList<com.hemayun.bblwheel.Bblwheel.Service>();
-                mutable_bitField0_ |= 0x00000002;
+              com.hemayun.bblwheel.Bblwheel.Service.Builder subBuilder = null;
+              if (service_ != null) {
+                subBuilder = service_.toBuilder();
               }
-              service_.add(
-                  input.readMessage(com.hemayun.bblwheel.Bblwheel.Service.parser(), extensionRegistry));
+              service_ = input.readMessage(com.hemayun.bblwheel.Bblwheel.Service.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(service_);
+                service_ = subBuilder.buildPartial();
+              }
+
               break;
             }
             case 26: {
@@ -6720,22 +8000,9 @@ public final class Bblwheel {
               break;
             }
             case 34: {
-              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-                configs_ = com.google.protobuf.MapField.newMapField(
-                    ConfigsDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000008;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config>
-              configs__ = input.readMessage(
-                  ConfigsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              configs_.getMutableMap().put(
-                  configs__.getKey(), configs__.getValue());
-              break;
-            }
-            case 42: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              desc_ = s;
+              command_ = s;
               break;
             }
           }
@@ -6746,9 +8013,6 @@ public final class Bblwheel {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-          service_ = java.util.Collections.unmodifiableList(service_);
-        }
         makeExtensionsImmutable();
       }
     }
@@ -6757,17 +8021,6 @@ public final class Bblwheel {
       return com.hemayun.bblwheel.Bblwheel.internal_static_bblwheel_Event_descriptor;
     }
 
-    @SuppressWarnings({"rawtypes"})
-    protected com.google.protobuf.MapField internalGetMapField(
-        int number) {
-      switch (number) {
-        case 4:
-          return internalGetConfigs();
-        default:
-          throw new RuntimeException(
-              "Invalid map field number: " + number);
-      }
-    }
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.hemayun.bblwheel.Bblwheel.internal_static_bblwheel_Event_fieldAccessorTable
@@ -6781,40 +8034,104 @@ public final class Bblwheel {
     public enum EventType
         implements com.google.protobuf.ProtocolMessageEnum {
       /**
+       * <pre>
+       *s-&gt;c
+       * </pre>
+       *
        * <code>DISCOVERY = 0;</code>
        */
       DISCOVERY(0),
       /**
+       * <pre>
+       *s-&gt;c
+       * </pre>
+       *
        * <code>CONFIGUPDATE = 1;</code>
        */
       CONFIGUPDATE(1),
       /**
+       * <pre>
+       *s-&gt;c
+       * </pre>
+       *
        * <code>REGISTER_RESULT = 2;</code>
        */
       REGISTER_RESULT(2),
       /**
+       * <pre>
+       *c-&gt;s
+       * </pre>
+       *
        * <code>KEEPALIVE = 3;</code>
        */
       KEEPALIVE(3),
+      /**
+       * <pre>
+       *s-&gt;c
+       * </pre>
+       *
+       * <code>CONTROL = 4;</code>
+       */
+      CONTROL(4),
+      /**
+       * <pre>
+       *s-&gt;c
+       * </pre>
+       *
+       * <code>EXEC = 5;</code>
+       */
+      EXEC(5),
       UNRECOGNIZED(-1),
       ;
 
       /**
+       * <pre>
+       *s-&gt;c
+       * </pre>
+       *
        * <code>DISCOVERY = 0;</code>
        */
       public static final int DISCOVERY_VALUE = 0;
       /**
+       * <pre>
+       *s-&gt;c
+       * </pre>
+       *
        * <code>CONFIGUPDATE = 1;</code>
        */
       public static final int CONFIGUPDATE_VALUE = 1;
       /**
+       * <pre>
+       *s-&gt;c
+       * </pre>
+       *
        * <code>REGISTER_RESULT = 2;</code>
        */
       public static final int REGISTER_RESULT_VALUE = 2;
       /**
+       * <pre>
+       *c-&gt;s
+       * </pre>
+       *
        * <code>KEEPALIVE = 3;</code>
        */
       public static final int KEEPALIVE_VALUE = 3;
+      /**
+       * <pre>
+       *s-&gt;c
+       * </pre>
+       *
+       * <code>CONTROL = 4;</code>
+       */
+      public static final int CONTROL_VALUE = 4;
+      /**
+       * <pre>
+       *s-&gt;c
+       * </pre>
+       *
+       * <code>EXEC = 5;</code>
+       */
+      public static final int EXEC_VALUE = 5;
 
 
       public final int getNumber() {
@@ -6839,6 +8156,8 @@ public final class Bblwheel {
           case 1: return CONFIGUPDATE;
           case 2: return REGISTER_RESULT;
           case 3: return KEEPALIVE;
+          case 4: return CONTROL;
+          case 5: return EXEC;
           default: return null;
         }
       }
@@ -6891,7 +8210,6 @@ public final class Bblwheel {
       // @@protoc_insertion_point(enum_scope:bblwheel.Event.EventType)
     }
 
-    private int bitField0_;
     public static final int TYPE_FIELD_NUMBER = 1;
     private int type_;
     /**
@@ -6909,38 +8227,24 @@ public final class Bblwheel {
     }
 
     public static final int SERVICE_FIELD_NUMBER = 2;
-    private java.util.List<com.hemayun.bblwheel.Bblwheel.Service> service_;
+    private com.hemayun.bblwheel.Bblwheel.Service service_;
     /**
-     * <code>repeated .bblwheel.Service Service = 2;</code>
+     * <code>optional .bblwheel.Service Service = 2;</code>
      */
-    public java.util.List<com.hemayun.bblwheel.Bblwheel.Service> getServiceList() {
-      return service_;
+    public boolean hasService() {
+      return service_ != null;
     }
     /**
-     * <code>repeated .bblwheel.Service Service = 2;</code>
+     * <code>optional .bblwheel.Service Service = 2;</code>
      */
-    public java.util.List<? extends com.hemayun.bblwheel.Bblwheel.ServiceOrBuilder> 
-        getServiceOrBuilderList() {
-      return service_;
+    public com.hemayun.bblwheel.Bblwheel.Service getService() {
+      return service_ == null ? com.hemayun.bblwheel.Bblwheel.Service.getDefaultInstance() : service_;
     }
     /**
-     * <code>repeated .bblwheel.Service Service = 2;</code>
+     * <code>optional .bblwheel.Service Service = 2;</code>
      */
-    public int getServiceCount() {
-      return service_.size();
-    }
-    /**
-     * <code>repeated .bblwheel.Service Service = 2;</code>
-     */
-    public com.hemayun.bblwheel.Bblwheel.Service getService(int index) {
-      return service_.get(index);
-    }
-    /**
-     * <code>repeated .bblwheel.Service Service = 2;</code>
-     */
-    public com.hemayun.bblwheel.Bblwheel.ServiceOrBuilder getServiceOrBuilder(
-        int index) {
-      return service_.get(index);
+    public com.hemayun.bblwheel.Bblwheel.ServiceOrBuilder getServiceOrBuilder() {
+      return getService();
     }
 
     public static final int ITEM_FIELD_NUMBER = 3;
@@ -6964,110 +8268,42 @@ public final class Bblwheel {
       return getItem();
     }
 
-    public static final int CONFIGS_FIELD_NUMBER = 4;
-    private static final class ConfigsDefaultEntryHolder {
-      static final com.google.protobuf.MapEntry<
-          java.lang.String, com.hemayun.bblwheel.Bblwheel.Config> defaultEntry =
-              com.google.protobuf.MapEntry
-              .<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config>newDefaultInstance(
-                  com.hemayun.bblwheel.Bblwheel.internal_static_bblwheel_Event_ConfigsEntry_descriptor, 
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "",
-                  com.google.protobuf.WireFormat.FieldType.MESSAGE,
-                  com.hemayun.bblwheel.Bblwheel.Config.getDefaultInstance());
-    }
-    private com.google.protobuf.MapField<
-        java.lang.String, com.hemayun.bblwheel.Bblwheel.Config> configs_;
-    private com.google.protobuf.MapField<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config>
-    internalGetConfigs() {
-      if (configs_ == null) {
-        return com.google.protobuf.MapField.emptyMapField(
-            ConfigsDefaultEntryHolder.defaultEntry);
-      }
-      return configs_;
-    }
-
-    public int getConfigsCount() {
-      return internalGetConfigs().getMap().size();
-    }
+    public static final int COMMAND_FIELD_NUMBER = 4;
+    private volatile java.lang.Object command_;
     /**
-     * <code>map&lt;string, .bblwheel.Config&gt; Configs = 4;</code>
+     * <pre>
+     *start,restart,stop
+     * </pre>
+     *
+     * <code>optional string Command = 4;</code>
      */
-
-    public boolean containsConfigs(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      return internalGetConfigs().getMap().containsKey(key);
-    }
-    /**
-     * Use {@link #getConfigsMap()} instead.
-     */
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config> getConfigs() {
-      return getConfigsMap();
-    }
-    /**
-     * <code>map&lt;string, .bblwheel.Config&gt; Configs = 4;</code>
-     */
-
-    public java.util.Map<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config> getConfigsMap() {
-      return internalGetConfigs().getMap();
-    }
-    /**
-     * <code>map&lt;string, .bblwheel.Config&gt; Configs = 4;</code>
-     */
-
-    public com.hemayun.bblwheel.Bblwheel.Config getConfigsOrDefault(
-        java.lang.String key,
-        com.hemayun.bblwheel.Bblwheel.Config defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config> map =
-          internalGetConfigs().getMap();
-      return map.containsKey(key) ? map.get(key) : defaultValue;
-    }
-    /**
-     * <code>map&lt;string, .bblwheel.Config&gt; Configs = 4;</code>
-     */
-
-    public com.hemayun.bblwheel.Bblwheel.Config getConfigsOrThrow(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config> map =
-          internalGetConfigs().getMap();
-      if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
-      }
-      return map.get(key);
-    }
-
-    public static final int DESC_FIELD_NUMBER = 5;
-    private volatile java.lang.Object desc_;
-    /**
-     * <code>optional string Desc = 5;</code>
-     */
-    public java.lang.String getDesc() {
-      java.lang.Object ref = desc_;
+    public java.lang.String getCommand() {
+      java.lang.Object ref = command_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        desc_ = s;
+        command_ = s;
         return s;
       }
     }
     /**
-     * <code>optional string Desc = 5;</code>
+     * <pre>
+     *start,restart,stop
+     * </pre>
+     *
+     * <code>optional string Command = 4;</code>
      */
     public com.google.protobuf.ByteString
-        getDescBytes() {
-      java.lang.Object ref = desc_;
+        getCommandBytes() {
+      java.lang.Object ref = command_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        desc_ = b;
+        command_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -7089,20 +8325,14 @@ public final class Bblwheel {
       if (type_ != com.hemayun.bblwheel.Bblwheel.Event.EventType.DISCOVERY.getNumber()) {
         output.writeEnum(1, type_);
       }
-      for (int i = 0; i < service_.size(); i++) {
-        output.writeMessage(2, service_.get(i));
+      if (service_ != null) {
+        output.writeMessage(2, getService());
       }
       if (item_ != null) {
         output.writeMessage(3, getItem());
       }
-      com.google.protobuf.GeneratedMessageV3
-        .serializeStringMapTo(
-          output,
-          internalGetConfigs(),
-          ConfigsDefaultEntryHolder.defaultEntry,
-          4);
-      if (!getDescBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, desc_);
+      if (!getCommandBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, command_);
       }
     }
 
@@ -7115,26 +8345,16 @@ public final class Bblwheel {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(1, type_);
       }
-      for (int i = 0; i < service_.size(); i++) {
+      if (service_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, service_.get(i));
+          .computeMessageSize(2, getService());
       }
       if (item_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getItem());
       }
-      for (java.util.Map.Entry<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config> entry
-           : internalGetConfigs().getMap().entrySet()) {
-        com.google.protobuf.MapEntry<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config>
-        configs__ = ConfigsDefaultEntryHolder.defaultEntry.newBuilderForType()
-            .setKey(entry.getKey())
-            .setValue(entry.getValue())
-            .build();
-        size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(4, configs__);
-      }
-      if (!getDescBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, desc_);
+      if (!getCommandBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, command_);
       }
       memoizedSize = size;
       return size;
@@ -7153,17 +8373,18 @@ public final class Bblwheel {
 
       boolean result = true;
       result = result && type_ == other.type_;
-      result = result && getServiceList()
-          .equals(other.getServiceList());
+      result = result && (hasService() == other.hasService());
+      if (hasService()) {
+        result = result && getService()
+            .equals(other.getService());
+      }
       result = result && (hasItem() == other.hasItem());
       if (hasItem()) {
         result = result && getItem()
             .equals(other.getItem());
       }
-      result = result && internalGetConfigs().equals(
-          other.internalGetConfigs());
-      result = result && getDesc()
-          .equals(other.getDesc());
+      result = result && getCommand()
+          .equals(other.getCommand());
       return result;
     }
 
@@ -7176,20 +8397,16 @@ public final class Bblwheel {
       hash = (19 * hash) + getDescriptorForType().hashCode();
       hash = (37 * hash) + TYPE_FIELD_NUMBER;
       hash = (53 * hash) + type_;
-      if (getServiceCount() > 0) {
+      if (hasService()) {
         hash = (37 * hash) + SERVICE_FIELD_NUMBER;
-        hash = (53 * hash) + getServiceList().hashCode();
+        hash = (53 * hash) + getService().hashCode();
       }
       if (hasItem()) {
         hash = (37 * hash) + ITEM_FIELD_NUMBER;
         hash = (53 * hash) + getItem().hashCode();
       }
-      if (!internalGetConfigs().getMap().isEmpty()) {
-        hash = (37 * hash) + CONFIGS_FIELD_NUMBER;
-        hash = (53 * hash) + internalGetConfigs().hashCode();
-      }
-      hash = (37 * hash) + DESC_FIELD_NUMBER;
-      hash = (53 * hash) + getDesc().hashCode();
+      hash = (37 * hash) + COMMAND_FIELD_NUMBER;
+      hash = (53 * hash) + getCommand().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -7284,28 +8501,6 @@ public final class Bblwheel {
         return com.hemayun.bblwheel.Bblwheel.internal_static_bblwheel_Event_descriptor;
       }
 
-      @SuppressWarnings({"rawtypes"})
-      protected com.google.protobuf.MapField internalGetMapField(
-          int number) {
-        switch (number) {
-          case 4:
-            return internalGetConfigs();
-          default:
-            throw new RuntimeException(
-                "Invalid map field number: " + number);
-        }
-      }
-      @SuppressWarnings({"rawtypes"})
-      protected com.google.protobuf.MapField internalGetMutableMapField(
-          int number) {
-        switch (number) {
-          case 4:
-            return internalGetMutableConfigs();
-          default:
-            throw new RuntimeException(
-                "Invalid map field number: " + number);
-        }
-      }
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.hemayun.bblwheel.Bblwheel.internal_static_bblwheel_Event_fieldAccessorTable
@@ -7326,7 +8521,6 @@ public final class Bblwheel {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
-          getServiceFieldBuilder();
         }
       }
       public Builder clear() {
@@ -7334,10 +8528,10 @@ public final class Bblwheel {
         type_ = 0;
 
         if (serviceBuilder_ == null) {
-          service_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          service_ = null;
         } else {
-          serviceBuilder_.clear();
+          service_ = null;
+          serviceBuilder_ = null;
         }
         if (itemBuilder_ == null) {
           item_ = null;
@@ -7345,8 +8539,7 @@ public final class Bblwheel {
           item_ = null;
           itemBuilder_ = null;
         }
-        internalGetMutableConfigs().clear();
-        desc_ = "";
+        command_ = "";
 
         return this;
       }
@@ -7370,14 +8563,8 @@ public final class Bblwheel {
 
       public com.hemayun.bblwheel.Bblwheel.Event buildPartial() {
         com.hemayun.bblwheel.Bblwheel.Event result = new com.hemayun.bblwheel.Bblwheel.Event(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
         result.type_ = type_;
         if (serviceBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) == 0x00000002)) {
-            service_ = java.util.Collections.unmodifiableList(service_);
-            bitField0_ = (bitField0_ & ~0x00000002);
-          }
           result.service_ = service_;
         } else {
           result.service_ = serviceBuilder_.build();
@@ -7387,10 +8574,7 @@ public final class Bblwheel {
         } else {
           result.item_ = itemBuilder_.build();
         }
-        result.configs_ = internalGetConfigs();
-        result.configs_.makeImmutable();
-        result.desc_ = desc_;
-        result.bitField0_ = to_bitField0_;
+        result.command_ = command_;
         onBuilt();
         return result;
       }
@@ -7435,39 +8619,14 @@ public final class Bblwheel {
         if (other.type_ != 0) {
           setTypeValue(other.getTypeValue());
         }
-        if (serviceBuilder_ == null) {
-          if (!other.service_.isEmpty()) {
-            if (service_.isEmpty()) {
-              service_ = other.service_;
-              bitField0_ = (bitField0_ & ~0x00000002);
-            } else {
-              ensureServiceIsMutable();
-              service_.addAll(other.service_);
-            }
-            onChanged();
-          }
-        } else {
-          if (!other.service_.isEmpty()) {
-            if (serviceBuilder_.isEmpty()) {
-              serviceBuilder_.dispose();
-              serviceBuilder_ = null;
-              service_ = other.service_;
-              bitField0_ = (bitField0_ & ~0x00000002);
-              serviceBuilder_ = 
-                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getServiceFieldBuilder() : null;
-            } else {
-              serviceBuilder_.addAllMessages(other.service_);
-            }
-          }
+        if (other.hasService()) {
+          mergeService(other.getService());
         }
         if (other.hasItem()) {
           mergeItem(other.getItem());
         }
-        internalGetMutableConfigs().mergeFrom(
-            other.internalGetConfigs());
-        if (!other.getDesc().isEmpty()) {
-          desc_ = other.desc_;
+        if (!other.getCommand().isEmpty()) {
+          command_ = other.command_;
           onChanged();
         }
         onChanged();
@@ -7495,7 +8654,6 @@ public final class Bblwheel {
         }
         return this;
       }
-      private int bitField0_;
 
       private int type_ = 0;
       /**
@@ -7541,239 +8699,116 @@ public final class Bblwheel {
         return this;
       }
 
-      private java.util.List<com.hemayun.bblwheel.Bblwheel.Service> service_ =
-        java.util.Collections.emptyList();
-      private void ensureServiceIsMutable() {
-        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
-          service_ = new java.util.ArrayList<com.hemayun.bblwheel.Bblwheel.Service>(service_);
-          bitField0_ |= 0x00000002;
-         }
-      }
-
-      private com.google.protobuf.RepeatedFieldBuilderV3<
+      private com.hemayun.bblwheel.Bblwheel.Service service_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
           com.hemayun.bblwheel.Bblwheel.Service, com.hemayun.bblwheel.Bblwheel.Service.Builder, com.hemayun.bblwheel.Bblwheel.ServiceOrBuilder> serviceBuilder_;
+      /**
+       * <code>optional .bblwheel.Service Service = 2;</code>
+       */
+      public boolean hasService() {
+        return serviceBuilder_ != null || service_ != null;
+      }
+      /**
+       * <code>optional .bblwheel.Service Service = 2;</code>
+       */
+      public com.hemayun.bblwheel.Bblwheel.Service getService() {
+        if (serviceBuilder_ == null) {
+          return service_ == null ? com.hemayun.bblwheel.Bblwheel.Service.getDefaultInstance() : service_;
+        } else {
+          return serviceBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .bblwheel.Service Service = 2;</code>
+       */
+      public Builder setService(com.hemayun.bblwheel.Bblwheel.Service value) {
+        if (serviceBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          service_ = value;
+          onChanged();
+        } else {
+          serviceBuilder_.setMessage(value);
+        }
 
-      /**
-       * <code>repeated .bblwheel.Service Service = 2;</code>
-       */
-      public java.util.List<com.hemayun.bblwheel.Bblwheel.Service> getServiceList() {
-        if (serviceBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(service_);
-        } else {
-          return serviceBuilder_.getMessageList();
-        }
+        return this;
       }
       /**
-       * <code>repeated .bblwheel.Service Service = 2;</code>
-       */
-      public int getServiceCount() {
-        if (serviceBuilder_ == null) {
-          return service_.size();
-        } else {
-          return serviceBuilder_.getCount();
-        }
-      }
-      /**
-       * <code>repeated .bblwheel.Service Service = 2;</code>
-       */
-      public com.hemayun.bblwheel.Bblwheel.Service getService(int index) {
-        if (serviceBuilder_ == null) {
-          return service_.get(index);
-        } else {
-          return serviceBuilder_.getMessage(index);
-        }
-      }
-      /**
-       * <code>repeated .bblwheel.Service Service = 2;</code>
+       * <code>optional .bblwheel.Service Service = 2;</code>
        */
       public Builder setService(
-          int index, com.hemayun.bblwheel.Bblwheel.Service value) {
-        if (serviceBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureServiceIsMutable();
-          service_.set(index, value);
-          onChanged();
-        } else {
-          serviceBuilder_.setMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .bblwheel.Service Service = 2;</code>
-       */
-      public Builder setService(
-          int index, com.hemayun.bblwheel.Bblwheel.Service.Builder builderForValue) {
-        if (serviceBuilder_ == null) {
-          ensureServiceIsMutable();
-          service_.set(index, builderForValue.build());
-          onChanged();
-        } else {
-          serviceBuilder_.setMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .bblwheel.Service Service = 2;</code>
-       */
-      public Builder addService(com.hemayun.bblwheel.Bblwheel.Service value) {
-        if (serviceBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureServiceIsMutable();
-          service_.add(value);
-          onChanged();
-        } else {
-          serviceBuilder_.addMessage(value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .bblwheel.Service Service = 2;</code>
-       */
-      public Builder addService(
-          int index, com.hemayun.bblwheel.Bblwheel.Service value) {
-        if (serviceBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureServiceIsMutable();
-          service_.add(index, value);
-          onChanged();
-        } else {
-          serviceBuilder_.addMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .bblwheel.Service Service = 2;</code>
-       */
-      public Builder addService(
           com.hemayun.bblwheel.Bblwheel.Service.Builder builderForValue) {
         if (serviceBuilder_ == null) {
-          ensureServiceIsMutable();
-          service_.add(builderForValue.build());
+          service_ = builderForValue.build();
           onChanged();
         } else {
-          serviceBuilder_.addMessage(builderForValue.build());
+          serviceBuilder_.setMessage(builderForValue.build());
         }
+
         return this;
       }
       /**
-       * <code>repeated .bblwheel.Service Service = 2;</code>
+       * <code>optional .bblwheel.Service Service = 2;</code>
        */
-      public Builder addService(
-          int index, com.hemayun.bblwheel.Bblwheel.Service.Builder builderForValue) {
+      public Builder mergeService(com.hemayun.bblwheel.Bblwheel.Service value) {
         if (serviceBuilder_ == null) {
-          ensureServiceIsMutable();
-          service_.add(index, builderForValue.build());
+          if (service_ != null) {
+            service_ =
+              com.hemayun.bblwheel.Bblwheel.Service.newBuilder(service_).mergeFrom(value).buildPartial();
+          } else {
+            service_ = value;
+          }
           onChanged();
         } else {
-          serviceBuilder_.addMessage(index, builderForValue.build());
+          serviceBuilder_.mergeFrom(value);
         }
+
         return this;
       }
       /**
-       * <code>repeated .bblwheel.Service Service = 2;</code>
-       */
-      public Builder addAllService(
-          java.lang.Iterable<? extends com.hemayun.bblwheel.Bblwheel.Service> values) {
-        if (serviceBuilder_ == null) {
-          ensureServiceIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, service_);
-          onChanged();
-        } else {
-          serviceBuilder_.addAllMessages(values);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .bblwheel.Service Service = 2;</code>
+       * <code>optional .bblwheel.Service Service = 2;</code>
        */
       public Builder clearService() {
         if (serviceBuilder_ == null) {
-          service_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          service_ = null;
           onChanged();
         } else {
-          serviceBuilder_.clear();
+          service_ = null;
+          serviceBuilder_ = null;
         }
+
         return this;
       }
       /**
-       * <code>repeated .bblwheel.Service Service = 2;</code>
+       * <code>optional .bblwheel.Service Service = 2;</code>
        */
-      public Builder removeService(int index) {
-        if (serviceBuilder_ == null) {
-          ensureServiceIsMutable();
-          service_.remove(index);
-          onChanged();
-        } else {
-          serviceBuilder_.remove(index);
-        }
-        return this;
+      public com.hemayun.bblwheel.Bblwheel.Service.Builder getServiceBuilder() {
+        
+        onChanged();
+        return getServiceFieldBuilder().getBuilder();
       }
       /**
-       * <code>repeated .bblwheel.Service Service = 2;</code>
+       * <code>optional .bblwheel.Service Service = 2;</code>
        */
-      public com.hemayun.bblwheel.Bblwheel.Service.Builder getServiceBuilder(
-          int index) {
-        return getServiceFieldBuilder().getBuilder(index);
-      }
-      /**
-       * <code>repeated .bblwheel.Service Service = 2;</code>
-       */
-      public com.hemayun.bblwheel.Bblwheel.ServiceOrBuilder getServiceOrBuilder(
-          int index) {
-        if (serviceBuilder_ == null) {
-          return service_.get(index);  } else {
-          return serviceBuilder_.getMessageOrBuilder(index);
-        }
-      }
-      /**
-       * <code>repeated .bblwheel.Service Service = 2;</code>
-       */
-      public java.util.List<? extends com.hemayun.bblwheel.Bblwheel.ServiceOrBuilder> 
-           getServiceOrBuilderList() {
+      public com.hemayun.bblwheel.Bblwheel.ServiceOrBuilder getServiceOrBuilder() {
         if (serviceBuilder_ != null) {
-          return serviceBuilder_.getMessageOrBuilderList();
+          return serviceBuilder_.getMessageOrBuilder();
         } else {
-          return java.util.Collections.unmodifiableList(service_);
+          return service_ == null ?
+              com.hemayun.bblwheel.Bblwheel.Service.getDefaultInstance() : service_;
         }
       }
       /**
-       * <code>repeated .bblwheel.Service Service = 2;</code>
+       * <code>optional .bblwheel.Service Service = 2;</code>
        */
-      public com.hemayun.bblwheel.Bblwheel.Service.Builder addServiceBuilder() {
-        return getServiceFieldBuilder().addBuilder(
-            com.hemayun.bblwheel.Bblwheel.Service.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .bblwheel.Service Service = 2;</code>
-       */
-      public com.hemayun.bblwheel.Bblwheel.Service.Builder addServiceBuilder(
-          int index) {
-        return getServiceFieldBuilder().addBuilder(
-            index, com.hemayun.bblwheel.Bblwheel.Service.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .bblwheel.Service Service = 2;</code>
-       */
-      public java.util.List<com.hemayun.bblwheel.Bblwheel.Service.Builder> 
-           getServiceBuilderList() {
-        return getServiceFieldBuilder().getBuilderList();
-      }
-      private com.google.protobuf.RepeatedFieldBuilderV3<
+      private com.google.protobuf.SingleFieldBuilderV3<
           com.hemayun.bblwheel.Bblwheel.Service, com.hemayun.bblwheel.Bblwheel.Service.Builder, com.hemayun.bblwheel.Bblwheel.ServiceOrBuilder> 
           getServiceFieldBuilder() {
         if (serviceBuilder_ == null) {
-          serviceBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+          serviceBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               com.hemayun.bblwheel.Bblwheel.Service, com.hemayun.bblwheel.Bblwheel.Service.Builder, com.hemayun.bblwheel.Bblwheel.ServiceOrBuilder>(
-                  service_,
-                  ((bitField0_ & 0x00000002) == 0x00000002),
+                  getService(),
                   getParentForChildren(),
                   isClean());
           service_ = null;
@@ -7898,190 +8933,91 @@ public final class Bblwheel {
         return itemBuilder_;
       }
 
-      private com.google.protobuf.MapField<
-          java.lang.String, com.hemayun.bblwheel.Bblwheel.Config> configs_;
-      private com.google.protobuf.MapField<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config>
-      internalGetConfigs() {
-        if (configs_ == null) {
-          return com.google.protobuf.MapField.emptyMapField(
-              ConfigsDefaultEntryHolder.defaultEntry);
-        }
-        return configs_;
-      }
-      private com.google.protobuf.MapField<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config>
-      internalGetMutableConfigs() {
-        onChanged();;
-        if (configs_ == null) {
-          configs_ = com.google.protobuf.MapField.newMapField(
-              ConfigsDefaultEntryHolder.defaultEntry);
-        }
-        if (!configs_.isMutable()) {
-          configs_ = configs_.copy();
-        }
-        return configs_;
-      }
-
-      public int getConfigsCount() {
-        return internalGetConfigs().getMap().size();
-      }
+      private java.lang.Object command_ = "";
       /**
-       * <code>map&lt;string, .bblwheel.Config&gt; Configs = 4;</code>
+       * <pre>
+       *start,restart,stop
+       * </pre>
+       *
+       * <code>optional string Command = 4;</code>
        */
-
-      public boolean containsConfigs(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        return internalGetConfigs().getMap().containsKey(key);
-      }
-      /**
-       * Use {@link #getConfigsMap()} instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config> getConfigs() {
-        return getConfigsMap();
-      }
-      /**
-       * <code>map&lt;string, .bblwheel.Config&gt; Configs = 4;</code>
-       */
-
-      public java.util.Map<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config> getConfigsMap() {
-        return internalGetConfigs().getMap();
-      }
-      /**
-       * <code>map&lt;string, .bblwheel.Config&gt; Configs = 4;</code>
-       */
-
-      public com.hemayun.bblwheel.Bblwheel.Config getConfigsOrDefault(
-          java.lang.String key,
-          com.hemayun.bblwheel.Bblwheel.Config defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config> map =
-            internalGetConfigs().getMap();
-        return map.containsKey(key) ? map.get(key) : defaultValue;
-      }
-      /**
-       * <code>map&lt;string, .bblwheel.Config&gt; Configs = 4;</code>
-       */
-
-      public com.hemayun.bblwheel.Bblwheel.Config getConfigsOrThrow(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config> map =
-            internalGetConfigs().getMap();
-        if (!map.containsKey(key)) {
-          throw new java.lang.IllegalArgumentException();
-        }
-        return map.get(key);
-      }
-
-      public Builder clearConfigs() {
-        getMutableConfigs().clear();
-        return this;
-      }
-      /**
-       * <code>map&lt;string, .bblwheel.Config&gt; Configs = 4;</code>
-       */
-
-      public Builder removeConfigs(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        getMutableConfigs().remove(key);
-        return this;
-      }
-      /**
-       * Use alternate mutation accessors instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config>
-      getMutableConfigs() {
-        return internalGetMutableConfigs().getMutableMap();
-      }
-      /**
-       * <code>map&lt;string, .bblwheel.Config&gt; Configs = 4;</code>
-       */
-      public Builder putConfigs(
-          java.lang.String key,
-          com.hemayun.bblwheel.Bblwheel.Config value) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        if (value == null) { throw new java.lang.NullPointerException(); }
-        getMutableConfigs().put(key, value);
-        return this;
-      }
-      /**
-       * <code>map&lt;string, .bblwheel.Config&gt; Configs = 4;</code>
-       */
-
-      public Builder putAllConfigs(
-          java.util.Map<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config> values) {
-        getMutableConfigs().putAll(values);
-        return this;
-      }
-
-      private java.lang.Object desc_ = "";
-      /**
-       * <code>optional string Desc = 5;</code>
-       */
-      public java.lang.String getDesc() {
-        java.lang.Object ref = desc_;
+      public java.lang.String getCommand() {
+        java.lang.Object ref = command_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          desc_ = s;
+          command_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>optional string Desc = 5;</code>
+       * <pre>
+       *start,restart,stop
+       * </pre>
+       *
+       * <code>optional string Command = 4;</code>
        */
       public com.google.protobuf.ByteString
-          getDescBytes() {
-        java.lang.Object ref = desc_;
+          getCommandBytes() {
+        java.lang.Object ref = command_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          desc_ = b;
+          command_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>optional string Desc = 5;</code>
+       * <pre>
+       *start,restart,stop
+       * </pre>
+       *
+       * <code>optional string Command = 4;</code>
        */
-      public Builder setDesc(
+      public Builder setCommand(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        desc_ = value;
+        command_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional string Desc = 5;</code>
+       * <pre>
+       *start,restart,stop
+       * </pre>
+       *
+       * <code>optional string Command = 4;</code>
        */
-      public Builder clearDesc() {
+      public Builder clearCommand() {
         
-        desc_ = getDefaultInstance().getDesc();
+        command_ = getDefaultInstance().getCommand();
         onChanged();
         return this;
       }
       /**
-       * <code>optional string Desc = 5;</code>
+       * <pre>
+       *start,restart,stop
+       * </pre>
+       *
+       * <code>optional string Command = 4;</code>
        */
-      public Builder setDescBytes(
+      public Builder setCommandBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        desc_ = value;
+        command_ = value;
         onChanged();
         return this;
       }
@@ -8134,11 +9070,2817 @@ public final class Bblwheel {
 
   }
 
+  public interface LookupConfigReqOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:bblwheel.LookupConfigReq)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated string DependentConfigs = 1;</code>
+     */
+    java.util.List<java.lang.String>
+        getDependentConfigsList();
+    /**
+     * <code>repeated string DependentConfigs = 1;</code>
+     */
+    int getDependentConfigsCount();
+    /**
+     * <code>repeated string DependentConfigs = 1;</code>
+     */
+    java.lang.String getDependentConfigs(int index);
+    /**
+     * <code>repeated string DependentConfigs = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getDependentConfigsBytes(int index);
+  }
+  /**
+   * Protobuf type {@code bblwheel.LookupConfigReq}
+   */
+  public  static final class LookupConfigReq extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:bblwheel.LookupConfigReq)
+      LookupConfigReqOrBuilder {
+    // Use LookupConfigReq.newBuilder() to construct.
+    private LookupConfigReq(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private LookupConfigReq() {
+      dependentConfigs_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    }
+    private LookupConfigReq(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                dependentConfigs_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              dependentConfigs_.add(s);
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          dependentConfigs_ = dependentConfigs_.getUnmodifiableView();
+        }
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.hemayun.bblwheel.Bblwheel.internal_static_bblwheel_LookupConfigReq_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.hemayun.bblwheel.Bblwheel.internal_static_bblwheel_LookupConfigReq_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.hemayun.bblwheel.Bblwheel.LookupConfigReq.class, com.hemayun.bblwheel.Bblwheel.LookupConfigReq.Builder.class);
+    }
+
+    public static final int DEPENDENTCONFIGS_FIELD_NUMBER = 1;
+    private com.google.protobuf.LazyStringList dependentConfigs_;
+    /**
+     * <code>repeated string DependentConfigs = 1;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getDependentConfigsList() {
+      return dependentConfigs_;
+    }
+    /**
+     * <code>repeated string DependentConfigs = 1;</code>
+     */
+    public int getDependentConfigsCount() {
+      return dependentConfigs_.size();
+    }
+    /**
+     * <code>repeated string DependentConfigs = 1;</code>
+     */
+    public java.lang.String getDependentConfigs(int index) {
+      return dependentConfigs_.get(index);
+    }
+    /**
+     * <code>repeated string DependentConfigs = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getDependentConfigsBytes(int index) {
+      return dependentConfigs_.getByteString(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < dependentConfigs_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, dependentConfigs_.getRaw(i));
+      }
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      {
+        int dataSize = 0;
+        for (int i = 0; i < dependentConfigs_.size(); i++) {
+          dataSize += computeStringSizeNoTag(dependentConfigs_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getDependentConfigsList().size();
+      }
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.hemayun.bblwheel.Bblwheel.LookupConfigReq)) {
+        return super.equals(obj);
+      }
+      com.hemayun.bblwheel.Bblwheel.LookupConfigReq other = (com.hemayun.bblwheel.Bblwheel.LookupConfigReq) obj;
+
+      boolean result = true;
+      result = result && getDependentConfigsList()
+          .equals(other.getDependentConfigsList());
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptorForType().hashCode();
+      if (getDependentConfigsCount() > 0) {
+        hash = (37 * hash) + DEPENDENTCONFIGS_FIELD_NUMBER;
+        hash = (53 * hash) + getDependentConfigsList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.hemayun.bblwheel.Bblwheel.LookupConfigReq parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.hemayun.bblwheel.Bblwheel.LookupConfigReq parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.hemayun.bblwheel.Bblwheel.LookupConfigReq parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.hemayun.bblwheel.Bblwheel.LookupConfigReq parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.hemayun.bblwheel.Bblwheel.LookupConfigReq parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.hemayun.bblwheel.Bblwheel.LookupConfigReq parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.hemayun.bblwheel.Bblwheel.LookupConfigReq parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.hemayun.bblwheel.Bblwheel.LookupConfigReq parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.hemayun.bblwheel.Bblwheel.LookupConfigReq parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.hemayun.bblwheel.Bblwheel.LookupConfigReq parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.hemayun.bblwheel.Bblwheel.LookupConfigReq prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code bblwheel.LookupConfigReq}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:bblwheel.LookupConfigReq)
+        com.hemayun.bblwheel.Bblwheel.LookupConfigReqOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.hemayun.bblwheel.Bblwheel.internal_static_bblwheel_LookupConfigReq_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.hemayun.bblwheel.Bblwheel.internal_static_bblwheel_LookupConfigReq_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.hemayun.bblwheel.Bblwheel.LookupConfigReq.class, com.hemayun.bblwheel.Bblwheel.LookupConfigReq.Builder.class);
+      }
+
+      // Construct using com.hemayun.bblwheel.Bblwheel.LookupConfigReq.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        dependentConfigs_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.hemayun.bblwheel.Bblwheel.internal_static_bblwheel_LookupConfigReq_descriptor;
+      }
+
+      public com.hemayun.bblwheel.Bblwheel.LookupConfigReq getDefaultInstanceForType() {
+        return com.hemayun.bblwheel.Bblwheel.LookupConfigReq.getDefaultInstance();
+      }
+
+      public com.hemayun.bblwheel.Bblwheel.LookupConfigReq build() {
+        com.hemayun.bblwheel.Bblwheel.LookupConfigReq result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.hemayun.bblwheel.Bblwheel.LookupConfigReq buildPartial() {
+        com.hemayun.bblwheel.Bblwheel.LookupConfigReq result = new com.hemayun.bblwheel.Bblwheel.LookupConfigReq(this);
+        int from_bitField0_ = bitField0_;
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          dependentConfigs_ = dependentConfigs_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.dependentConfigs_ = dependentConfigs_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.hemayun.bblwheel.Bblwheel.LookupConfigReq) {
+          return mergeFrom((com.hemayun.bblwheel.Bblwheel.LookupConfigReq)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.hemayun.bblwheel.Bblwheel.LookupConfigReq other) {
+        if (other == com.hemayun.bblwheel.Bblwheel.LookupConfigReq.getDefaultInstance()) return this;
+        if (!other.dependentConfigs_.isEmpty()) {
+          if (dependentConfigs_.isEmpty()) {
+            dependentConfigs_ = other.dependentConfigs_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureDependentConfigsIsMutable();
+            dependentConfigs_.addAll(other.dependentConfigs_);
+          }
+          onChanged();
+        }
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.hemayun.bblwheel.Bblwheel.LookupConfigReq parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.hemayun.bblwheel.Bblwheel.LookupConfigReq) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private com.google.protobuf.LazyStringList dependentConfigs_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureDependentConfigsIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          dependentConfigs_ = new com.google.protobuf.LazyStringArrayList(dependentConfigs_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+      /**
+       * <code>repeated string DependentConfigs = 1;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getDependentConfigsList() {
+        return dependentConfigs_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string DependentConfigs = 1;</code>
+       */
+      public int getDependentConfigsCount() {
+        return dependentConfigs_.size();
+      }
+      /**
+       * <code>repeated string DependentConfigs = 1;</code>
+       */
+      public java.lang.String getDependentConfigs(int index) {
+        return dependentConfigs_.get(index);
+      }
+      /**
+       * <code>repeated string DependentConfigs = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getDependentConfigsBytes(int index) {
+        return dependentConfigs_.getByteString(index);
+      }
+      /**
+       * <code>repeated string DependentConfigs = 1;</code>
+       */
+      public Builder setDependentConfigs(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureDependentConfigsIsMutable();
+        dependentConfigs_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string DependentConfigs = 1;</code>
+       */
+      public Builder addDependentConfigs(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureDependentConfigsIsMutable();
+        dependentConfigs_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string DependentConfigs = 1;</code>
+       */
+      public Builder addAllDependentConfigs(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureDependentConfigsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, dependentConfigs_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string DependentConfigs = 1;</code>
+       */
+      public Builder clearDependentConfigs() {
+        dependentConfigs_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string DependentConfigs = 1;</code>
+       */
+      public Builder addDependentConfigsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureDependentConfigsIsMutable();
+        dependentConfigs_.add(value);
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:bblwheel.LookupConfigReq)
+    }
+
+    // @@protoc_insertion_point(class_scope:bblwheel.LookupConfigReq)
+    private static final com.hemayun.bblwheel.Bblwheel.LookupConfigReq DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.hemayun.bblwheel.Bblwheel.LookupConfigReq();
+    }
+
+    public static com.hemayun.bblwheel.Bblwheel.LookupConfigReq getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<LookupConfigReq>
+        PARSER = new com.google.protobuf.AbstractParser<LookupConfigReq>() {
+      public LookupConfigReq parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new LookupConfigReq(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<LookupConfigReq> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<LookupConfigReq> getParserForType() {
+      return PARSER;
+    }
+
+    public com.hemayun.bblwheel.Bblwheel.LookupConfigReq getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface LookupConfigRespOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:bblwheel.LookupConfigResp)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>map&lt;string, .bblwheel.Config&gt; Configs = 1;</code>
+     */
+    int getConfigsCount();
+    /**
+     * <code>map&lt;string, .bblwheel.Config&gt; Configs = 1;</code>
+     */
+    boolean containsConfigs(
+        java.lang.String key);
+    /**
+     * Use {@link #getConfigsMap()} instead.
+     */
+    @java.lang.Deprecated
+    java.util.Map<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config>
+    getConfigs();
+    /**
+     * <code>map&lt;string, .bblwheel.Config&gt; Configs = 1;</code>
+     */
+    java.util.Map<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config>
+    getConfigsMap();
+    /**
+     * <code>map&lt;string, .bblwheel.Config&gt; Configs = 1;</code>
+     */
+
+    com.hemayun.bblwheel.Bblwheel.Config getConfigsOrDefault(
+        java.lang.String key,
+        com.hemayun.bblwheel.Bblwheel.Config defaultValue);
+    /**
+     * <code>map&lt;string, .bblwheel.Config&gt; Configs = 1;</code>
+     */
+
+    com.hemayun.bblwheel.Bblwheel.Config getConfigsOrThrow(
+        java.lang.String key);
+  }
+  /**
+   * Protobuf type {@code bblwheel.LookupConfigResp}
+   */
+  public  static final class LookupConfigResp extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:bblwheel.LookupConfigResp)
+      LookupConfigRespOrBuilder {
+    // Use LookupConfigResp.newBuilder() to construct.
+    private LookupConfigResp(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private LookupConfigResp() {
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    }
+    private LookupConfigResp(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                configs_ = com.google.protobuf.MapField.newMapField(
+                    ConfigsDefaultEntryHolder.defaultEntry);
+                mutable_bitField0_ |= 0x00000001;
+              }
+              com.google.protobuf.MapEntry<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config>
+              configs__ = input.readMessage(
+                  ConfigsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              configs_.getMutableMap().put(
+                  configs__.getKey(), configs__.getValue());
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.hemayun.bblwheel.Bblwheel.internal_static_bblwheel_LookupConfigResp_descriptor;
+    }
+
+    @SuppressWarnings({"rawtypes"})
+    protected com.google.protobuf.MapField internalGetMapField(
+        int number) {
+      switch (number) {
+        case 1:
+          return internalGetConfigs();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.hemayun.bblwheel.Bblwheel.internal_static_bblwheel_LookupConfigResp_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.hemayun.bblwheel.Bblwheel.LookupConfigResp.class, com.hemayun.bblwheel.Bblwheel.LookupConfigResp.Builder.class);
+    }
+
+    public static final int CONFIGS_FIELD_NUMBER = 1;
+    private static final class ConfigsDefaultEntryHolder {
+      static final com.google.protobuf.MapEntry<
+          java.lang.String, com.hemayun.bblwheel.Bblwheel.Config> defaultEntry =
+              com.google.protobuf.MapEntry
+              .<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config>newDefaultInstance(
+                  com.hemayun.bblwheel.Bblwheel.internal_static_bblwheel_LookupConfigResp_ConfigsEntry_descriptor, 
+                  com.google.protobuf.WireFormat.FieldType.STRING,
+                  "",
+                  com.google.protobuf.WireFormat.FieldType.MESSAGE,
+                  com.hemayun.bblwheel.Bblwheel.Config.getDefaultInstance());
+    }
+    private com.google.protobuf.MapField<
+        java.lang.String, com.hemayun.bblwheel.Bblwheel.Config> configs_;
+    private com.google.protobuf.MapField<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config>
+    internalGetConfigs() {
+      if (configs_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            ConfigsDefaultEntryHolder.defaultEntry);
+      }
+      return configs_;
+    }
+
+    public int getConfigsCount() {
+      return internalGetConfigs().getMap().size();
+    }
+    /**
+     * <code>map&lt;string, .bblwheel.Config&gt; Configs = 1;</code>
+     */
+
+    public boolean containsConfigs(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      return internalGetConfigs().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getConfigsMap()} instead.
+     */
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config> getConfigs() {
+      return getConfigsMap();
+    }
+    /**
+     * <code>map&lt;string, .bblwheel.Config&gt; Configs = 1;</code>
+     */
+
+    public java.util.Map<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config> getConfigsMap() {
+      return internalGetConfigs().getMap();
+    }
+    /**
+     * <code>map&lt;string, .bblwheel.Config&gt; Configs = 1;</code>
+     */
+
+    public com.hemayun.bblwheel.Bblwheel.Config getConfigsOrDefault(
+        java.lang.String key,
+        com.hemayun.bblwheel.Bblwheel.Config defaultValue) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config> map =
+          internalGetConfigs().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <code>map&lt;string, .bblwheel.Config&gt; Configs = 1;</code>
+     */
+
+    public com.hemayun.bblwheel.Bblwheel.Config getConfigsOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new java.lang.NullPointerException(); }
+      java.util.Map<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config> map =
+          internalGetConfigs().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      com.google.protobuf.GeneratedMessageV3
+        .serializeStringMapTo(
+          output,
+          internalGetConfigs(),
+          ConfigsDefaultEntryHolder.defaultEntry,
+          1);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (java.util.Map.Entry<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config> entry
+           : internalGetConfigs().getMap().entrySet()) {
+        com.google.protobuf.MapEntry<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config>
+        configs__ = ConfigsDefaultEntryHolder.defaultEntry.newBuilderForType()
+            .setKey(entry.getKey())
+            .setValue(entry.getValue())
+            .build();
+        size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(1, configs__);
+      }
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.hemayun.bblwheel.Bblwheel.LookupConfigResp)) {
+        return super.equals(obj);
+      }
+      com.hemayun.bblwheel.Bblwheel.LookupConfigResp other = (com.hemayun.bblwheel.Bblwheel.LookupConfigResp) obj;
+
+      boolean result = true;
+      result = result && internalGetConfigs().equals(
+          other.internalGetConfigs());
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptorForType().hashCode();
+      if (!internalGetConfigs().getMap().isEmpty()) {
+        hash = (37 * hash) + CONFIGS_FIELD_NUMBER;
+        hash = (53 * hash) + internalGetConfigs().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.hemayun.bblwheel.Bblwheel.LookupConfigResp parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.hemayun.bblwheel.Bblwheel.LookupConfigResp parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.hemayun.bblwheel.Bblwheel.LookupConfigResp parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.hemayun.bblwheel.Bblwheel.LookupConfigResp parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.hemayun.bblwheel.Bblwheel.LookupConfigResp parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.hemayun.bblwheel.Bblwheel.LookupConfigResp parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.hemayun.bblwheel.Bblwheel.LookupConfigResp parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.hemayun.bblwheel.Bblwheel.LookupConfigResp parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.hemayun.bblwheel.Bblwheel.LookupConfigResp parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.hemayun.bblwheel.Bblwheel.LookupConfigResp parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.hemayun.bblwheel.Bblwheel.LookupConfigResp prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code bblwheel.LookupConfigResp}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:bblwheel.LookupConfigResp)
+        com.hemayun.bblwheel.Bblwheel.LookupConfigRespOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.hemayun.bblwheel.Bblwheel.internal_static_bblwheel_LookupConfigResp_descriptor;
+      }
+
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMapField(
+          int number) {
+        switch (number) {
+          case 1:
+            return internalGetConfigs();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      @SuppressWarnings({"rawtypes"})
+      protected com.google.protobuf.MapField internalGetMutableMapField(
+          int number) {
+        switch (number) {
+          case 1:
+            return internalGetMutableConfigs();
+          default:
+            throw new RuntimeException(
+                "Invalid map field number: " + number);
+        }
+      }
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.hemayun.bblwheel.Bblwheel.internal_static_bblwheel_LookupConfigResp_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.hemayun.bblwheel.Bblwheel.LookupConfigResp.class, com.hemayun.bblwheel.Bblwheel.LookupConfigResp.Builder.class);
+      }
+
+      // Construct using com.hemayun.bblwheel.Bblwheel.LookupConfigResp.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        internalGetMutableConfigs().clear();
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.hemayun.bblwheel.Bblwheel.internal_static_bblwheel_LookupConfigResp_descriptor;
+      }
+
+      public com.hemayun.bblwheel.Bblwheel.LookupConfigResp getDefaultInstanceForType() {
+        return com.hemayun.bblwheel.Bblwheel.LookupConfigResp.getDefaultInstance();
+      }
+
+      public com.hemayun.bblwheel.Bblwheel.LookupConfigResp build() {
+        com.hemayun.bblwheel.Bblwheel.LookupConfigResp result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.hemayun.bblwheel.Bblwheel.LookupConfigResp buildPartial() {
+        com.hemayun.bblwheel.Bblwheel.LookupConfigResp result = new com.hemayun.bblwheel.Bblwheel.LookupConfigResp(this);
+        int from_bitField0_ = bitField0_;
+        result.configs_ = internalGetConfigs();
+        result.configs_.makeImmutable();
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.hemayun.bblwheel.Bblwheel.LookupConfigResp) {
+          return mergeFrom((com.hemayun.bblwheel.Bblwheel.LookupConfigResp)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.hemayun.bblwheel.Bblwheel.LookupConfigResp other) {
+        if (other == com.hemayun.bblwheel.Bblwheel.LookupConfigResp.getDefaultInstance()) return this;
+        internalGetMutableConfigs().mergeFrom(
+            other.internalGetConfigs());
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.hemayun.bblwheel.Bblwheel.LookupConfigResp parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.hemayun.bblwheel.Bblwheel.LookupConfigResp) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private com.google.protobuf.MapField<
+          java.lang.String, com.hemayun.bblwheel.Bblwheel.Config> configs_;
+      private com.google.protobuf.MapField<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config>
+      internalGetConfigs() {
+        if (configs_ == null) {
+          return com.google.protobuf.MapField.emptyMapField(
+              ConfigsDefaultEntryHolder.defaultEntry);
+        }
+        return configs_;
+      }
+      private com.google.protobuf.MapField<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config>
+      internalGetMutableConfigs() {
+        onChanged();;
+        if (configs_ == null) {
+          configs_ = com.google.protobuf.MapField.newMapField(
+              ConfigsDefaultEntryHolder.defaultEntry);
+        }
+        if (!configs_.isMutable()) {
+          configs_ = configs_.copy();
+        }
+        return configs_;
+      }
+
+      public int getConfigsCount() {
+        return internalGetConfigs().getMap().size();
+      }
+      /**
+       * <code>map&lt;string, .bblwheel.Config&gt; Configs = 1;</code>
+       */
+
+      public boolean containsConfigs(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        return internalGetConfigs().getMap().containsKey(key);
+      }
+      /**
+       * Use {@link #getConfigsMap()} instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config> getConfigs() {
+        return getConfigsMap();
+      }
+      /**
+       * <code>map&lt;string, .bblwheel.Config&gt; Configs = 1;</code>
+       */
+
+      public java.util.Map<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config> getConfigsMap() {
+        return internalGetConfigs().getMap();
+      }
+      /**
+       * <code>map&lt;string, .bblwheel.Config&gt; Configs = 1;</code>
+       */
+
+      public com.hemayun.bblwheel.Bblwheel.Config getConfigsOrDefault(
+          java.lang.String key,
+          com.hemayun.bblwheel.Bblwheel.Config defaultValue) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config> map =
+            internalGetConfigs().getMap();
+        return map.containsKey(key) ? map.get(key) : defaultValue;
+      }
+      /**
+       * <code>map&lt;string, .bblwheel.Config&gt; Configs = 1;</code>
+       */
+
+      public com.hemayun.bblwheel.Bblwheel.Config getConfigsOrThrow(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        java.util.Map<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config> map =
+            internalGetConfigs().getMap();
+        if (!map.containsKey(key)) {
+          throw new java.lang.IllegalArgumentException();
+        }
+        return map.get(key);
+      }
+
+      public Builder clearConfigs() {
+        getMutableConfigs().clear();
+        return this;
+      }
+      /**
+       * <code>map&lt;string, .bblwheel.Config&gt; Configs = 1;</code>
+       */
+
+      public Builder removeConfigs(
+          java.lang.String key) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        getMutableConfigs().remove(key);
+        return this;
+      }
+      /**
+       * Use alternate mutation accessors instead.
+       */
+      @java.lang.Deprecated
+      public java.util.Map<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config>
+      getMutableConfigs() {
+        return internalGetMutableConfigs().getMutableMap();
+      }
+      /**
+       * <code>map&lt;string, .bblwheel.Config&gt; Configs = 1;</code>
+       */
+      public Builder putConfigs(
+          java.lang.String key,
+          com.hemayun.bblwheel.Bblwheel.Config value) {
+        if (key == null) { throw new java.lang.NullPointerException(); }
+        if (value == null) { throw new java.lang.NullPointerException(); }
+        getMutableConfigs().put(key, value);
+        return this;
+      }
+      /**
+       * <code>map&lt;string, .bblwheel.Config&gt; Configs = 1;</code>
+       */
+
+      public Builder putAllConfigs(
+          java.util.Map<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config> values) {
+        getMutableConfigs().putAll(values);
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:bblwheel.LookupConfigResp)
+    }
+
+    // @@protoc_insertion_point(class_scope:bblwheel.LookupConfigResp)
+    private static final com.hemayun.bblwheel.Bblwheel.LookupConfigResp DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.hemayun.bblwheel.Bblwheel.LookupConfigResp();
+    }
+
+    public static com.hemayun.bblwheel.Bblwheel.LookupConfigResp getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<LookupConfigResp>
+        PARSER = new com.google.protobuf.AbstractParser<LookupConfigResp>() {
+      public LookupConfigResp parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new LookupConfigResp(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<LookupConfigResp> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<LookupConfigResp> getParserForType() {
+      return PARSER;
+    }
+
+    public com.hemayun.bblwheel.Bblwheel.LookupConfigResp getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface LookupServiceReqOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:bblwheel.LookupServiceReq)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional string ServiceID = 1;</code>
+     */
+    java.lang.String getServiceID();
+    /**
+     * <code>optional string ServiceID = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getServiceIDBytes();
+
+    /**
+     * <code>optional string ServiceName = 2;</code>
+     */
+    java.lang.String getServiceName();
+    /**
+     * <code>optional string ServiceName = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getServiceNameBytes();
+
+    /**
+     * <code>repeated string DependentServices = 3;</code>
+     */
+    java.util.List<java.lang.String>
+        getDependentServicesList();
+    /**
+     * <code>repeated string DependentServices = 3;</code>
+     */
+    int getDependentServicesCount();
+    /**
+     * <code>repeated string DependentServices = 3;</code>
+     */
+    java.lang.String getDependentServices(int index);
+    /**
+     * <code>repeated string DependentServices = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getDependentServicesBytes(int index);
+  }
+  /**
+   * Protobuf type {@code bblwheel.LookupServiceReq}
+   */
+  public  static final class LookupServiceReq extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:bblwheel.LookupServiceReq)
+      LookupServiceReqOrBuilder {
+    // Use LookupServiceReq.newBuilder() to construct.
+    private LookupServiceReq(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private LookupServiceReq() {
+      serviceID_ = "";
+      serviceName_ = "";
+      dependentServices_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    }
+    private LookupServiceReq(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              serviceID_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              serviceName_ = s;
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+                dependentServices_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000004;
+              }
+              dependentServices_.add(s);
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+          dependentServices_ = dependentServices_.getUnmodifiableView();
+        }
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.hemayun.bblwheel.Bblwheel.internal_static_bblwheel_LookupServiceReq_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.hemayun.bblwheel.Bblwheel.internal_static_bblwheel_LookupServiceReq_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.hemayun.bblwheel.Bblwheel.LookupServiceReq.class, com.hemayun.bblwheel.Bblwheel.LookupServiceReq.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int SERVICEID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object serviceID_;
+    /**
+     * <code>optional string ServiceID = 1;</code>
+     */
+    public java.lang.String getServiceID() {
+      java.lang.Object ref = serviceID_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        serviceID_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string ServiceID = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getServiceIDBytes() {
+      java.lang.Object ref = serviceID_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        serviceID_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int SERVICENAME_FIELD_NUMBER = 2;
+    private volatile java.lang.Object serviceName_;
+    /**
+     * <code>optional string ServiceName = 2;</code>
+     */
+    public java.lang.String getServiceName() {
+      java.lang.Object ref = serviceName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        serviceName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string ServiceName = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getServiceNameBytes() {
+      java.lang.Object ref = serviceName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        serviceName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int DEPENDENTSERVICES_FIELD_NUMBER = 3;
+    private com.google.protobuf.LazyStringList dependentServices_;
+    /**
+     * <code>repeated string DependentServices = 3;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getDependentServicesList() {
+      return dependentServices_;
+    }
+    /**
+     * <code>repeated string DependentServices = 3;</code>
+     */
+    public int getDependentServicesCount() {
+      return dependentServices_.size();
+    }
+    /**
+     * <code>repeated string DependentServices = 3;</code>
+     */
+    public java.lang.String getDependentServices(int index) {
+      return dependentServices_.get(index);
+    }
+    /**
+     * <code>repeated string DependentServices = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getDependentServicesBytes(int index) {
+      return dependentServices_.getByteString(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getServiceIDBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, serviceID_);
+      }
+      if (!getServiceNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, serviceName_);
+      }
+      for (int i = 0; i < dependentServices_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, dependentServices_.getRaw(i));
+      }
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getServiceIDBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, serviceID_);
+      }
+      if (!getServiceNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, serviceName_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < dependentServices_.size(); i++) {
+          dataSize += computeStringSizeNoTag(dependentServices_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getDependentServicesList().size();
+      }
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.hemayun.bblwheel.Bblwheel.LookupServiceReq)) {
+        return super.equals(obj);
+      }
+      com.hemayun.bblwheel.Bblwheel.LookupServiceReq other = (com.hemayun.bblwheel.Bblwheel.LookupServiceReq) obj;
+
+      boolean result = true;
+      result = result && getServiceID()
+          .equals(other.getServiceID());
+      result = result && getServiceName()
+          .equals(other.getServiceName());
+      result = result && getDependentServicesList()
+          .equals(other.getDependentServicesList());
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (37 * hash) + SERVICEID_FIELD_NUMBER;
+      hash = (53 * hash) + getServiceID().hashCode();
+      hash = (37 * hash) + SERVICENAME_FIELD_NUMBER;
+      hash = (53 * hash) + getServiceName().hashCode();
+      if (getDependentServicesCount() > 0) {
+        hash = (37 * hash) + DEPENDENTSERVICES_FIELD_NUMBER;
+        hash = (53 * hash) + getDependentServicesList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.hemayun.bblwheel.Bblwheel.LookupServiceReq parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.hemayun.bblwheel.Bblwheel.LookupServiceReq parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.hemayun.bblwheel.Bblwheel.LookupServiceReq parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.hemayun.bblwheel.Bblwheel.LookupServiceReq parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.hemayun.bblwheel.Bblwheel.LookupServiceReq parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.hemayun.bblwheel.Bblwheel.LookupServiceReq parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.hemayun.bblwheel.Bblwheel.LookupServiceReq parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.hemayun.bblwheel.Bblwheel.LookupServiceReq parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.hemayun.bblwheel.Bblwheel.LookupServiceReq parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.hemayun.bblwheel.Bblwheel.LookupServiceReq parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.hemayun.bblwheel.Bblwheel.LookupServiceReq prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code bblwheel.LookupServiceReq}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:bblwheel.LookupServiceReq)
+        com.hemayun.bblwheel.Bblwheel.LookupServiceReqOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.hemayun.bblwheel.Bblwheel.internal_static_bblwheel_LookupServiceReq_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.hemayun.bblwheel.Bblwheel.internal_static_bblwheel_LookupServiceReq_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.hemayun.bblwheel.Bblwheel.LookupServiceReq.class, com.hemayun.bblwheel.Bblwheel.LookupServiceReq.Builder.class);
+      }
+
+      // Construct using com.hemayun.bblwheel.Bblwheel.LookupServiceReq.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        serviceID_ = "";
+
+        serviceName_ = "";
+
+        dependentServices_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.hemayun.bblwheel.Bblwheel.internal_static_bblwheel_LookupServiceReq_descriptor;
+      }
+
+      public com.hemayun.bblwheel.Bblwheel.LookupServiceReq getDefaultInstanceForType() {
+        return com.hemayun.bblwheel.Bblwheel.LookupServiceReq.getDefaultInstance();
+      }
+
+      public com.hemayun.bblwheel.Bblwheel.LookupServiceReq build() {
+        com.hemayun.bblwheel.Bblwheel.LookupServiceReq result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.hemayun.bblwheel.Bblwheel.LookupServiceReq buildPartial() {
+        com.hemayun.bblwheel.Bblwheel.LookupServiceReq result = new com.hemayun.bblwheel.Bblwheel.LookupServiceReq(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        result.serviceID_ = serviceID_;
+        result.serviceName_ = serviceName_;
+        if (((bitField0_ & 0x00000004) == 0x00000004)) {
+          dependentServices_ = dependentServices_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        }
+        result.dependentServices_ = dependentServices_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.hemayun.bblwheel.Bblwheel.LookupServiceReq) {
+          return mergeFrom((com.hemayun.bblwheel.Bblwheel.LookupServiceReq)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.hemayun.bblwheel.Bblwheel.LookupServiceReq other) {
+        if (other == com.hemayun.bblwheel.Bblwheel.LookupServiceReq.getDefaultInstance()) return this;
+        if (!other.getServiceID().isEmpty()) {
+          serviceID_ = other.serviceID_;
+          onChanged();
+        }
+        if (!other.getServiceName().isEmpty()) {
+          serviceName_ = other.serviceName_;
+          onChanged();
+        }
+        if (!other.dependentServices_.isEmpty()) {
+          if (dependentServices_.isEmpty()) {
+            dependentServices_ = other.dependentServices_;
+            bitField0_ = (bitField0_ & ~0x00000004);
+          } else {
+            ensureDependentServicesIsMutable();
+            dependentServices_.addAll(other.dependentServices_);
+          }
+          onChanged();
+        }
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.hemayun.bblwheel.Bblwheel.LookupServiceReq parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.hemayun.bblwheel.Bblwheel.LookupServiceReq) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object serviceID_ = "";
+      /**
+       * <code>optional string ServiceID = 1;</code>
+       */
+      public java.lang.String getServiceID() {
+        java.lang.Object ref = serviceID_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          serviceID_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string ServiceID = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getServiceIDBytes() {
+        java.lang.Object ref = serviceID_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          serviceID_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string ServiceID = 1;</code>
+       */
+      public Builder setServiceID(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        serviceID_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string ServiceID = 1;</code>
+       */
+      public Builder clearServiceID() {
+        
+        serviceID_ = getDefaultInstance().getServiceID();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string ServiceID = 1;</code>
+       */
+      public Builder setServiceIDBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        serviceID_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object serviceName_ = "";
+      /**
+       * <code>optional string ServiceName = 2;</code>
+       */
+      public java.lang.String getServiceName() {
+        java.lang.Object ref = serviceName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          serviceName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string ServiceName = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getServiceNameBytes() {
+        java.lang.Object ref = serviceName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          serviceName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string ServiceName = 2;</code>
+       */
+      public Builder setServiceName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        serviceName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string ServiceName = 2;</code>
+       */
+      public Builder clearServiceName() {
+        
+        serviceName_ = getDefaultInstance().getServiceName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string ServiceName = 2;</code>
+       */
+      public Builder setServiceNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        serviceName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList dependentServices_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureDependentServicesIsMutable() {
+        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+          dependentServices_ = new com.google.protobuf.LazyStringArrayList(dependentServices_);
+          bitField0_ |= 0x00000004;
+         }
+      }
+      /**
+       * <code>repeated string DependentServices = 3;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getDependentServicesList() {
+        return dependentServices_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string DependentServices = 3;</code>
+       */
+      public int getDependentServicesCount() {
+        return dependentServices_.size();
+      }
+      /**
+       * <code>repeated string DependentServices = 3;</code>
+       */
+      public java.lang.String getDependentServices(int index) {
+        return dependentServices_.get(index);
+      }
+      /**
+       * <code>repeated string DependentServices = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getDependentServicesBytes(int index) {
+        return dependentServices_.getByteString(index);
+      }
+      /**
+       * <code>repeated string DependentServices = 3;</code>
+       */
+      public Builder setDependentServices(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureDependentServicesIsMutable();
+        dependentServices_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string DependentServices = 3;</code>
+       */
+      public Builder addDependentServices(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureDependentServicesIsMutable();
+        dependentServices_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string DependentServices = 3;</code>
+       */
+      public Builder addAllDependentServices(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureDependentServicesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, dependentServices_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string DependentServices = 3;</code>
+       */
+      public Builder clearDependentServices() {
+        dependentServices_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string DependentServices = 3;</code>
+       */
+      public Builder addDependentServicesBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureDependentServicesIsMutable();
+        dependentServices_.add(value);
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:bblwheel.LookupServiceReq)
+    }
+
+    // @@protoc_insertion_point(class_scope:bblwheel.LookupServiceReq)
+    private static final com.hemayun.bblwheel.Bblwheel.LookupServiceReq DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.hemayun.bblwheel.Bblwheel.LookupServiceReq();
+    }
+
+    public static com.hemayun.bblwheel.Bblwheel.LookupServiceReq getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<LookupServiceReq>
+        PARSER = new com.google.protobuf.AbstractParser<LookupServiceReq>() {
+      public LookupServiceReq parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new LookupServiceReq(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<LookupServiceReq> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<LookupServiceReq> getParserForType() {
+      return PARSER;
+    }
+
+    public com.hemayun.bblwheel.Bblwheel.LookupServiceReq getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface LookupServiceRespOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:bblwheel.LookupServiceResp)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated .bblwheel.Service Services = 1;</code>
+     */
+    java.util.List<com.hemayun.bblwheel.Bblwheel.Service> 
+        getServicesList();
+    /**
+     * <code>repeated .bblwheel.Service Services = 1;</code>
+     */
+    com.hemayun.bblwheel.Bblwheel.Service getServices(int index);
+    /**
+     * <code>repeated .bblwheel.Service Services = 1;</code>
+     */
+    int getServicesCount();
+    /**
+     * <code>repeated .bblwheel.Service Services = 1;</code>
+     */
+    java.util.List<? extends com.hemayun.bblwheel.Bblwheel.ServiceOrBuilder> 
+        getServicesOrBuilderList();
+    /**
+     * <code>repeated .bblwheel.Service Services = 1;</code>
+     */
+    com.hemayun.bblwheel.Bblwheel.ServiceOrBuilder getServicesOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code bblwheel.LookupServiceResp}
+   */
+  public  static final class LookupServiceResp extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:bblwheel.LookupServiceResp)
+      LookupServiceRespOrBuilder {
+    // Use LookupServiceResp.newBuilder() to construct.
+    private LookupServiceResp(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private LookupServiceResp() {
+      services_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    }
+    private LookupServiceResp(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                services_ = new java.util.ArrayList<com.hemayun.bblwheel.Bblwheel.Service>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              services_.add(
+                  input.readMessage(com.hemayun.bblwheel.Bblwheel.Service.parser(), extensionRegistry));
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          services_ = java.util.Collections.unmodifiableList(services_);
+        }
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.hemayun.bblwheel.Bblwheel.internal_static_bblwheel_LookupServiceResp_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.hemayun.bblwheel.Bblwheel.internal_static_bblwheel_LookupServiceResp_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.hemayun.bblwheel.Bblwheel.LookupServiceResp.class, com.hemayun.bblwheel.Bblwheel.LookupServiceResp.Builder.class);
+    }
+
+    public static final int SERVICES_FIELD_NUMBER = 1;
+    private java.util.List<com.hemayun.bblwheel.Bblwheel.Service> services_;
+    /**
+     * <code>repeated .bblwheel.Service Services = 1;</code>
+     */
+    public java.util.List<com.hemayun.bblwheel.Bblwheel.Service> getServicesList() {
+      return services_;
+    }
+    /**
+     * <code>repeated .bblwheel.Service Services = 1;</code>
+     */
+    public java.util.List<? extends com.hemayun.bblwheel.Bblwheel.ServiceOrBuilder> 
+        getServicesOrBuilderList() {
+      return services_;
+    }
+    /**
+     * <code>repeated .bblwheel.Service Services = 1;</code>
+     */
+    public int getServicesCount() {
+      return services_.size();
+    }
+    /**
+     * <code>repeated .bblwheel.Service Services = 1;</code>
+     */
+    public com.hemayun.bblwheel.Bblwheel.Service getServices(int index) {
+      return services_.get(index);
+    }
+    /**
+     * <code>repeated .bblwheel.Service Services = 1;</code>
+     */
+    public com.hemayun.bblwheel.Bblwheel.ServiceOrBuilder getServicesOrBuilder(
+        int index) {
+      return services_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < services_.size(); i++) {
+        output.writeMessage(1, services_.get(i));
+      }
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < services_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, services_.get(i));
+      }
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.hemayun.bblwheel.Bblwheel.LookupServiceResp)) {
+        return super.equals(obj);
+      }
+      com.hemayun.bblwheel.Bblwheel.LookupServiceResp other = (com.hemayun.bblwheel.Bblwheel.LookupServiceResp) obj;
+
+      boolean result = true;
+      result = result && getServicesList()
+          .equals(other.getServicesList());
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptorForType().hashCode();
+      if (getServicesCount() > 0) {
+        hash = (37 * hash) + SERVICES_FIELD_NUMBER;
+        hash = (53 * hash) + getServicesList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.hemayun.bblwheel.Bblwheel.LookupServiceResp parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.hemayun.bblwheel.Bblwheel.LookupServiceResp parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.hemayun.bblwheel.Bblwheel.LookupServiceResp parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.hemayun.bblwheel.Bblwheel.LookupServiceResp parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.hemayun.bblwheel.Bblwheel.LookupServiceResp parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.hemayun.bblwheel.Bblwheel.LookupServiceResp parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.hemayun.bblwheel.Bblwheel.LookupServiceResp parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.hemayun.bblwheel.Bblwheel.LookupServiceResp parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.hemayun.bblwheel.Bblwheel.LookupServiceResp parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.hemayun.bblwheel.Bblwheel.LookupServiceResp parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.hemayun.bblwheel.Bblwheel.LookupServiceResp prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code bblwheel.LookupServiceResp}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:bblwheel.LookupServiceResp)
+        com.hemayun.bblwheel.Bblwheel.LookupServiceRespOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.hemayun.bblwheel.Bblwheel.internal_static_bblwheel_LookupServiceResp_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.hemayun.bblwheel.Bblwheel.internal_static_bblwheel_LookupServiceResp_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.hemayun.bblwheel.Bblwheel.LookupServiceResp.class, com.hemayun.bblwheel.Bblwheel.LookupServiceResp.Builder.class);
+      }
+
+      // Construct using com.hemayun.bblwheel.Bblwheel.LookupServiceResp.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getServicesFieldBuilder();
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        if (servicesBuilder_ == null) {
+          services_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          servicesBuilder_.clear();
+        }
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.hemayun.bblwheel.Bblwheel.internal_static_bblwheel_LookupServiceResp_descriptor;
+      }
+
+      public com.hemayun.bblwheel.Bblwheel.LookupServiceResp getDefaultInstanceForType() {
+        return com.hemayun.bblwheel.Bblwheel.LookupServiceResp.getDefaultInstance();
+      }
+
+      public com.hemayun.bblwheel.Bblwheel.LookupServiceResp build() {
+        com.hemayun.bblwheel.Bblwheel.LookupServiceResp result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.hemayun.bblwheel.Bblwheel.LookupServiceResp buildPartial() {
+        com.hemayun.bblwheel.Bblwheel.LookupServiceResp result = new com.hemayun.bblwheel.Bblwheel.LookupServiceResp(this);
+        int from_bitField0_ = bitField0_;
+        if (servicesBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            services_ = java.util.Collections.unmodifiableList(services_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.services_ = services_;
+        } else {
+          result.services_ = servicesBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.hemayun.bblwheel.Bblwheel.LookupServiceResp) {
+          return mergeFrom((com.hemayun.bblwheel.Bblwheel.LookupServiceResp)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.hemayun.bblwheel.Bblwheel.LookupServiceResp other) {
+        if (other == com.hemayun.bblwheel.Bblwheel.LookupServiceResp.getDefaultInstance()) return this;
+        if (servicesBuilder_ == null) {
+          if (!other.services_.isEmpty()) {
+            if (services_.isEmpty()) {
+              services_ = other.services_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureServicesIsMutable();
+              services_.addAll(other.services_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.services_.isEmpty()) {
+            if (servicesBuilder_.isEmpty()) {
+              servicesBuilder_.dispose();
+              servicesBuilder_ = null;
+              services_ = other.services_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              servicesBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getServicesFieldBuilder() : null;
+            } else {
+              servicesBuilder_.addAllMessages(other.services_);
+            }
+          }
+        }
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.hemayun.bblwheel.Bblwheel.LookupServiceResp parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.hemayun.bblwheel.Bblwheel.LookupServiceResp) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<com.hemayun.bblwheel.Bblwheel.Service> services_ =
+        java.util.Collections.emptyList();
+      private void ensureServicesIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          services_ = new java.util.ArrayList<com.hemayun.bblwheel.Bblwheel.Service>(services_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.hemayun.bblwheel.Bblwheel.Service, com.hemayun.bblwheel.Bblwheel.Service.Builder, com.hemayun.bblwheel.Bblwheel.ServiceOrBuilder> servicesBuilder_;
+
+      /**
+       * <code>repeated .bblwheel.Service Services = 1;</code>
+       */
+      public java.util.List<com.hemayun.bblwheel.Bblwheel.Service> getServicesList() {
+        if (servicesBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(services_);
+        } else {
+          return servicesBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .bblwheel.Service Services = 1;</code>
+       */
+      public int getServicesCount() {
+        if (servicesBuilder_ == null) {
+          return services_.size();
+        } else {
+          return servicesBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .bblwheel.Service Services = 1;</code>
+       */
+      public com.hemayun.bblwheel.Bblwheel.Service getServices(int index) {
+        if (servicesBuilder_ == null) {
+          return services_.get(index);
+        } else {
+          return servicesBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .bblwheel.Service Services = 1;</code>
+       */
+      public Builder setServices(
+          int index, com.hemayun.bblwheel.Bblwheel.Service value) {
+        if (servicesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureServicesIsMutable();
+          services_.set(index, value);
+          onChanged();
+        } else {
+          servicesBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .bblwheel.Service Services = 1;</code>
+       */
+      public Builder setServices(
+          int index, com.hemayun.bblwheel.Bblwheel.Service.Builder builderForValue) {
+        if (servicesBuilder_ == null) {
+          ensureServicesIsMutable();
+          services_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          servicesBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .bblwheel.Service Services = 1;</code>
+       */
+      public Builder addServices(com.hemayun.bblwheel.Bblwheel.Service value) {
+        if (servicesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureServicesIsMutable();
+          services_.add(value);
+          onChanged();
+        } else {
+          servicesBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .bblwheel.Service Services = 1;</code>
+       */
+      public Builder addServices(
+          int index, com.hemayun.bblwheel.Bblwheel.Service value) {
+        if (servicesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureServicesIsMutable();
+          services_.add(index, value);
+          onChanged();
+        } else {
+          servicesBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .bblwheel.Service Services = 1;</code>
+       */
+      public Builder addServices(
+          com.hemayun.bblwheel.Bblwheel.Service.Builder builderForValue) {
+        if (servicesBuilder_ == null) {
+          ensureServicesIsMutable();
+          services_.add(builderForValue.build());
+          onChanged();
+        } else {
+          servicesBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .bblwheel.Service Services = 1;</code>
+       */
+      public Builder addServices(
+          int index, com.hemayun.bblwheel.Bblwheel.Service.Builder builderForValue) {
+        if (servicesBuilder_ == null) {
+          ensureServicesIsMutable();
+          services_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          servicesBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .bblwheel.Service Services = 1;</code>
+       */
+      public Builder addAllServices(
+          java.lang.Iterable<? extends com.hemayun.bblwheel.Bblwheel.Service> values) {
+        if (servicesBuilder_ == null) {
+          ensureServicesIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, services_);
+          onChanged();
+        } else {
+          servicesBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .bblwheel.Service Services = 1;</code>
+       */
+      public Builder clearServices() {
+        if (servicesBuilder_ == null) {
+          services_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          servicesBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .bblwheel.Service Services = 1;</code>
+       */
+      public Builder removeServices(int index) {
+        if (servicesBuilder_ == null) {
+          ensureServicesIsMutable();
+          services_.remove(index);
+          onChanged();
+        } else {
+          servicesBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .bblwheel.Service Services = 1;</code>
+       */
+      public com.hemayun.bblwheel.Bblwheel.Service.Builder getServicesBuilder(
+          int index) {
+        return getServicesFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .bblwheel.Service Services = 1;</code>
+       */
+      public com.hemayun.bblwheel.Bblwheel.ServiceOrBuilder getServicesOrBuilder(
+          int index) {
+        if (servicesBuilder_ == null) {
+          return services_.get(index);  } else {
+          return servicesBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .bblwheel.Service Services = 1;</code>
+       */
+      public java.util.List<? extends com.hemayun.bblwheel.Bblwheel.ServiceOrBuilder> 
+           getServicesOrBuilderList() {
+        if (servicesBuilder_ != null) {
+          return servicesBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(services_);
+        }
+      }
+      /**
+       * <code>repeated .bblwheel.Service Services = 1;</code>
+       */
+      public com.hemayun.bblwheel.Bblwheel.Service.Builder addServicesBuilder() {
+        return getServicesFieldBuilder().addBuilder(
+            com.hemayun.bblwheel.Bblwheel.Service.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .bblwheel.Service Services = 1;</code>
+       */
+      public com.hemayun.bblwheel.Bblwheel.Service.Builder addServicesBuilder(
+          int index) {
+        return getServicesFieldBuilder().addBuilder(
+            index, com.hemayun.bblwheel.Bblwheel.Service.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .bblwheel.Service Services = 1;</code>
+       */
+      public java.util.List<com.hemayun.bblwheel.Bblwheel.Service.Builder> 
+           getServicesBuilderList() {
+        return getServicesFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.hemayun.bblwheel.Bblwheel.Service, com.hemayun.bblwheel.Bblwheel.Service.Builder, com.hemayun.bblwheel.Bblwheel.ServiceOrBuilder> 
+          getServicesFieldBuilder() {
+        if (servicesBuilder_ == null) {
+          servicesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              com.hemayun.bblwheel.Bblwheel.Service, com.hemayun.bblwheel.Bblwheel.Service.Builder, com.hemayun.bblwheel.Bblwheel.ServiceOrBuilder>(
+                  services_,
+                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  getParentForChildren(),
+                  isClean());
+          services_ = null;
+        }
+        return servicesBuilder_;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:bblwheel.LookupServiceResp)
+    }
+
+    // @@protoc_insertion_point(class_scope:bblwheel.LookupServiceResp)
+    private static final com.hemayun.bblwheel.Bblwheel.LookupServiceResp DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.hemayun.bblwheel.Bblwheel.LookupServiceResp();
+    }
+
+    public static com.hemayun.bblwheel.Bblwheel.LookupServiceResp getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<LookupServiceResp>
+        PARSER = new com.google.protobuf.AbstractParser<LookupServiceResp>() {
+      public LookupServiceResp parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new LookupServiceResp(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<LookupServiceResp> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<LookupServiceResp> getParserForType() {
+      return PARSER;
+    }
+
+    public com.hemayun.bblwheel.Bblwheel.LookupServiceResp getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_bblwheel_Void_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_bblwheel_Void_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_bblwheel_RegisterResult_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_bblwheel_RegisterResult_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_bblwheel_RegisterResult_ConfigsEntry_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_bblwheel_RegisterResult_ConfigsEntry_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_bblwheel_Service_descriptor;
   private static final 
@@ -8175,10 +11917,30 @@ public final class Bblwheel {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_bblwheel_Event_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_bblwheel_Event_ConfigsEntry_descriptor;
+    internal_static_bblwheel_LookupConfigReq_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_bblwheel_Event_ConfigsEntry_fieldAccessorTable;
+      internal_static_bblwheel_LookupConfigReq_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_bblwheel_LookupConfigResp_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_bblwheel_LookupConfigResp_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_bblwheel_LookupConfigResp_ConfigsEntry_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_bblwheel_LookupConfigResp_ConfigsEntry_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_bblwheel_LookupServiceReq_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_bblwheel_LookupServiceReq_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_bblwheel_LookupServiceResp_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_bblwheel_LookupServiceResp_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -8188,45 +11950,59 @@ public final class Bblwheel {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\016bblwheel.proto\022\010bblwheel\"\006\n\004Void\"\371\002\n\007S" +
-      "ervice\022\n\n\002ID\030\001 \001(\t\022\014\n\004Name\030\002 \001(\t\022\014\n\004Tags" +
-      "\030\003 \003(\t\022\017\n\007Address\030\004 \001(\t\022\022\n\nDataCenter\030\005 " +
-      "\001(\t\022\014\n\004Node\030\006 \001(\t\022\013\n\003PID\030\007 \001(\t\022\016\n\006Weight" +
-      "\030\010 \001(\005\022\016\n\006Single\030\t \001(\010\022\031\n\021DependentServi" +
-      "ces\030\n \003(\t\022\030\n\020DependentConfigs\030\013 \003(\t\022(\n\006s" +
-      "tatus\030\014 \001(\0162\030.bblwheel.Service.Status\022\036\n" +
-      "\005Stats\030\r \001(\0132\017.bblwheel.Stats\022\r\n\005Error\030\016" +
-      " \001(\t\"X\n\006Status\022\010\n\004INIT\020\000\022\n\n\006ONLINE\020\001\022\017\n\013" +
-      "MAINTENANCE\020\002\022\013\n\007OFFLINE\020\003\022\t\n\005FAULT\020\004\022\017\n",
-      "\013UNAUTHORIZE\020\005\")\n\013ConfigEntry\022\013\n\003Key\030\001 \001" +
-      "(\t\022\r\n\005Value\030\002 \001(\t\".\n\006Config\022$\n\005Items\030\001 \003" +
-      "(\0132\025.bblwheel.ConfigEntry\"[\n\017UpdateConfi" +
-      "gReq\022\021\n\tServiceID\030\001 \001(\t\022\023\n\013ServiceName\030\002" +
-      " \001(\t\022 \n\006config\030\003 \001(\0132\020.bblwheel.Config\"\261" +
-      "\002\n\005Stats\022\021\n\tServiceID\030\001 \001(\t\022\023\n\013ServiceNa" +
-      "me\030\002 \001(\t\022\r\n\005Count\030\003 \001(\003\022\016\n\006UpTime\030\004 \001(\003\022" +
-      "\017\n\007UsedMem\030\005 \001(\003\022\017\n\007FreeMem\030\006 \001(\003\022\017\n\007Thr" +
-      "eads\030\007 \001(\003\022\023\n\013AvgRespTime\030\010 \001(\003\022\023\n\013MinRe" +
-      "spTime\030\t \001(\003\022\023\n\013MaxRespTime\030\n \001(\003\022\026\n\016Las",
-      "tActiveTime\030\013 \001(\003\022)\n\005Other\030\014 \003(\0132\032.bblwh" +
-      "eel.Stats.OtherEntry\032,\n\nOtherEntry\022\013\n\003ke" +
-      "y\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\312\002\n\005Event\022\'\n\004" +
-      "Type\030\001 \001(\0162\031.bblwheel.Event.EventType\022\"\n" +
-      "\007Service\030\002 \003(\0132\021.bblwheel.Service\022#\n\004Ite" +
-      "m\030\003 \001(\0132\025.bblwheel.ConfigEntry\022-\n\007Config" +
-      "s\030\004 \003(\0132\034.bblwheel.Event.ConfigsEntry\022\014\n" +
-      "\004Desc\030\005 \001(\t\032@\n\014ConfigsEntry\022\013\n\003key\030\001 \001(\t" +
-      "\022\037\n\005value\030\002 \001(\0132\020.bblwheel.Config:\0028\001\"P\n" +
-      "\tEventType\022\r\n\tDISCOVERY\020\000\022\020\n\014CONFIGUPDAT",
-      "E\020\001\022\023\n\017REGISTER_RESULT\020\002\022\r\n\tKEEPALIVE\020\0032" +
-      "\210\002\n\010BblWheel\0220\n\010Register\022\021.bblwheel.Serv" +
-      "ice\032\017.bblwheel.Event0\001\022/\n\nUnregister\022\021.b" +
-      "blwheel.Service\032\016.bblwheel.Void\022+\n\006Onlin" +
-      "e\022\021.bblwheel.Service\032\016.bblwheel.Void\0221\n\014" +
-      "UpdateStatus\022\021.bblwheel.Service\032\016.bblwhe" +
-      "el.Void\0229\n\014UpdateConfig\022\031.bblwheel.Updat" +
-      "eConfigReq\032\016.bblwheel.VoidB\033\n\024com.hemayu" +
-      "n.bblwheelH\001\240\001\001b\006proto3"
+      "\n\016bblwheel.proto\022\010bblwheel\"\006\n\004Void\"\274\001\n\016R" +
+      "egisterResult\022\014\n\004Desc\030\001 \001(\t\022\"\n\007Service\030\002" +
+      " \003(\0132\021.bblwheel.Service\0226\n\007Configs\030\003 \003(\013" +
+      "2%.bblwheel.RegisterResult.ConfigsEntry\032" +
+      "@\n\014ConfigsEntry\022\013\n\003key\030\001 \001(\t\022\037\n\005value\030\002 " +
+      "\001(\0132\020.bblwheel.Config:\0028\001\"\371\002\n\007Service\022\n\n" +
+      "\002ID\030\001 \001(\t\022\014\n\004Name\030\002 \001(\t\022\014\n\004Tags\030\003 \003(\t\022\017\n" +
+      "\007Address\030\004 \001(\t\022\022\n\nDataCenter\030\005 \001(\t\022\014\n\004No" +
+      "de\030\006 \001(\t\022\013\n\003PID\030\007 \001(\t\022\016\n\006Weight\030\010 \001(\005\022\016\n" +
+      "\006Single\030\t \001(\010\022\031\n\021DependentServices\030\n \003(\t",
+      "\022\030\n\020DependentConfigs\030\013 \003(\t\022(\n\006status\030\014 \001" +
+      "(\0162\030.bblwheel.Service.Status\022\036\n\005Stats\030\r " +
+      "\001(\0132\017.bblwheel.Stats\022\r\n\005Error\030\016 \001(\t\"X\n\006S" +
+      "tatus\022\010\n\004INIT\020\000\022\n\n\006ONLINE\020\001\022\017\n\013MAINTENAN" +
+      "CE\020\002\022\013\n\007OFFLINE\020\003\022\t\n\005FAULT\020\004\022\017\n\013UNAUTHOR" +
+      "IZE\020\005\")\n\013ConfigEntry\022\013\n\003Key\030\001 \001(\t\022\r\n\005Val" +
+      "ue\030\002 \001(\t\".\n\006Config\022$\n\005Items\030\001 \003(\0132\025.bblw" +
+      "heel.ConfigEntry\"[\n\017UpdateConfigReq\022\021\n\tS" +
+      "erviceID\030\001 \001(\t\022\023\n\013ServiceName\030\002 \001(\t\022 \n\006c" +
+      "onfig\030\003 \001(\0132\020.bblwheel.Config\"\301\002\n\005Stats\022",
+      "\021\n\tServiceID\030\001 \001(\t\022\023\n\013ServiceName\030\002 \001(\t\022" +
+      "\r\n\005Count\030\003 \001(\003\022\016\n\006UpTime\030\004 \001(\003\022\017\n\007UsedMe" +
+      "m\030\005 \001(\003\022\017\n\007FreeMem\030\006 \001(\003\022\017\n\007Threads\030\007 \001(" +
+      "\003\022\023\n\013AvgRespTime\030\010 \001(\003\022\023\n\013MinRespTime\030\t " +
+      "\001(\003\022\023\n\013MaxRespTime\030\n \001(\003\022\026\n\016LastActiveTi" +
+      "me\030\013 \001(\003\022)\n\005Other\030\014 \003(\0132\032.bblwheel.Stats" +
+      ".OtherEntry\022\016\n\006Errors\030\r \001(\t\032,\n\nOtherEntr" +
+      "y\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\363\001\n\005Ev" +
+      "ent\022\'\n\004Type\030\001 \001(\0162\031.bblwheel.Event.Event" +
+      "Type\022\"\n\007Service\030\002 \001(\0132\021.bblwheel.Service",
+      "\022#\n\004Item\030\003 \001(\0132\025.bblwheel.ConfigEntry\022\017\n" +
+      "\007Command\030\004 \001(\t\"g\n\tEventType\022\r\n\tDISCOVERY" +
+      "\020\000\022\020\n\014CONFIGUPDATE\020\001\022\023\n\017REGISTER_RESULT\020" +
+      "\002\022\r\n\tKEEPALIVE\020\003\022\013\n\007CONTROL\020\004\022\010\n\004EXEC\020\005\"" +
+      "+\n\017LookupConfigReq\022\030\n\020DependentConfigs\030\001" +
+      " \003(\t\"\216\001\n\020LookupConfigResp\0228\n\007Configs\030\001 \003" +
+      "(\0132\'.bblwheel.LookupConfigResp.ConfigsEn" +
+      "try\032@\n\014ConfigsEntry\022\013\n\003key\030\001 \001(\t\022\037\n\005valu" +
+      "e\030\002 \001(\0132\020.bblwheel.Config:\0028\001\"U\n\020LookupS" +
+      "erviceReq\022\021\n\tServiceID\030\001 \001(\t\022\023\n\013ServiceN",
+      "ame\030\002 \001(\t\022\031\n\021DependentServices\030\003 \003(\t\"8\n\021" +
+      "LookupServiceResp\022#\n\010Services\030\001 \003(\0132\021.bb" +
+      "lwheel.Service2\360\002\n\010BblWheel\022E\n\014LookupCon" +
+      "fig\022\031.bblwheel.LookupConfigReq\032\032.bblwhee" +
+      "l.LookupConfigResp\022H\n\rLookupService\022\032.bb" +
+      "lwheel.LookupServiceReq\032\033.bblwheel.Looku" +
+      "pServiceResp\0229\n\014UpdateConfig\022\031.bblwheel." +
+      "UpdateConfigReq\032\016.bblwheel.Void\0227\n\010Regis" +
+      "ter\022\021.bblwheel.Service\032\030.bblwheel.Regist" +
+      "erResult\022/\n\nUnregister\022\021.bblwheel.Servic",
+      "e\032\016.bblwheel.Void\022.\n\006Events\022\017.bblwheel.E" +
+      "vent\032\017.bblwheel.Event(\0010\001B\033\n\024com.hemayun" +
+      ".bblwheelH\001\240\001\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -8246,36 +12022,48 @@ public final class Bblwheel {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_bblwheel_Void_descriptor,
         new java.lang.String[] { });
-    internal_static_bblwheel_Service_descriptor =
+    internal_static_bblwheel_RegisterResult_descriptor =
       getDescriptor().getMessageTypes().get(1);
+    internal_static_bblwheel_RegisterResult_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_bblwheel_RegisterResult_descriptor,
+        new java.lang.String[] { "Desc", "Service", "Configs", });
+    internal_static_bblwheel_RegisterResult_ConfigsEntry_descriptor =
+      internal_static_bblwheel_RegisterResult_descriptor.getNestedTypes().get(0);
+    internal_static_bblwheel_RegisterResult_ConfigsEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_bblwheel_RegisterResult_ConfigsEntry_descriptor,
+        new java.lang.String[] { "Key", "Value", });
+    internal_static_bblwheel_Service_descriptor =
+      getDescriptor().getMessageTypes().get(2);
     internal_static_bblwheel_Service_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_bblwheel_Service_descriptor,
         new java.lang.String[] { "ID", "Name", "Tags", "Address", "DataCenter", "Node", "PID", "Weight", "Single", "DependentServices", "DependentConfigs", "Status", "Stats", "Error", });
     internal_static_bblwheel_ConfigEntry_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_bblwheel_ConfigEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_bblwheel_ConfigEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_bblwheel_Config_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_bblwheel_Config_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_bblwheel_Config_descriptor,
         new java.lang.String[] { "Items", });
     internal_static_bblwheel_UpdateConfigReq_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_bblwheel_UpdateConfigReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_bblwheel_UpdateConfigReq_descriptor,
         new java.lang.String[] { "ServiceID", "ServiceName", "Config", });
     internal_static_bblwheel_Stats_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_bblwheel_Stats_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_bblwheel_Stats_descriptor,
-        new java.lang.String[] { "ServiceID", "ServiceName", "Count", "UpTime", "UsedMem", "FreeMem", "Threads", "AvgRespTime", "MinRespTime", "MaxRespTime", "LastActiveTime", "Other", });
+        new java.lang.String[] { "ServiceID", "ServiceName", "Count", "UpTime", "UsedMem", "FreeMem", "Threads", "AvgRespTime", "MinRespTime", "MaxRespTime", "LastActiveTime", "Other", "Errors", });
     internal_static_bblwheel_Stats_OtherEntry_descriptor =
       internal_static_bblwheel_Stats_descriptor.getNestedTypes().get(0);
     internal_static_bblwheel_Stats_OtherEntry_fieldAccessorTable = new
@@ -8283,17 +12071,41 @@ public final class Bblwheel {
         internal_static_bblwheel_Stats_OtherEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_bblwheel_Event_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_bblwheel_Event_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_bblwheel_Event_descriptor,
-        new java.lang.String[] { "Type", "Service", "Item", "Configs", "Desc", });
-    internal_static_bblwheel_Event_ConfigsEntry_descriptor =
-      internal_static_bblwheel_Event_descriptor.getNestedTypes().get(0);
-    internal_static_bblwheel_Event_ConfigsEntry_fieldAccessorTable = new
+        new java.lang.String[] { "Type", "Service", "Item", "Command", });
+    internal_static_bblwheel_LookupConfigReq_descriptor =
+      getDescriptor().getMessageTypes().get(8);
+    internal_static_bblwheel_LookupConfigReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_bblwheel_Event_ConfigsEntry_descriptor,
+        internal_static_bblwheel_LookupConfigReq_descriptor,
+        new java.lang.String[] { "DependentConfigs", });
+    internal_static_bblwheel_LookupConfigResp_descriptor =
+      getDescriptor().getMessageTypes().get(9);
+    internal_static_bblwheel_LookupConfigResp_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_bblwheel_LookupConfigResp_descriptor,
+        new java.lang.String[] { "Configs", });
+    internal_static_bblwheel_LookupConfigResp_ConfigsEntry_descriptor =
+      internal_static_bblwheel_LookupConfigResp_descriptor.getNestedTypes().get(0);
+    internal_static_bblwheel_LookupConfigResp_ConfigsEntry_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_bblwheel_LookupConfigResp_ConfigsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
+    internal_static_bblwheel_LookupServiceReq_descriptor =
+      getDescriptor().getMessageTypes().get(10);
+    internal_static_bblwheel_LookupServiceReq_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_bblwheel_LookupServiceReq_descriptor,
+        new java.lang.String[] { "ServiceID", "ServiceName", "DependentServices", });
+    internal_static_bblwheel_LookupServiceResp_descriptor =
+      getDescriptor().getMessageTypes().get(11);
+    internal_static_bblwheel_LookupServiceResp_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_bblwheel_LookupServiceResp_descriptor,
+        new java.lang.String[] { "Services", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

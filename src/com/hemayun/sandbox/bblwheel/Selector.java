@@ -1,13 +1,15 @@
 package com.hemayun.sandbox.bblwheel;
 
+import com.hemayun.bblwheel.Bblwheel;
+
 /**
  * Created by apple on 16/11/14.
  */
 public interface Selector {
 
-    Service select(String serviceName, String key);
+    Bblwheel.Service select(String serviceName, String key);
 
-    void addService(Service srv);
+    void addService(Bblwheel.Service srv);
 
     void removeService(String id, String serviceName);
 

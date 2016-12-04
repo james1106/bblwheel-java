@@ -1,8 +1,7 @@
 package com.hemayun.sandbox.bblwheel.selector;
 
 import com.hemayun.sandbox.bblwheel.AbsSelector;
-import com.hemayun.sandbox.bblwheel.Service;
-
+import com.hemayun.bblwheel.Bblwheel.Service;
 /**
  * Created by apple on 16/11/15.
  */

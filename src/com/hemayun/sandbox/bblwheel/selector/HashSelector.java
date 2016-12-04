@@ -1,8 +1,9 @@
 package com.hemayun.sandbox.bblwheel.selector;
 
+import com.hemayun.bblwheel.Bblwheel;
+import com.hemayun.bblwheel.Bblwheel.Service;
 import com.hemayun.sandbox.bblwheel.AbsSelector;
 import com.hemayun.sandbox.bblwheel.Selector;
-import com.hemayun.sandbox.bblwheel.Service;
 
 /**
  * Created by apple on 16/11/15.
@@ -18,12 +19,12 @@ public class HashSelector extends AbsSelector {
     }
 
     @Override
-    public Service select(String serviceName, String key) {
+    public Bblwheel.Service select(String serviceName, String key) {
         Service[] ins = findService(serviceName);
         if (ins.length == 0) return null;
         if (ins.length == 1) return ins[0];
         Service srv = ins[Math.abs((int) (murmurHash(key) % (long) ins.length))];
-        srv.Statistics.count++;
+        srv.getStats().toBuilder().setCount(srv.getStats().getCount()+1);
         return srv;
     }
 
