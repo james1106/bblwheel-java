@@ -87,38 +87,20 @@ public class Leopard {
                 System.out.println("onExec " + cmd);
             }
         });
-        Bblwheel.RegisterResult result = instance.register();//注册服务
-        System.out.println(result);
-        if ("SUCCESS".equalsIgnoreCase(result.getDesc())) {
-            for (Service srv : result.getServiceList()) {
-                if (srv.getStatus() == Service.Status.ONLINE) {
-                    selector.addService(srv);
-                } else {
-                    selector.removeService(srv.getID(), srv.getName());
+
+        once.once(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    server.start();
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
             }
-            Runtime.getRuntime().addShutdownHook(new Thread() {
-                @Override
-                public void run() {
-                    instance.unregister();
-
-                }
-            });
-            once.once(new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        server.start();
-                        instance.online();
-                        server.join();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-            });
-        }
+        });
+        instance.register();
+        instance.online();
+        server.join();
     }
 
 }

@@ -151,13 +151,8 @@ public class ServiceInstance {
         return this;
     }
 
-    public Bblwheel.RegisterResult register() {
-        return wheel.register(this);
-    }
-
-    public ServiceInstance unregister() {
-        wheel.unregister();
-        return this;
+    public void register() {
+         wheel.register(this);
     }
 
     public ServiceInstance syncConfig() {

@@ -379,1183 +379,6 @@ public final class Bblwheel {
 
   }
 
-  public interface RegisterResultOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:bblwheel.RegisterResult)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>optional string Desc = 1;</code>
-     */
-    java.lang.String getDesc();
-    /**
-     * <code>optional string Desc = 1;</code>
-     */
-    com.google.protobuf.ByteString
-        getDescBytes();
-
-    /**
-     * <code>repeated .bblwheel.Service Service = 2;</code>
-     */
-    java.util.List<com.hemayun.bblwheel.Bblwheel.Service> 
-        getServiceList();
-    /**
-     * <code>repeated .bblwheel.Service Service = 2;</code>
-     */
-    com.hemayun.bblwheel.Bblwheel.Service getService(int index);
-    /**
-     * <code>repeated .bblwheel.Service Service = 2;</code>
-     */
-    int getServiceCount();
-    /**
-     * <code>repeated .bblwheel.Service Service = 2;</code>
-     */
-    java.util.List<? extends com.hemayun.bblwheel.Bblwheel.ServiceOrBuilder> 
-        getServiceOrBuilderList();
-    /**
-     * <code>repeated .bblwheel.Service Service = 2;</code>
-     */
-    com.hemayun.bblwheel.Bblwheel.ServiceOrBuilder getServiceOrBuilder(
-        int index);
-
-    /**
-     * <code>map&lt;string, .bblwheel.Config&gt; Configs = 3;</code>
-     */
-    int getConfigsCount();
-    /**
-     * <code>map&lt;string, .bblwheel.Config&gt; Configs = 3;</code>
-     */
-    boolean containsConfigs(
-        java.lang.String key);
-    /**
-     * Use {@link #getConfigsMap()} instead.
-     */
-    @java.lang.Deprecated
-    java.util.Map<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config>
-    getConfigs();
-    /**
-     * <code>map&lt;string, .bblwheel.Config&gt; Configs = 3;</code>
-     */
-    java.util.Map<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config>
-    getConfigsMap();
-    /**
-     * <code>map&lt;string, .bblwheel.Config&gt; Configs = 3;</code>
-     */
-
-    com.hemayun.bblwheel.Bblwheel.Config getConfigsOrDefault(
-        java.lang.String key,
-        com.hemayun.bblwheel.Bblwheel.Config defaultValue);
-    /**
-     * <code>map&lt;string, .bblwheel.Config&gt; Configs = 3;</code>
-     */
-
-    com.hemayun.bblwheel.Bblwheel.Config getConfigsOrThrow(
-        java.lang.String key);
-  }
-  /**
-   * Protobuf type {@code bblwheel.RegisterResult}
-   */
-  public  static final class RegisterResult extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:bblwheel.RegisterResult)
-      RegisterResultOrBuilder {
-    // Use RegisterResult.newBuilder() to construct.
-    private RegisterResult(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private RegisterResult() {
-      desc_ = "";
-      service_ = java.util.Collections.emptyList();
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
-    }
-    private RegisterResult(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      int mutable_bitField0_ = 0;
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!input.skipField(tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              desc_ = s;
-              break;
-            }
-            case 18: {
-              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-                service_ = new java.util.ArrayList<com.hemayun.bblwheel.Bblwheel.Service>();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              service_.add(
-                  input.readMessage(com.hemayun.bblwheel.Bblwheel.Service.parser(), extensionRegistry));
-              break;
-            }
-            case 26: {
-              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-                configs_ = com.google.protobuf.MapField.newMapField(
-                    ConfigsDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000004;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config>
-              configs__ = input.readMessage(
-                  ConfigsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              configs_.getMutableMap().put(
-                  configs__.getKey(), configs__.getValue());
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-          service_ = java.util.Collections.unmodifiableList(service_);
-        }
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return com.hemayun.bblwheel.Bblwheel.internal_static_bblwheel_RegisterResult_descriptor;
-    }
-
-    @SuppressWarnings({"rawtypes"})
-    protected com.google.protobuf.MapField internalGetMapField(
-        int number) {
-      switch (number) {
-        case 3:
-          return internalGetConfigs();
-        default:
-          throw new RuntimeException(
-              "Invalid map field number: " + number);
-      }
-    }
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return com.hemayun.bblwheel.Bblwheel.internal_static_bblwheel_RegisterResult_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              com.hemayun.bblwheel.Bblwheel.RegisterResult.class, com.hemayun.bblwheel.Bblwheel.RegisterResult.Builder.class);
-    }
-
-    private int bitField0_;
-    public static final int DESC_FIELD_NUMBER = 1;
-    private volatile java.lang.Object desc_;
-    /**
-     * <code>optional string Desc = 1;</code>
-     */
-    public java.lang.String getDesc() {
-      java.lang.Object ref = desc_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        desc_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>optional string Desc = 1;</code>
-     */
-    public com.google.protobuf.ByteString
-        getDescBytes() {
-      java.lang.Object ref = desc_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        desc_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int SERVICE_FIELD_NUMBER = 2;
-    private java.util.List<com.hemayun.bblwheel.Bblwheel.Service> service_;
-    /**
-     * <code>repeated .bblwheel.Service Service = 2;</code>
-     */
-    public java.util.List<com.hemayun.bblwheel.Bblwheel.Service> getServiceList() {
-      return service_;
-    }
-    /**
-     * <code>repeated .bblwheel.Service Service = 2;</code>
-     */
-    public java.util.List<? extends com.hemayun.bblwheel.Bblwheel.ServiceOrBuilder> 
-        getServiceOrBuilderList() {
-      return service_;
-    }
-    /**
-     * <code>repeated .bblwheel.Service Service = 2;</code>
-     */
-    public int getServiceCount() {
-      return service_.size();
-    }
-    /**
-     * <code>repeated .bblwheel.Service Service = 2;</code>
-     */
-    public com.hemayun.bblwheel.Bblwheel.Service getService(int index) {
-      return service_.get(index);
-    }
-    /**
-     * <code>repeated .bblwheel.Service Service = 2;</code>
-     */
-    public com.hemayun.bblwheel.Bblwheel.ServiceOrBuilder getServiceOrBuilder(
-        int index) {
-      return service_.get(index);
-    }
-
-    public static final int CONFIGS_FIELD_NUMBER = 3;
-    private static final class ConfigsDefaultEntryHolder {
-      static final com.google.protobuf.MapEntry<
-          java.lang.String, com.hemayun.bblwheel.Bblwheel.Config> defaultEntry =
-              com.google.protobuf.MapEntry
-              .<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config>newDefaultInstance(
-                  com.hemayun.bblwheel.Bblwheel.internal_static_bblwheel_RegisterResult_ConfigsEntry_descriptor, 
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "",
-                  com.google.protobuf.WireFormat.FieldType.MESSAGE,
-                  com.hemayun.bblwheel.Bblwheel.Config.getDefaultInstance());
-    }
-    private com.google.protobuf.MapField<
-        java.lang.String, com.hemayun.bblwheel.Bblwheel.Config> configs_;
-    private com.google.protobuf.MapField<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config>
-    internalGetConfigs() {
-      if (configs_ == null) {
-        return com.google.protobuf.MapField.emptyMapField(
-            ConfigsDefaultEntryHolder.defaultEntry);
-      }
-      return configs_;
-    }
-
-    public int getConfigsCount() {
-      return internalGetConfigs().getMap().size();
-    }
-    /**
-     * <code>map&lt;string, .bblwheel.Config&gt; Configs = 3;</code>
-     */
-
-    public boolean containsConfigs(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      return internalGetConfigs().getMap().containsKey(key);
-    }
-    /**
-     * Use {@link #getConfigsMap()} instead.
-     */
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config> getConfigs() {
-      return getConfigsMap();
-    }
-    /**
-     * <code>map&lt;string, .bblwheel.Config&gt; Configs = 3;</code>
-     */
-
-    public java.util.Map<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config> getConfigsMap() {
-      return internalGetConfigs().getMap();
-    }
-    /**
-     * <code>map&lt;string, .bblwheel.Config&gt; Configs = 3;</code>
-     */
-
-    public com.hemayun.bblwheel.Bblwheel.Config getConfigsOrDefault(
-        java.lang.String key,
-        com.hemayun.bblwheel.Bblwheel.Config defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config> map =
-          internalGetConfigs().getMap();
-      return map.containsKey(key) ? map.get(key) : defaultValue;
-    }
-    /**
-     * <code>map&lt;string, .bblwheel.Config&gt; Configs = 3;</code>
-     */
-
-    public com.hemayun.bblwheel.Bblwheel.Config getConfigsOrThrow(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config> map =
-          internalGetConfigs().getMap();
-      if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
-      }
-      return map.get(key);
-    }
-
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (!getDescBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, desc_);
-      }
-      for (int i = 0; i < service_.size(); i++) {
-        output.writeMessage(2, service_.get(i));
-      }
-      com.google.protobuf.GeneratedMessageV3
-        .serializeStringMapTo(
-          output,
-          internalGetConfigs(),
-          ConfigsDefaultEntryHolder.defaultEntry,
-          3);
-    }
-
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (!getDescBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, desc_);
-      }
-      for (int i = 0; i < service_.size(); i++) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, service_.get(i));
-      }
-      for (java.util.Map.Entry<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config> entry
-           : internalGetConfigs().getMap().entrySet()) {
-        com.google.protobuf.MapEntry<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config>
-        configs__ = ConfigsDefaultEntryHolder.defaultEntry.newBuilderForType()
-            .setKey(entry.getKey())
-            .setValue(entry.getValue())
-            .build();
-        size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(3, configs__);
-      }
-      memoizedSize = size;
-      return size;
-    }
-
-    private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof com.hemayun.bblwheel.Bblwheel.RegisterResult)) {
-        return super.equals(obj);
-      }
-      com.hemayun.bblwheel.Bblwheel.RegisterResult other = (com.hemayun.bblwheel.Bblwheel.RegisterResult) obj;
-
-      boolean result = true;
-      result = result && getDesc()
-          .equals(other.getDesc());
-      result = result && getServiceList()
-          .equals(other.getServiceList());
-      result = result && internalGetConfigs().equals(
-          other.internalGetConfigs());
-      return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
-      hash = (37 * hash) + DESC_FIELD_NUMBER;
-      hash = (53 * hash) + getDesc().hashCode();
-      if (getServiceCount() > 0) {
-        hash = (37 * hash) + SERVICE_FIELD_NUMBER;
-        hash = (53 * hash) + getServiceList().hashCode();
-      }
-      if (!internalGetConfigs().getMap().isEmpty()) {
-        hash = (37 * hash) + CONFIGS_FIELD_NUMBER;
-        hash = (53 * hash) + internalGetConfigs().hashCode();
-      }
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static com.hemayun.bblwheel.Bblwheel.RegisterResult parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.hemayun.bblwheel.Bblwheel.RegisterResult parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.hemayun.bblwheel.Bblwheel.RegisterResult parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.hemayun.bblwheel.Bblwheel.RegisterResult parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.hemayun.bblwheel.Bblwheel.RegisterResult parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.hemayun.bblwheel.Bblwheel.RegisterResult parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.hemayun.bblwheel.Bblwheel.RegisterResult parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static com.hemayun.bblwheel.Bblwheel.RegisterResult parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.hemayun.bblwheel.Bblwheel.RegisterResult parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.hemayun.bblwheel.Bblwheel.RegisterResult parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(com.hemayun.bblwheel.Bblwheel.RegisterResult prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code bblwheel.RegisterResult}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:bblwheel.RegisterResult)
-        com.hemayun.bblwheel.Bblwheel.RegisterResultOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.hemayun.bblwheel.Bblwheel.internal_static_bblwheel_RegisterResult_descriptor;
-      }
-
-      @SuppressWarnings({"rawtypes"})
-      protected com.google.protobuf.MapField internalGetMapField(
-          int number) {
-        switch (number) {
-          case 3:
-            return internalGetConfigs();
-          default:
-            throw new RuntimeException(
-                "Invalid map field number: " + number);
-        }
-      }
-      @SuppressWarnings({"rawtypes"})
-      protected com.google.protobuf.MapField internalGetMutableMapField(
-          int number) {
-        switch (number) {
-          case 3:
-            return internalGetMutableConfigs();
-          default:
-            throw new RuntimeException(
-                "Invalid map field number: " + number);
-        }
-      }
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.hemayun.bblwheel.Bblwheel.internal_static_bblwheel_RegisterResult_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.hemayun.bblwheel.Bblwheel.RegisterResult.class, com.hemayun.bblwheel.Bblwheel.RegisterResult.Builder.class);
-      }
-
-      // Construct using com.hemayun.bblwheel.Bblwheel.RegisterResult.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getServiceFieldBuilder();
-        }
-      }
-      public Builder clear() {
-        super.clear();
-        desc_ = "";
-
-        if (serviceBuilder_ == null) {
-          service_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
-        } else {
-          serviceBuilder_.clear();
-        }
-        internalGetMutableConfigs().clear();
-        return this;
-      }
-
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return com.hemayun.bblwheel.Bblwheel.internal_static_bblwheel_RegisterResult_descriptor;
-      }
-
-      public com.hemayun.bblwheel.Bblwheel.RegisterResult getDefaultInstanceForType() {
-        return com.hemayun.bblwheel.Bblwheel.RegisterResult.getDefaultInstance();
-      }
-
-      public com.hemayun.bblwheel.Bblwheel.RegisterResult build() {
-        com.hemayun.bblwheel.Bblwheel.RegisterResult result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      public com.hemayun.bblwheel.Bblwheel.RegisterResult buildPartial() {
-        com.hemayun.bblwheel.Bblwheel.RegisterResult result = new com.hemayun.bblwheel.Bblwheel.RegisterResult(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        result.desc_ = desc_;
-        if (serviceBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) == 0x00000002)) {
-            service_ = java.util.Collections.unmodifiableList(service_);
-            bitField0_ = (bitField0_ & ~0x00000002);
-          }
-          result.service_ = service_;
-        } else {
-          result.service_ = serviceBuilder_.build();
-        }
-        result.configs_ = internalGetConfigs();
-        result.configs_.makeImmutable();
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
-      }
-
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
-        return (Builder) super.setField(field, value);
-      }
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.hemayun.bblwheel.Bblwheel.RegisterResult) {
-          return mergeFrom((com.hemayun.bblwheel.Bblwheel.RegisterResult)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(com.hemayun.bblwheel.Bblwheel.RegisterResult other) {
-        if (other == com.hemayun.bblwheel.Bblwheel.RegisterResult.getDefaultInstance()) return this;
-        if (!other.getDesc().isEmpty()) {
-          desc_ = other.desc_;
-          onChanged();
-        }
-        if (serviceBuilder_ == null) {
-          if (!other.service_.isEmpty()) {
-            if (service_.isEmpty()) {
-              service_ = other.service_;
-              bitField0_ = (bitField0_ & ~0x00000002);
-            } else {
-              ensureServiceIsMutable();
-              service_.addAll(other.service_);
-            }
-            onChanged();
-          }
-        } else {
-          if (!other.service_.isEmpty()) {
-            if (serviceBuilder_.isEmpty()) {
-              serviceBuilder_.dispose();
-              serviceBuilder_ = null;
-              service_ = other.service_;
-              bitField0_ = (bitField0_ & ~0x00000002);
-              serviceBuilder_ = 
-                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getServiceFieldBuilder() : null;
-            } else {
-              serviceBuilder_.addAllMessages(other.service_);
-            }
-          }
-        }
-        internalGetMutableConfigs().mergeFrom(
-            other.internalGetConfigs());
-        onChanged();
-        return this;
-      }
-
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        com.hemayun.bblwheel.Bblwheel.RegisterResult parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.hemayun.bblwheel.Bblwheel.RegisterResult) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      private int bitField0_;
-
-      private java.lang.Object desc_ = "";
-      /**
-       * <code>optional string Desc = 1;</code>
-       */
-      public java.lang.String getDesc() {
-        java.lang.Object ref = desc_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          desc_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>optional string Desc = 1;</code>
-       */
-      public com.google.protobuf.ByteString
-          getDescBytes() {
-        java.lang.Object ref = desc_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          desc_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>optional string Desc = 1;</code>
-       */
-      public Builder setDesc(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        desc_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional string Desc = 1;</code>
-       */
-      public Builder clearDesc() {
-        
-        desc_ = getDefaultInstance().getDesc();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional string Desc = 1;</code>
-       */
-      public Builder setDescBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        desc_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.util.List<com.hemayun.bblwheel.Bblwheel.Service> service_ =
-        java.util.Collections.emptyList();
-      private void ensureServiceIsMutable() {
-        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
-          service_ = new java.util.ArrayList<com.hemayun.bblwheel.Bblwheel.Service>(service_);
-          bitField0_ |= 0x00000002;
-         }
-      }
-
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          com.hemayun.bblwheel.Bblwheel.Service, com.hemayun.bblwheel.Bblwheel.Service.Builder, com.hemayun.bblwheel.Bblwheel.ServiceOrBuilder> serviceBuilder_;
-
-      /**
-       * <code>repeated .bblwheel.Service Service = 2;</code>
-       */
-      public java.util.List<com.hemayun.bblwheel.Bblwheel.Service> getServiceList() {
-        if (serviceBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(service_);
-        } else {
-          return serviceBuilder_.getMessageList();
-        }
-      }
-      /**
-       * <code>repeated .bblwheel.Service Service = 2;</code>
-       */
-      public int getServiceCount() {
-        if (serviceBuilder_ == null) {
-          return service_.size();
-        } else {
-          return serviceBuilder_.getCount();
-        }
-      }
-      /**
-       * <code>repeated .bblwheel.Service Service = 2;</code>
-       */
-      public com.hemayun.bblwheel.Bblwheel.Service getService(int index) {
-        if (serviceBuilder_ == null) {
-          return service_.get(index);
-        } else {
-          return serviceBuilder_.getMessage(index);
-        }
-      }
-      /**
-       * <code>repeated .bblwheel.Service Service = 2;</code>
-       */
-      public Builder setService(
-          int index, com.hemayun.bblwheel.Bblwheel.Service value) {
-        if (serviceBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureServiceIsMutable();
-          service_.set(index, value);
-          onChanged();
-        } else {
-          serviceBuilder_.setMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .bblwheel.Service Service = 2;</code>
-       */
-      public Builder setService(
-          int index, com.hemayun.bblwheel.Bblwheel.Service.Builder builderForValue) {
-        if (serviceBuilder_ == null) {
-          ensureServiceIsMutable();
-          service_.set(index, builderForValue.build());
-          onChanged();
-        } else {
-          serviceBuilder_.setMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .bblwheel.Service Service = 2;</code>
-       */
-      public Builder addService(com.hemayun.bblwheel.Bblwheel.Service value) {
-        if (serviceBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureServiceIsMutable();
-          service_.add(value);
-          onChanged();
-        } else {
-          serviceBuilder_.addMessage(value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .bblwheel.Service Service = 2;</code>
-       */
-      public Builder addService(
-          int index, com.hemayun.bblwheel.Bblwheel.Service value) {
-        if (serviceBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureServiceIsMutable();
-          service_.add(index, value);
-          onChanged();
-        } else {
-          serviceBuilder_.addMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .bblwheel.Service Service = 2;</code>
-       */
-      public Builder addService(
-          com.hemayun.bblwheel.Bblwheel.Service.Builder builderForValue) {
-        if (serviceBuilder_ == null) {
-          ensureServiceIsMutable();
-          service_.add(builderForValue.build());
-          onChanged();
-        } else {
-          serviceBuilder_.addMessage(builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .bblwheel.Service Service = 2;</code>
-       */
-      public Builder addService(
-          int index, com.hemayun.bblwheel.Bblwheel.Service.Builder builderForValue) {
-        if (serviceBuilder_ == null) {
-          ensureServiceIsMutable();
-          service_.add(index, builderForValue.build());
-          onChanged();
-        } else {
-          serviceBuilder_.addMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .bblwheel.Service Service = 2;</code>
-       */
-      public Builder addAllService(
-          java.lang.Iterable<? extends com.hemayun.bblwheel.Bblwheel.Service> values) {
-        if (serviceBuilder_ == null) {
-          ensureServiceIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, service_);
-          onChanged();
-        } else {
-          serviceBuilder_.addAllMessages(values);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .bblwheel.Service Service = 2;</code>
-       */
-      public Builder clearService() {
-        if (serviceBuilder_ == null) {
-          service_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
-          onChanged();
-        } else {
-          serviceBuilder_.clear();
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .bblwheel.Service Service = 2;</code>
-       */
-      public Builder removeService(int index) {
-        if (serviceBuilder_ == null) {
-          ensureServiceIsMutable();
-          service_.remove(index);
-          onChanged();
-        } else {
-          serviceBuilder_.remove(index);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .bblwheel.Service Service = 2;</code>
-       */
-      public com.hemayun.bblwheel.Bblwheel.Service.Builder getServiceBuilder(
-          int index) {
-        return getServiceFieldBuilder().getBuilder(index);
-      }
-      /**
-       * <code>repeated .bblwheel.Service Service = 2;</code>
-       */
-      public com.hemayun.bblwheel.Bblwheel.ServiceOrBuilder getServiceOrBuilder(
-          int index) {
-        if (serviceBuilder_ == null) {
-          return service_.get(index);  } else {
-          return serviceBuilder_.getMessageOrBuilder(index);
-        }
-      }
-      /**
-       * <code>repeated .bblwheel.Service Service = 2;</code>
-       */
-      public java.util.List<? extends com.hemayun.bblwheel.Bblwheel.ServiceOrBuilder> 
-           getServiceOrBuilderList() {
-        if (serviceBuilder_ != null) {
-          return serviceBuilder_.getMessageOrBuilderList();
-        } else {
-          return java.util.Collections.unmodifiableList(service_);
-        }
-      }
-      /**
-       * <code>repeated .bblwheel.Service Service = 2;</code>
-       */
-      public com.hemayun.bblwheel.Bblwheel.Service.Builder addServiceBuilder() {
-        return getServiceFieldBuilder().addBuilder(
-            com.hemayun.bblwheel.Bblwheel.Service.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .bblwheel.Service Service = 2;</code>
-       */
-      public com.hemayun.bblwheel.Bblwheel.Service.Builder addServiceBuilder(
-          int index) {
-        return getServiceFieldBuilder().addBuilder(
-            index, com.hemayun.bblwheel.Bblwheel.Service.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .bblwheel.Service Service = 2;</code>
-       */
-      public java.util.List<com.hemayun.bblwheel.Bblwheel.Service.Builder> 
-           getServiceBuilderList() {
-        return getServiceFieldBuilder().getBuilderList();
-      }
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          com.hemayun.bblwheel.Bblwheel.Service, com.hemayun.bblwheel.Bblwheel.Service.Builder, com.hemayun.bblwheel.Bblwheel.ServiceOrBuilder> 
-          getServiceFieldBuilder() {
-        if (serviceBuilder_ == null) {
-          serviceBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              com.hemayun.bblwheel.Bblwheel.Service, com.hemayun.bblwheel.Bblwheel.Service.Builder, com.hemayun.bblwheel.Bblwheel.ServiceOrBuilder>(
-                  service_,
-                  ((bitField0_ & 0x00000002) == 0x00000002),
-                  getParentForChildren(),
-                  isClean());
-          service_ = null;
-        }
-        return serviceBuilder_;
-      }
-
-      private com.google.protobuf.MapField<
-          java.lang.String, com.hemayun.bblwheel.Bblwheel.Config> configs_;
-      private com.google.protobuf.MapField<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config>
-      internalGetConfigs() {
-        if (configs_ == null) {
-          return com.google.protobuf.MapField.emptyMapField(
-              ConfigsDefaultEntryHolder.defaultEntry);
-        }
-        return configs_;
-      }
-      private com.google.protobuf.MapField<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config>
-      internalGetMutableConfigs() {
-        onChanged();;
-        if (configs_ == null) {
-          configs_ = com.google.protobuf.MapField.newMapField(
-              ConfigsDefaultEntryHolder.defaultEntry);
-        }
-        if (!configs_.isMutable()) {
-          configs_ = configs_.copy();
-        }
-        return configs_;
-      }
-
-      public int getConfigsCount() {
-        return internalGetConfigs().getMap().size();
-      }
-      /**
-       * <code>map&lt;string, .bblwheel.Config&gt; Configs = 3;</code>
-       */
-
-      public boolean containsConfigs(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        return internalGetConfigs().getMap().containsKey(key);
-      }
-      /**
-       * Use {@link #getConfigsMap()} instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config> getConfigs() {
-        return getConfigsMap();
-      }
-      /**
-       * <code>map&lt;string, .bblwheel.Config&gt; Configs = 3;</code>
-       */
-
-      public java.util.Map<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config> getConfigsMap() {
-        return internalGetConfigs().getMap();
-      }
-      /**
-       * <code>map&lt;string, .bblwheel.Config&gt; Configs = 3;</code>
-       */
-
-      public com.hemayun.bblwheel.Bblwheel.Config getConfigsOrDefault(
-          java.lang.String key,
-          com.hemayun.bblwheel.Bblwheel.Config defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config> map =
-            internalGetConfigs().getMap();
-        return map.containsKey(key) ? map.get(key) : defaultValue;
-      }
-      /**
-       * <code>map&lt;string, .bblwheel.Config&gt; Configs = 3;</code>
-       */
-
-      public com.hemayun.bblwheel.Bblwheel.Config getConfigsOrThrow(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config> map =
-            internalGetConfigs().getMap();
-        if (!map.containsKey(key)) {
-          throw new java.lang.IllegalArgumentException();
-        }
-        return map.get(key);
-      }
-
-      public Builder clearConfigs() {
-        getMutableConfigs().clear();
-        return this;
-      }
-      /**
-       * <code>map&lt;string, .bblwheel.Config&gt; Configs = 3;</code>
-       */
-
-      public Builder removeConfigs(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        getMutableConfigs().remove(key);
-        return this;
-      }
-      /**
-       * Use alternate mutation accessors instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config>
-      getMutableConfigs() {
-        return internalGetMutableConfigs().getMutableMap();
-      }
-      /**
-       * <code>map&lt;string, .bblwheel.Config&gt; Configs = 3;</code>
-       */
-      public Builder putConfigs(
-          java.lang.String key,
-          com.hemayun.bblwheel.Bblwheel.Config value) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        if (value == null) { throw new java.lang.NullPointerException(); }
-        getMutableConfigs().put(key, value);
-        return this;
-      }
-      /**
-       * <code>map&lt;string, .bblwheel.Config&gt; Configs = 3;</code>
-       */
-
-      public Builder putAllConfigs(
-          java.util.Map<java.lang.String, com.hemayun.bblwheel.Bblwheel.Config> values) {
-        getMutableConfigs().putAll(values);
-        return this;
-      }
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
-      }
-
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:bblwheel.RegisterResult)
-    }
-
-    // @@protoc_insertion_point(class_scope:bblwheel.RegisterResult)
-    private static final com.hemayun.bblwheel.Bblwheel.RegisterResult DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new com.hemayun.bblwheel.Bblwheel.RegisterResult();
-    }
-
-    public static com.hemayun.bblwheel.Bblwheel.RegisterResult getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<RegisterResult>
-        PARSER = new com.google.protobuf.AbstractParser<RegisterResult>() {
-      public RegisterResult parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-          return new RegisterResult(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<RegisterResult> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<RegisterResult> getParserForType() {
-      return PARSER;
-    }
-
-    public com.hemayun.bblwheel.Bblwheel.RegisterResult getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
   public interface ServiceOrBuilder extends
       // @@protoc_insertion_point(interface_extends:bblwheel.Service)
       com.google.protobuf.MessageOrBuilder {
@@ -1718,6 +541,16 @@ public final class Bblwheel {
      */
     com.google.protobuf.ByteString
         getErrorBytes();
+
+    /**
+     * <code>optional string Token = 15;</code>
+     */
+    java.lang.String getToken();
+    /**
+     * <code>optional string Token = 15;</code>
+     */
+    com.google.protobuf.ByteString
+        getTokenBytes();
   }
   /**
    * Protobuf type {@code bblwheel.Service}
@@ -1744,6 +577,7 @@ public final class Bblwheel {
       dependentConfigs_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       status_ = 0;
       error_ = "";
+      token_ = "";
     }
 
     @java.lang.Override
@@ -1867,6 +701,12 @@ public final class Bblwheel {
               java.lang.String s = input.readStringRequireUtf8();
 
               error_ = s;
+              break;
+            }
+            case 122: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              token_ = s;
               break;
             }
           }
@@ -2416,6 +1256,40 @@ public final class Bblwheel {
       }
     }
 
+    public static final int TOKEN_FIELD_NUMBER = 15;
+    private volatile java.lang.Object token_;
+    /**
+     * <code>optional string Token = 15;</code>
+     */
+    public java.lang.String getToken() {
+      java.lang.Object ref = token_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        token_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string Token = 15;</code>
+     */
+    public com.google.protobuf.ByteString
+        getTokenBytes() {
+      java.lang.Object ref = token_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        token_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -2469,6 +1343,9 @@ public final class Bblwheel {
       }
       if (!getErrorBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 14, error_);
+      }
+      if (!getTokenBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 15, token_);
       }
     }
 
@@ -2538,6 +1415,9 @@ public final class Bblwheel {
       if (!getErrorBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(14, error_);
       }
+      if (!getTokenBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(15, token_);
+      }
       memoizedSize = size;
       return size;
     }
@@ -2584,6 +1464,8 @@ public final class Bblwheel {
       }
       result = result && getError()
           .equals(other.getError());
+      result = result && getToken()
+          .equals(other.getToken());
       return result;
     }
 
@@ -2631,6 +1513,8 @@ public final class Bblwheel {
       }
       hash = (37 * hash) + ERROR_FIELD_NUMBER;
       hash = (53 * hash) + getError().hashCode();
+      hash = (37 * hash) + TOKEN_FIELD_NUMBER;
+      hash = (53 * hash) + getToken().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -2781,6 +1665,8 @@ public final class Bblwheel {
         }
         error_ = "";
 
+        token_ = "";
+
         return this;
       }
 
@@ -2835,6 +1721,7 @@ public final class Bblwheel {
           result.stats_ = statsBuilder_.build();
         }
         result.error_ = error_;
+        result.token_ = token_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -2945,6 +1832,10 @@ public final class Bblwheel {
         }
         if (!other.getError().isEmpty()) {
           error_ = other.error_;
+          onChanged();
+        }
+        if (!other.getToken().isEmpty()) {
+          token_ = other.token_;
           onChanged();
         }
         onChanged();
@@ -3948,6 +2839,75 @@ public final class Bblwheel {
   checkByteStringIsUtf8(value);
         
         error_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object token_ = "";
+      /**
+       * <code>optional string Token = 15;</code>
+       */
+      public java.lang.String getToken() {
+        java.lang.Object ref = token_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          token_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string Token = 15;</code>
+       */
+      public com.google.protobuf.ByteString
+          getTokenBytes() {
+        java.lang.Object ref = token_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          token_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string Token = 15;</code>
+       */
+      public Builder setToken(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        token_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string Token = 15;</code>
+       */
+      public Builder clearToken() {
+        
+        token_ = getDefaultInstance().getToken();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string Token = 15;</code>
+       */
+      public Builder setTokenBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        token_ = value;
         onChanged();
         return this;
       }
@@ -11872,16 +10832,6 @@ public final class Bblwheel {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_bblwheel_Void_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_bblwheel_RegisterResult_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_bblwheel_RegisterResult_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_bblwheel_RegisterResult_ConfigsEntry_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_bblwheel_RegisterResult_ConfigsEntry_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_bblwheel_Service_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -11950,59 +10900,52 @@ public final class Bblwheel {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\016bblwheel.proto\022\010bblwheel\"\006\n\004Void\"\274\001\n\016R" +
-      "egisterResult\022\014\n\004Desc\030\001 \001(\t\022\"\n\007Service\030\002" +
-      " \003(\0132\021.bblwheel.Service\0226\n\007Configs\030\003 \003(\013" +
-      "2%.bblwheel.RegisterResult.ConfigsEntry\032" +
-      "@\n\014ConfigsEntry\022\013\n\003key\030\001 \001(\t\022\037\n\005value\030\002 " +
-      "\001(\0132\020.bblwheel.Config:\0028\001\"\371\002\n\007Service\022\n\n" +
-      "\002ID\030\001 \001(\t\022\014\n\004Name\030\002 \001(\t\022\014\n\004Tags\030\003 \003(\t\022\017\n" +
-      "\007Address\030\004 \001(\t\022\022\n\nDataCenter\030\005 \001(\t\022\014\n\004No" +
-      "de\030\006 \001(\t\022\013\n\003PID\030\007 \001(\t\022\016\n\006Weight\030\010 \001(\005\022\016\n" +
-      "\006Single\030\t \001(\010\022\031\n\021DependentServices\030\n \003(\t",
-      "\022\030\n\020DependentConfigs\030\013 \003(\t\022(\n\006status\030\014 \001" +
-      "(\0162\030.bblwheel.Service.Status\022\036\n\005Stats\030\r " +
-      "\001(\0132\017.bblwheel.Stats\022\r\n\005Error\030\016 \001(\t\"X\n\006S" +
-      "tatus\022\010\n\004INIT\020\000\022\n\n\006ONLINE\020\001\022\017\n\013MAINTENAN" +
-      "CE\020\002\022\013\n\007OFFLINE\020\003\022\t\n\005FAULT\020\004\022\017\n\013UNAUTHOR" +
-      "IZE\020\005\")\n\013ConfigEntry\022\013\n\003Key\030\001 \001(\t\022\r\n\005Val" +
-      "ue\030\002 \001(\t\".\n\006Config\022$\n\005Items\030\001 \003(\0132\025.bblw" +
-      "heel.ConfigEntry\"[\n\017UpdateConfigReq\022\021\n\tS" +
-      "erviceID\030\001 \001(\t\022\023\n\013ServiceName\030\002 \001(\t\022 \n\006c" +
-      "onfig\030\003 \001(\0132\020.bblwheel.Config\"\301\002\n\005Stats\022",
-      "\021\n\tServiceID\030\001 \001(\t\022\023\n\013ServiceName\030\002 \001(\t\022" +
-      "\r\n\005Count\030\003 \001(\003\022\016\n\006UpTime\030\004 \001(\003\022\017\n\007UsedMe" +
-      "m\030\005 \001(\003\022\017\n\007FreeMem\030\006 \001(\003\022\017\n\007Threads\030\007 \001(" +
-      "\003\022\023\n\013AvgRespTime\030\010 \001(\003\022\023\n\013MinRespTime\030\t " +
-      "\001(\003\022\023\n\013MaxRespTime\030\n \001(\003\022\026\n\016LastActiveTi" +
-      "me\030\013 \001(\003\022)\n\005Other\030\014 \003(\0132\032.bblwheel.Stats" +
-      ".OtherEntry\022\016\n\006Errors\030\r \001(\t\032,\n\nOtherEntr" +
-      "y\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\363\001\n\005Ev" +
-      "ent\022\'\n\004Type\030\001 \001(\0162\031.bblwheel.Event.Event" +
-      "Type\022\"\n\007Service\030\002 \001(\0132\021.bblwheel.Service",
-      "\022#\n\004Item\030\003 \001(\0132\025.bblwheel.ConfigEntry\022\017\n" +
-      "\007Command\030\004 \001(\t\"g\n\tEventType\022\r\n\tDISCOVERY" +
-      "\020\000\022\020\n\014CONFIGUPDATE\020\001\022\023\n\017REGISTER_RESULT\020" +
-      "\002\022\r\n\tKEEPALIVE\020\003\022\013\n\007CONTROL\020\004\022\010\n\004EXEC\020\005\"" +
-      "+\n\017LookupConfigReq\022\030\n\020DependentConfigs\030\001" +
-      " \003(\t\"\216\001\n\020LookupConfigResp\0228\n\007Configs\030\001 \003" +
-      "(\0132\'.bblwheel.LookupConfigResp.ConfigsEn" +
-      "try\032@\n\014ConfigsEntry\022\013\n\003key\030\001 \001(\t\022\037\n\005valu" +
-      "e\030\002 \001(\0132\020.bblwheel.Config:\0028\001\"U\n\020LookupS" +
-      "erviceReq\022\021\n\tServiceID\030\001 \001(\t\022\023\n\013ServiceN",
-      "ame\030\002 \001(\t\022\031\n\021DependentServices\030\003 \003(\t\"8\n\021" +
-      "LookupServiceResp\022#\n\010Services\030\001 \003(\0132\021.bb" +
-      "lwheel.Service2\360\002\n\010BblWheel\022E\n\014LookupCon" +
-      "fig\022\031.bblwheel.LookupConfigReq\032\032.bblwhee" +
-      "l.LookupConfigResp\022H\n\rLookupService\022\032.bb" +
-      "lwheel.LookupServiceReq\032\033.bblwheel.Looku" +
-      "pServiceResp\0229\n\014UpdateConfig\022\031.bblwheel." +
-      "UpdateConfigReq\032\016.bblwheel.Void\0227\n\010Regis" +
-      "ter\022\021.bblwheel.Service\032\030.bblwheel.Regist" +
-      "erResult\022/\n\nUnregister\022\021.bblwheel.Servic",
-      "e\032\016.bblwheel.Void\022.\n\006Events\022\017.bblwheel.E" +
-      "vent\032\017.bblwheel.Event(\0010\001B\033\n\024com.hemayun" +
-      ".bblwheelH\001\240\001\001b\006proto3"
+      "\n\016bblwheel.proto\022\010bblwheel\"\006\n\004Void\"\210\003\n\007S" +
+      "ervice\022\n\n\002ID\030\001 \001(\t\022\014\n\004Name\030\002 \001(\t\022\014\n\004Tags" +
+      "\030\003 \003(\t\022\017\n\007Address\030\004 \001(\t\022\022\n\nDataCenter\030\005 " +
+      "\001(\t\022\014\n\004Node\030\006 \001(\t\022\013\n\003PID\030\007 \001(\t\022\016\n\006Weight" +
+      "\030\010 \001(\005\022\016\n\006Single\030\t \001(\010\022\031\n\021DependentServi" +
+      "ces\030\n \003(\t\022\030\n\020DependentConfigs\030\013 \003(\t\022(\n\006s" +
+      "tatus\030\014 \001(\0162\030.bblwheel.Service.Status\022\036\n" +
+      "\005Stats\030\r \001(\0132\017.bblwheel.Stats\022\r\n\005Error\030\016" +
+      " \001(\t\022\r\n\005Token\030\017 \001(\t\"X\n\006Status\022\010\n\004INIT\020\000\022" +
+      "\n\n\006ONLINE\020\001\022\017\n\013MAINTENANCE\020\002\022\013\n\007OFFLINE\020",
+      "\003\022\t\n\005FAULT\020\004\022\017\n\013UNAUTHORIZE\020\005\")\n\013ConfigE" +
+      "ntry\022\013\n\003Key\030\001 \001(\t\022\r\n\005Value\030\002 \001(\t\".\n\006Conf" +
+      "ig\022$\n\005Items\030\001 \003(\0132\025.bblwheel.ConfigEntry" +
+      "\"[\n\017UpdateConfigReq\022\021\n\tServiceID\030\001 \001(\t\022\023" +
+      "\n\013ServiceName\030\002 \001(\t\022 \n\006config\030\003 \001(\0132\020.bb" +
+      "lwheel.Config\"\301\002\n\005Stats\022\021\n\tServiceID\030\001 \001" +
+      "(\t\022\023\n\013ServiceName\030\002 \001(\t\022\r\n\005Count\030\003 \001(\003\022\016" +
+      "\n\006UpTime\030\004 \001(\003\022\017\n\007UsedMem\030\005 \001(\003\022\017\n\007FreeM" +
+      "em\030\006 \001(\003\022\017\n\007Threads\030\007 \001(\003\022\023\n\013AvgRespTime" +
+      "\030\010 \001(\003\022\023\n\013MinRespTime\030\t \001(\003\022\023\n\013MaxRespTi",
+      "me\030\n \001(\003\022\026\n\016LastActiveTime\030\013 \001(\003\022)\n\005Othe" +
+      "r\030\014 \003(\0132\032.bblwheel.Stats.OtherEntry\022\016\n\006E" +
+      "rrors\030\r \001(\t\032,\n\nOtherEntry\022\013\n\003key\030\001 \001(\t\022\r" +
+      "\n\005value\030\002 \001(\t:\0028\001\"\363\001\n\005Event\022\'\n\004Type\030\001 \001(" +
+      "\0162\031.bblwheel.Event.EventType\022\"\n\007Service\030" +
+      "\002 \001(\0132\021.bblwheel.Service\022#\n\004Item\030\003 \001(\0132\025" +
+      ".bblwheel.ConfigEntry\022\017\n\007Command\030\004 \001(\t\"g" +
+      "\n\tEventType\022\r\n\tDISCOVERY\020\000\022\020\n\014CONFIGUPDA" +
+      "TE\020\001\022\023\n\017REGISTER_RESULT\020\002\022\r\n\tKEEPALIVE\020\003" +
+      "\022\013\n\007CONTROL\020\004\022\010\n\004EXEC\020\005\"+\n\017LookupConfigR",
+      "eq\022\030\n\020DependentConfigs\030\001 \003(\t\"\216\001\n\020LookupC" +
+      "onfigResp\0228\n\007Configs\030\001 \003(\0132\'.bblwheel.Lo" +
+      "okupConfigResp.ConfigsEntry\032@\n\014ConfigsEn" +
+      "try\022\013\n\003key\030\001 \001(\t\022\037\n\005value\030\002 \001(\0132\020.bblwhe" +
+      "el.Config:\0028\001\"U\n\020LookupServiceReq\022\021\n\tSer" +
+      "viceID\030\001 \001(\t\022\023\n\013ServiceName\030\002 \001(\t\022\031\n\021Dep" +
+      "endentServices\030\003 \003(\t\"8\n\021LookupServiceRes" +
+      "p\022#\n\010Services\030\001 \003(\0132\021.bblwheel.Service2\206" +
+      "\002\n\010BblWheel\022E\n\014LookupConfig\022\031.bblwheel.L" +
+      "ookupConfigReq\032\032.bblwheel.LookupConfigRe",
+      "sp\022H\n\rLookupService\022\032.bblwheel.LookupSer" +
+      "viceReq\032\033.bblwheel.LookupServiceResp\0229\n\014" +
+      "UpdateConfig\022\031.bblwheel.UpdateConfigReq\032" +
+      "\016.bblwheel.Void\022.\n\006Events\022\017.bblwheel.Eve" +
+      "nt\032\017.bblwheel.Event(\0010\001B\033\n\024com.hemayun.b" +
+      "blwheelH\001\240\001\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -12022,44 +10965,32 @@ public final class Bblwheel {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_bblwheel_Void_descriptor,
         new java.lang.String[] { });
-    internal_static_bblwheel_RegisterResult_descriptor =
-      getDescriptor().getMessageTypes().get(1);
-    internal_static_bblwheel_RegisterResult_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_bblwheel_RegisterResult_descriptor,
-        new java.lang.String[] { "Desc", "Service", "Configs", });
-    internal_static_bblwheel_RegisterResult_ConfigsEntry_descriptor =
-      internal_static_bblwheel_RegisterResult_descriptor.getNestedTypes().get(0);
-    internal_static_bblwheel_RegisterResult_ConfigsEntry_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_bblwheel_RegisterResult_ConfigsEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
     internal_static_bblwheel_Service_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(1);
     internal_static_bblwheel_Service_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_bblwheel_Service_descriptor,
-        new java.lang.String[] { "ID", "Name", "Tags", "Address", "DataCenter", "Node", "PID", "Weight", "Single", "DependentServices", "DependentConfigs", "Status", "Stats", "Error", });
+        new java.lang.String[] { "ID", "Name", "Tags", "Address", "DataCenter", "Node", "PID", "Weight", "Single", "DependentServices", "DependentConfigs", "Status", "Stats", "Error", "Token", });
     internal_static_bblwheel_ConfigEntry_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(2);
     internal_static_bblwheel_ConfigEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_bblwheel_ConfigEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_bblwheel_Config_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_bblwheel_Config_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_bblwheel_Config_descriptor,
         new java.lang.String[] { "Items", });
     internal_static_bblwheel_UpdateConfigReq_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_bblwheel_UpdateConfigReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_bblwheel_UpdateConfigReq_descriptor,
         new java.lang.String[] { "ServiceID", "ServiceName", "Config", });
     internal_static_bblwheel_Stats_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_bblwheel_Stats_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_bblwheel_Stats_descriptor,
@@ -12071,19 +11002,19 @@ public final class Bblwheel {
         internal_static_bblwheel_Stats_OtherEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_bblwheel_Event_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_bblwheel_Event_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_bblwheel_Event_descriptor,
         new java.lang.String[] { "Type", "Service", "Item", "Command", });
     internal_static_bblwheel_LookupConfigReq_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_bblwheel_LookupConfigReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_bblwheel_LookupConfigReq_descriptor,
         new java.lang.String[] { "DependentConfigs", });
     internal_static_bblwheel_LookupConfigResp_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_bblwheel_LookupConfigResp_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_bblwheel_LookupConfigResp_descriptor,
@@ -12095,13 +11026,13 @@ public final class Bblwheel {
         internal_static_bblwheel_LookupConfigResp_ConfigsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_bblwheel_LookupServiceReq_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_bblwheel_LookupServiceReq_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_bblwheel_LookupServiceReq_descriptor,
         new java.lang.String[] { "ServiceID", "ServiceName", "DependentServices", });
     internal_static_bblwheel_LookupServiceResp_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_bblwheel_LookupServiceResp_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_bblwheel_LookupServiceResp_descriptor,

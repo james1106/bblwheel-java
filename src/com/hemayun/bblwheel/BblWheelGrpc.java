@@ -55,24 +55,6 @@ public class BblWheelGrpc {
           io.grpc.protobuf.ProtoUtils.marshaller(com.hemayun.bblwheel.Bblwheel.UpdateConfigReq.getDefaultInstance()),
           io.grpc.protobuf.ProtoUtils.marshaller(com.hemayun.bblwheel.Bblwheel.Void.getDefaultInstance()));
   @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static final io.grpc.MethodDescriptor<com.hemayun.bblwheel.Bblwheel.Service,
-      com.hemayun.bblwheel.Bblwheel.RegisterResult> METHOD_REGISTER =
-      io.grpc.MethodDescriptor.create(
-          io.grpc.MethodDescriptor.MethodType.UNARY,
-          generateFullMethodName(
-              "bblwheel.BblWheel", "Register"),
-          io.grpc.protobuf.ProtoUtils.marshaller(com.hemayun.bblwheel.Bblwheel.Service.getDefaultInstance()),
-          io.grpc.protobuf.ProtoUtils.marshaller(com.hemayun.bblwheel.Bblwheel.RegisterResult.getDefaultInstance()));
-  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static final io.grpc.MethodDescriptor<com.hemayun.bblwheel.Bblwheel.Service,
-      com.hemayun.bblwheel.Bblwheel.Void> METHOD_UNREGISTER =
-      io.grpc.MethodDescriptor.create(
-          io.grpc.MethodDescriptor.MethodType.UNARY,
-          generateFullMethodName(
-              "bblwheel.BblWheel", "Unregister"),
-          io.grpc.protobuf.ProtoUtils.marshaller(com.hemayun.bblwheel.Bblwheel.Service.getDefaultInstance()),
-          io.grpc.protobuf.ProtoUtils.marshaller(com.hemayun.bblwheel.Bblwheel.Void.getDefaultInstance()));
-  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
   public static final io.grpc.MethodDescriptor<com.hemayun.bblwheel.Bblwheel.Event,
       com.hemayun.bblwheel.Bblwheel.Event> METHOD_EVENTS =
       io.grpc.MethodDescriptor.create(
@@ -131,20 +113,10 @@ public class BblWheelGrpc {
     }
 
     /**
-     */
-    public void register(com.hemayun.bblwheel.Bblwheel.Service request,
-        io.grpc.stub.StreamObserver<com.hemayun.bblwheel.Bblwheel.RegisterResult> responseObserver) {
-      asyncUnimplementedUnaryCall(METHOD_REGISTER, responseObserver);
-    }
-
-    /**
-     */
-    public void unregister(com.hemayun.bblwheel.Bblwheel.Service request,
-        io.grpc.stub.StreamObserver<com.hemayun.bblwheel.Bblwheel.Void> responseObserver) {
-      asyncUnimplementedUnaryCall(METHOD_UNREGISTER, responseObserver);
-    }
-
-    /**
+     * <pre>
+     *rpc Register(Service) returns (RegisterResult);
+     *rpc Unregister(Service) returns (Void);
+     * </pre>
      */
     public io.grpc.stub.StreamObserver<com.hemayun.bblwheel.Bblwheel.Event> events(
         io.grpc.stub.StreamObserver<com.hemayun.bblwheel.Bblwheel.Event> responseObserver) {
@@ -174,20 +146,6 @@ public class BblWheelGrpc {
                 com.hemayun.bblwheel.Bblwheel.UpdateConfigReq,
                 com.hemayun.bblwheel.Bblwheel.Void>(
                   this, METHODID_UPDATE_CONFIG)))
-          .addMethod(
-            METHOD_REGISTER,
-            asyncUnaryCall(
-              new MethodHandlers<
-                com.hemayun.bblwheel.Bblwheel.Service,
-                com.hemayun.bblwheel.Bblwheel.RegisterResult>(
-                  this, METHODID_REGISTER)))
-          .addMethod(
-            METHOD_UNREGISTER,
-            asyncUnaryCall(
-              new MethodHandlers<
-                com.hemayun.bblwheel.Bblwheel.Service,
-                com.hemayun.bblwheel.Bblwheel.Void>(
-                  this, METHODID_UNREGISTER)))
           .addMethod(
             METHOD_EVENTS,
             asyncBidiStreamingCall(
@@ -242,22 +200,10 @@ public class BblWheelGrpc {
     }
 
     /**
-     */
-    public void register(com.hemayun.bblwheel.Bblwheel.Service request,
-        io.grpc.stub.StreamObserver<com.hemayun.bblwheel.Bblwheel.RegisterResult> responseObserver) {
-      asyncUnaryCall(
-          getChannel().newCall(METHOD_REGISTER, getCallOptions()), request, responseObserver);
-    }
-
-    /**
-     */
-    public void unregister(com.hemayun.bblwheel.Bblwheel.Service request,
-        io.grpc.stub.StreamObserver<com.hemayun.bblwheel.Bblwheel.Void> responseObserver) {
-      asyncUnaryCall(
-          getChannel().newCall(METHOD_UNREGISTER, getCallOptions()), request, responseObserver);
-    }
-
-    /**
+     * <pre>
+     *rpc Register(Service) returns (RegisterResult);
+     *rpc Unregister(Service) returns (Void);
+     * </pre>
      */
     public io.grpc.stub.StreamObserver<com.hemayun.bblwheel.Bblwheel.Event> events(
         io.grpc.stub.StreamObserver<com.hemayun.bblwheel.Bblwheel.Event> responseObserver) {
@@ -304,20 +250,6 @@ public class BblWheelGrpc {
       return blockingUnaryCall(
           getChannel(), METHOD_UPDATE_CONFIG, getCallOptions(), request);
     }
-
-    /**
-     */
-    public com.hemayun.bblwheel.Bblwheel.RegisterResult register(com.hemayun.bblwheel.Bblwheel.Service request) {
-      return blockingUnaryCall(
-          getChannel(), METHOD_REGISTER, getCallOptions(), request);
-    }
-
-    /**
-     */
-    public com.hemayun.bblwheel.Bblwheel.Void unregister(com.hemayun.bblwheel.Bblwheel.Service request) {
-      return blockingUnaryCall(
-          getChannel(), METHOD_UNREGISTER, getCallOptions(), request);
-    }
   }
 
   /**
@@ -361,30 +293,12 @@ public class BblWheelGrpc {
       return futureUnaryCall(
           getChannel().newCall(METHOD_UPDATE_CONFIG, getCallOptions()), request);
     }
-
-    /**
-     */
-    public com.google.common.util.concurrent.ListenableFuture<com.hemayun.bblwheel.Bblwheel.RegisterResult> register(
-        com.hemayun.bblwheel.Bblwheel.Service request) {
-      return futureUnaryCall(
-          getChannel().newCall(METHOD_REGISTER, getCallOptions()), request);
-    }
-
-    /**
-     */
-    public com.google.common.util.concurrent.ListenableFuture<com.hemayun.bblwheel.Bblwheel.Void> unregister(
-        com.hemayun.bblwheel.Bblwheel.Service request) {
-      return futureUnaryCall(
-          getChannel().newCall(METHOD_UNREGISTER, getCallOptions()), request);
-    }
   }
 
   private static final int METHODID_LOOKUP_CONFIG = 0;
   private static final int METHODID_LOOKUP_SERVICE = 1;
   private static final int METHODID_UPDATE_CONFIG = 2;
-  private static final int METHODID_REGISTER = 3;
-  private static final int METHODID_UNREGISTER = 4;
-  private static final int METHODID_EVENTS = 5;
+  private static final int METHODID_EVENTS = 3;
 
   private static class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -415,14 +329,6 @@ public class BblWheelGrpc {
           serviceImpl.updateConfig((com.hemayun.bblwheel.Bblwheel.UpdateConfigReq) request,
               (io.grpc.stub.StreamObserver<com.hemayun.bblwheel.Bblwheel.Void>) responseObserver);
           break;
-        case METHODID_REGISTER:
-          serviceImpl.register((com.hemayun.bblwheel.Bblwheel.Service) request,
-              (io.grpc.stub.StreamObserver<com.hemayun.bblwheel.Bblwheel.RegisterResult>) responseObserver);
-          break;
-        case METHODID_UNREGISTER:
-          serviceImpl.unregister((com.hemayun.bblwheel.Bblwheel.Service) request,
-              (io.grpc.stub.StreamObserver<com.hemayun.bblwheel.Bblwheel.Void>) responseObserver);
-          break;
         default:
           throw new AssertionError();
       }
@@ -447,8 +353,6 @@ public class BblWheelGrpc {
         METHOD_LOOKUP_CONFIG,
         METHOD_LOOKUP_SERVICE,
         METHOD_UPDATE_CONFIG,
-        METHOD_REGISTER,
-        METHOD_UNREGISTER,
         METHOD_EVENTS);
   }
 

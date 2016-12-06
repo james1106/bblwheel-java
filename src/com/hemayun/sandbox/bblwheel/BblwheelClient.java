@@ -56,82 +56,44 @@ public class BblwheelClient {
 
     }
 
-    private Bblwheel.RegisterResult result;
 
-    public Bblwheel.RegisterResult register(ServiceInstance provider) {
+    public void register(ServiceInstance provider) {
         this.provider = provider;
-        while (true) {
-            try {
-                result = blockStub.register(provider.getService());
-                break;
-            } catch (Throwable e) {
-                e.printStackTrace();
-
-            }
-            try {
-                TimeUnit.SECONDS.sleep(5);
-                if (channel != null) {
-                    channel.shutdownNow();
-                }
-                channel = channelBuilder.build();
-                blockStub = BblWheelGrpc.newBlockingStub(channel);
-                stub = BblWheelGrpc.newStub(channel);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-                return Bblwheel.RegisterResult.newBuilder().setDesc(e.getMessage()).build();
-            }
-        }
         ronce.once(new Runnable() {
             @Override
             public void run() {
-                if ("SUCCESS".equalsIgnoreCase(result.getDesc())) {
-                    run = true;
-                    Thread keepalive = new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            while (run) {
-                                try {
-                                    keepAlive(provider);
-                                } catch (Throwable e) {
-                                    e.printStackTrace();
-                                }
-                                try {
-                                    TimeUnit.SECONDS.sleep(5);
-                                    while (true) {
-                                        try {
-                                            Bblwheel.RegisterResult result = blockStub.register(provider.getService());
-                                            if ("SUCCESS".equalsIgnoreCase(result.getDesc())) {
-                                                break;
-                                            } else {
-                                                TimeUnit.SECONDS.sleep(3);
-                                                continue;
-                                            }
-                                        } catch (Throwable e) {
-                                            e.printStackTrace();
-                                        }
-                                        TimeUnit.SECONDS.sleep(3);
-                                        if (channel != null) {
-                                            channel.shutdownNow();
-                                        }
-                                        channel = channelBuilder.build();
-                                        blockStub = BblWheelGrpc.newBlockingStub(channel);
-                                        stub = BblWheelGrpc.newStub(channel);
+                run = true;
+                Thread keepalive = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        while (run) {
+                            try {
+                                keepAlive(provider);
+                            } catch (Throwable e) {
+                                e.printStackTrace();
+                            }
+                            try {
+                                TimeUnit.SECONDS.sleep(5);
+                                while (true) {
+                                    if (channel != null) {
+                                        channel.shutdownNow();
                                     }
-                                } catch (InterruptedException e) {
-                                    e.printStackTrace();
-                                    return;
+                                    channel = channelBuilder.build();
+                                    blockStub = BblWheelGrpc.newBlockingStub(channel);
+                                    stub = BblWheelGrpc.newStub(channel);
                                 }
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                                return;
                             }
                         }
-                    });
-                    keepalive.setName("keepalive-" + provider.getService().getName() + "-" + provider.getService().getID());
-                    //keepalive.setDaemon(true);
-                    keepalive.start();
-
-                }
+                    }
+                });
+                keepalive.setName("keepalive-" + provider.getService().getName() + "-" + provider.getService().getID());
+                //keepalive.setDaemon(true);
+                keepalive.start();
             }
         });
-        return result;
     }
 
     public void keepAlive(ServiceInstance provider) {
@@ -210,14 +172,6 @@ public class BblwheelClient {
 
     }
 
-
-    public void unregister() {
-        if (provider != null) {
-            provider.getService().toBuilder().setStatus(Bblwheel.Service.Status.OFFLINE).build();
-            blockStub.unregister(provider.getService());
-        }
-
-    }
 
     public Map<String, Bblwheel.Config> lookupConfig(String[] deps) {
         Bblwheel.LookupConfigReq req = Bblwheel.LookupConfigReq.getDefaultInstance();
