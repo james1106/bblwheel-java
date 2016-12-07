@@ -10,7 +10,7 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * Created by apple on 16/12/2.
  */
-public class ServiceInstance {
+public class ServiceProvider {
 
     public volatile Bblwheel.Service service;
     public Bblwheel.Config config;
@@ -21,7 +21,7 @@ public class ServiceInstance {
 
     public Map<String,String> stats = new ConcurrentHashMap<>();
 
-    public ServiceInstance() {
+    public ServiceProvider() {
         this.service = Bblwheel.Service.getDefaultInstance();
         this.config = Bblwheel.Config.getDefaultInstance();
     }
@@ -30,7 +30,7 @@ public class ServiceInstance {
         return service.getID();
     }
 
-    public ServiceInstance setID(String ID) {
+    public ServiceProvider setID(String ID) {
         service = service.toBuilder().setID(ID).build();
         return this;
     }
@@ -39,12 +39,12 @@ public class ServiceInstance {
         return service.getName();
     }
 
-    public ServiceInstance setName(String name) {
+    public ServiceProvider setName(String name) {
         service = service.toBuilder().setName(name).build();
         return this;
     }
 
-    public ServiceInstance setTags(String[] tags) {
+    public ServiceProvider setTags(String[] tags) {
        service = service.toBuilder().addAllTags(Arrays.asList(tags)).build();
         return this;
     }
@@ -53,7 +53,7 @@ public class ServiceInstance {
         return service.getAddress();
     }
 
-    public ServiceInstance setAddress(String address) {
+    public ServiceProvider setAddress(String address) {
         service = service.toBuilder().setAddress(address).build();
         return this;
     }
@@ -62,7 +62,7 @@ public class ServiceInstance {
         return service.getDataCenter();
     }
 
-    public ServiceInstance setDataCenter(String dataCenter) {
+    public ServiceProvider setDataCenter(String dataCenter) {
         service = service.toBuilder().setDataCenter(dataCenter).build();
         return this;
     }
@@ -71,7 +71,7 @@ public class ServiceInstance {
         return service.getNode();
     }
 
-    public ServiceInstance setNode(String node) {
+    public ServiceProvider setNode(String node) {
         service = service.toBuilder().setNode(node).build();
         return this;
     }
@@ -80,7 +80,7 @@ public class ServiceInstance {
         return service.getPID();
     }
 
-    public ServiceInstance setPID(String PID) {
+    public ServiceProvider setPID(String PID) {
         service = service.toBuilder().setPID(PID).build();
         return this;
     }
@@ -89,7 +89,7 @@ public class ServiceInstance {
         return service.getWeight();
     }
 
-    public ServiceInstance setWeight(int weight) {
+    public ServiceProvider setWeight(int weight) {
         service = service.toBuilder().setWeight(weight).build();
         return this;
     }
@@ -98,24 +98,24 @@ public class ServiceInstance {
         return service.getSingle();
     }
 
-    public ServiceInstance setSingle(boolean single) {
+    public ServiceProvider setSingle(boolean single) {
         service = service.toBuilder().setSingle(single).build();
         return this;
     }
 
 
-    public ServiceInstance setDependentServices(String[] dependentServices) {
+    public ServiceProvider setDependentServices(String[] dependentServices) {
         service = service.toBuilder().addAllDependentServices(Arrays.asList(dependentServices)).build();
         return this;
     }
 
 
-    public ServiceInstance setDependentConfigs(String[] dependentConfigs) {
+    public ServiceProvider setDependentConfigs(String[] dependentConfigs) {
         service = service.toBuilder().addAllDependentConfigs(Arrays.asList(dependentConfigs)).build();
         return this;
     }
 
-    public ServiceInstance setStatus(Bblwheel.Service.Status status) {
+    public ServiceProvider setStatus(Bblwheel.Service.Status status) {
         service = service.toBuilder().setStatus(status).build();
         return this;
     }
@@ -124,7 +124,7 @@ public class ServiceInstance {
         return service.getStatus();
     }
 
-    public ServiceInstance addConfig(String key ,String value) {
+    public ServiceProvider addConfig(String key , String value) {
         config = config.toBuilder().addItems(Bblwheel.ConfigEntry.newBuilder()
                 .setKey(key)
                 .setValue(value)
@@ -132,7 +132,7 @@ public class ServiceInstance {
         return this;
     }
 
-    public ServiceInstance setStats(String key ,String value) {
+    public ServiceProvider setStats(String key , String value) {
         stats.put(key,value);
         return this;
     }
@@ -146,7 +146,7 @@ public class ServiceInstance {
         return service;
     }
 
-    public ServiceInstance online() {
+    public ServiceProvider online() {
         service = service.toBuilder().setStatus(Bblwheel.Service.Status.ONLINE).build();
         return this;
     }
@@ -155,7 +155,10 @@ public class ServiceInstance {
          wheel.register(this);
     }
 
-    public ServiceInstance syncConfig() {
+    public void unregister() {
+        wheel.shutdown();
+    }
+    public ServiceProvider syncConfig() {
         wheel.updateConfig(config);
         return this;
     }
@@ -168,7 +171,7 @@ public class ServiceInstance {
         return wheel.lookupConfig(deps);
     }
 
-    public ServiceInstance setBblwheelListener(BblwheelListener bblwheelListener) {
+    public ServiceProvider setBblwheelListener(BblwheelListener bblwheelListener) {
         this.bblwheelListener = bblwheelListener;
         return this;
     }

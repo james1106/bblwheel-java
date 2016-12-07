@@ -26,7 +26,7 @@ public class BblwheelClient {
     private BblWheelGrpc.BblWheelBlockingStub blockStub;
     private final Once once = new Once();
     private final Once ronce = new Once();
-    private ServiceInstance provider;
+    private ServiceProvider provider;
     private volatile boolean run;
 
     private static String getEnv(String key, String def) {
@@ -57,7 +57,7 @@ public class BblwheelClient {
     }
 
 
-    public void register(ServiceInstance provider) {
+    public void register(ServiceProvider provider) {
         this.provider = provider;
         ronce.once(new Runnable() {
             @Override
@@ -75,12 +75,10 @@ public class BblwheelClient {
                             try {
                                 TimeUnit.SECONDS.sleep(5);
                                 while (true) {
-                                    if (channel != null) {
-                                        channel.shutdownNow();
-                                    }
                                     channel = channelBuilder.build();
                                     blockStub = BblWheelGrpc.newBlockingStub(channel);
                                     stub = BblWheelGrpc.newStub(channel);
+                                    break;
                                 }
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
@@ -96,11 +94,11 @@ public class BblwheelClient {
         });
     }
 
-    public void keepAlive(ServiceInstance provider) {
+    public void keepAlive(ServiceProvider provider) {
         StreamObserver<Bblwheel.Event> streamObserver = new StreamObserver<Bblwheel.Event>() {
             @Override
             public void onNext(Bblwheel.Event event) {
-                ServiceInstance.BblwheelListener ll = provider.getBblwheelListener();
+                ServiceProvider.BblwheelListener ll = provider.getBblwheelListener();
                 switch (event.getType()) {
                     case DISCOVERY:
                         if (ll != null) {

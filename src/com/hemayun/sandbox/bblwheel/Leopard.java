@@ -1,6 +1,5 @@
 package com.hemayun.sandbox.bblwheel;
 
-import com.hemayun.bblwheel.Bblwheel;
 import com.hemayun.bblwheel.Bblwheel.Config;
 import com.hemayun.bblwheel.Bblwheel.Service;
 import com.hemayun.sandbox.bblwheel.SimpleService.SimpleService;
@@ -24,7 +23,7 @@ public class Leopard {
         Once once = new Once();
         Selector selector = HashSelector.create();
         //创建服务实例
-        ServiceInstance instance = new ServiceInstance()
+        ServiceProvider provider = new ServiceProvider()
                 //设置服务提供者信息
                 .setID("001")//服务ID
                 .setName("testService1")//服务名称
@@ -61,7 +60,7 @@ public class Leopard {
                 .setStats("VmName", "" + ManagementFactory.getRuntimeMXBean().getVmName())
                 .setStats("VmVendor", "" + ManagementFactory.getRuntimeMXBean().getVmVendor())
                 .setStats("InputArguments", "" + ManagementFactory.getRuntimeMXBean().getInputArguments());
-        instance.setBblwheelListener(new ServiceInstance.BblwheelListener() {//设置回调接口
+        provider.setBblwheelListener(new ServiceProvider.BblwheelListener() {//设置回调接口
             @Override
             public void onDiscovery(Service srv) {//当服务发现的时候回调
                 System.out.println("onDiscovery\n"+srv);
@@ -89,9 +88,9 @@ public class Leopard {
             }
         });
         //读取依赖的配置
-        Map<String,Config> config = instance.findConfig(new String[]{"common/db1",instance.getName()+"/"+instance.getID()});
+        Map<String,Config> config = provider.findConfig(new String[]{"common/db1",provider.getName()+"/"+provider.getID()});
         //获取依赖服务，如果服务没有被授权则不回被返回，当服务器端完成授权后则会通知到客户端
-        List<Service> depServices= instance.findService(new String[]{"serviceA","serviceB"});
+        List<Service> depServices= provider.findService(new String[]{"serviceA","serviceB"});
         //与配置中心同步配置
        // instance.syncConfig();
         //启动服务
@@ -106,10 +105,11 @@ public class Leopard {
             }
         });
         //注册服务并保存心跳
-        instance.register();
+        provider.register();
         //更新服务状态
-        instance.online();
+        provider.online();
         server.join();
+        //注销服务
+        provider.unregister();
     }
-
 }
