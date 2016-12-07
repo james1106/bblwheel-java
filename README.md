@@ -29,11 +29,11 @@ import com.hemayun.sandbox.bblwheel.selector.HashSelector;
 
 import java.io.IOException;
 import java.lang.management.ManagementFactory;
+import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 public class Leopard {
-
-    static Service provider;
 
     /**
      * @param args
@@ -46,18 +46,19 @@ public class Leopard {
         Selector selector = HashSelector.create();
         //创建服务实例
         ServiceInstance instance = new ServiceInstance()
-                .setID("001")
-                .setName("testService1")
-                .setTags(new String[]{"author: gqf", "mail: gao.qingfeng@gmail.com"})
-                .setAddress("http://127.0.0.1:7321,grpc://0.0.0.0:7323,tcp://0.0.0.0:7325")
-                .setDataCenter("aliyun-huadong2-shanghai")
-                .setNode("cloud-test-001")
-                .setSingle(true)
-                .setDependentServices(new String[]{"serviceA", "serviceB"})
-                .setDependentConfigs(new String[]{"common/db1", "common/redis1", "testService1/001"})
-                .setPID(ManagementFactory.getRuntimeMXBean().getName())
+                //设置服务提供者信息
+                .setID("001")//服务ID
+                .setName("testService1")//服务名称
+                .setTags(new String[]{"author: gqf", "mail: gao.qingfeng@gmail.com"})//服务标签
+                .setAddress("http://127.0.0.1:7321,grpc://0.0.0.0:7323,tcp://0.0.0.0:7325")//服务地址
+                .setDataCenter("aliyun-huadong2-shanghai")//所属数据中心
+                .setNode("cloud-test-001")//所属服务节点
+                .setSingle(true)//是否单例
+                .setDependentServices(new String[]{"serviceA", "serviceB"})//依赖服务
+                .setDependentConfigs(new String[]{"common/db1", "common/redis1", "testService1/001"})//依赖配置
+                .setPID(ManagementFactory.getRuntimeMXBean().getName())//服务进程标示
                 .setStatus(Service.Status.INIT)
-
+                //添加默认配置
                 .addConfig("leopard.webapp", "/var/hemayun/webapp/testService1")
                 .addConfig("leopard.path", "/")
                 .addConfig("leopard.connectors", "0.0.0.0:7321:1:1:30000")
@@ -71,7 +72,7 @@ public class Leopard {
                 .addConfig("leopard.webapp", "/var/hemayun/webapp/testService1")
                 .addConfig("leopard.webapp", "/var/hemayun/webapp/testService1")
                 .addConfig("leopard.webapp", "/var/hemayun/webapp/testService1")
-
+                //设置统计数据
                 .setStats("Name", "" + ManagementFactory.getRuntimeMXBean().getName())
                 .setStats("Name", "" + ManagementFactory.getRuntimeMXBean().getName())
                 .setStats("StartTime", "" + ManagementFactory.getRuntimeMXBean().getStartTime())
@@ -81,9 +82,9 @@ public class Leopard {
                 .setStats("VmName", "" + ManagementFactory.getRuntimeMXBean().getVmName())
                 .setStats("VmVendor", "" + ManagementFactory.getRuntimeMXBean().getVmVendor())
                 .setStats("InputArguments", "" + ManagementFactory.getRuntimeMXBean().getInputArguments());
-        instance.setBblwheelListener(new ServiceInstance.BblwheelListener() {
+        instance.setBblwheelListener(new ServiceInstance.BblwheelListener() {//设置回调接口
             @Override
-            public void onDiscovery(Service srv) {
+            public void onDiscovery(Service srv) {//当服务发现的时候回调
                 System.out.println("onDiscovery\n"+srv);
                 if (srv.getStatus() == Service.Status.ONLINE) {
                     selector.addService(srv);
@@ -94,21 +95,27 @@ public class Leopard {
             }
 
             @Override
-            public void onConfigUpdated(String key, String value) {
+            public void onConfigUpdated(String key, String value) {//当配置变更的时候回调
                 System.out.println("onConfigUpdated " + key + "=" + value);
             }
 
             @Override
-            public void onControl(String cmd) {
+            public void onControl(String cmd) {//当收到控制命令的时候回调
                 System.out.println("onControl " + cmd);
             }
 
             @Override
-            public void onExec(String cmd) {
+            public void onExec(String cmd) {//当收到执行外部命令的时候回调
                 System.out.println("onExec " + cmd);
             }
         });
-
+        //读取依赖的配置
+        Map<String,Config> config = instance.findConfig(new String[]{"common/db1",instance.getName()+"/"+instance.getID()});
+        //获取依赖服务，如果服务没有被授权则不回被返回，当服务器端完成授权后则会通知到客户端
+        List<Service> depServices= instance.findService(new String[]{"serviceA","serviceB"});
+        //与配置中心同步配置
+        instance.syncConfig();
+        //启动服务
         once.once(new Runnable() {
             @Override
             public void run() {
@@ -119,7 +126,9 @@ public class Leopard {
                 }
             }
         });
+        //注册服务并保存心跳
         instance.register();
+        //更新服务状态
         instance.online();
         server.join();
     }

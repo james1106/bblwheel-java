@@ -61,9 +61,9 @@ public class Leopard {
                 .setStats("VmName", "" + ManagementFactory.getRuntimeMXBean().getVmName())
                 .setStats("VmVendor", "" + ManagementFactory.getRuntimeMXBean().getVmVendor())
                 .setStats("InputArguments", "" + ManagementFactory.getRuntimeMXBean().getInputArguments());
-        instance.setBblwheelListener(new ServiceInstance.BblwheelListener() {
+        instance.setBblwheelListener(new ServiceInstance.BblwheelListener() {//设置回调接口
             @Override
-            public void onDiscovery(Service srv) {
+            public void onDiscovery(Service srv) {//当服务发现的时候回调
                 System.out.println("onDiscovery\n"+srv);
                 if (srv.getStatus() == Service.Status.ONLINE) {
                     selector.addService(srv);
@@ -74,17 +74,17 @@ public class Leopard {
             }
 
             @Override
-            public void onConfigUpdated(String key, String value) {
+            public void onConfigUpdated(String key, String value) {//当配置变更的时候回调
                 System.out.println("onConfigUpdated " + key + "=" + value);
             }
 
             @Override
-            public void onControl(String cmd) {
+            public void onControl(String cmd) {//当收到控制命令的时候回调
                 System.out.println("onControl " + cmd);
             }
 
             @Override
-            public void onExec(String cmd) {
+            public void onExec(String cmd) {//当收到执行外部命令的时候回调
                 System.out.println("onExec " + cmd);
             }
         });
