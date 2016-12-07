@@ -93,7 +93,7 @@ public class Leopard {
         //获取依赖服务，如果服务没有被授权则不回被返回，当服务器端完成授权后则会通知到客户端
         List<Service> depServices= instance.findService(new String[]{"serviceA","serviceB"});
         //与配置中心同步配置
-        instance.syncConfig();
+       // instance.syncConfig();
         //启动服务
         once.once(new Runnable() {
             @Override
