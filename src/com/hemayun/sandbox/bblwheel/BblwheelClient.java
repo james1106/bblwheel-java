@@ -10,6 +10,7 @@ import sun.misc.ThreadGroupUtils;
 import java.lang.management.ManagementFactory;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -20,13 +21,13 @@ public class BblwheelClient {
     public static final String BBLWHEEL_ENDPOINTS = "BBLWHEEL_ENDPOINTS";
     public static final String DEFAULT_BBLWHEEL_ENDPOINTS = "127.0.0.1:23790";
     private static int DEFAULT_KEEPALIVE_TTL = 30;
-    private final ManagedChannelBuilder<?> channelBuilder;
     private ManagedChannel channel;
     private BblWheelGrpc.BblWheelStub stub;
     private BblWheelGrpc.BblWheelBlockingStub blockStub;
     private final Once once = new Once();
     private final Once ronce = new Once();
     private ServiceProvider provider;
+    private String[] endpoints;
     private volatile boolean run;
 
     private static String getEnv(String key, String def) {
@@ -42,18 +43,29 @@ public class BblwheelClient {
     }
 
     private BblwheelClient(String[] endpoints) {
-        this(ManagedChannelBuilder.forAddress(
-                endpoints[0].split(":", 2)[0],
-                Integer.parseInt(endpoints[0].split(":", 2)[1])
-        ).usePlaintext(true));
+        this.endpoints = endpoints;
+        connect();
     }
 
-    private BblwheelClient(ManagedChannelBuilder<?> channelBuilder) {
-        this.channelBuilder = channelBuilder;
+    public void connect() {
+        String key = UUID.randomUUID().toString();
+        String endpoint[] = endpoints[Math.abs((int) (MurmurHash3.murmurhash3_x86_32(key, 0, key.length(), 1) % (long) endpoints.length))].split(":", 2);
+        ManagedChannelBuilder channelBuilder = ManagedChannelBuilder.forAddress(
+                endpoint[0],
+                Integer.parseInt(endpoint[1])
+        ).usePlaintext(true);
         channel = channelBuilder.build();
         blockStub = BblWheelGrpc.newBlockingStub(channel);
         stub = BblWheelGrpc.newStub(channel);
+    }
 
+    public void disconnect() {
+        channel.shutdownNow();
+        try {
+            channel.awaitTermination(10, TimeUnit.SECONDS);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
 
@@ -73,13 +85,8 @@ public class BblwheelClient {
                                 e.printStackTrace();
                             }
                             try {
-                                TimeUnit.SECONDS.sleep(5);
-                                while (true) {
-                                    channel = channelBuilder.build();
-                                    blockStub = BblWheelGrpc.newBlockingStub(channel);
-                                    stub = BblWheelGrpc.newStub(channel);
-                                    break;
-                                }
+                                TimeUnit.SECONDS.sleep(3);
+                                connect();
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                                 return;
@@ -125,13 +132,8 @@ public class BblwheelClient {
 
             @Override
             public void onError(Throwable throwable) {
+                disconnect();
                 throwable.printStackTrace();
-                channel.shutdownNow();
-                try {
-                    channel.awaitTermination(10, TimeUnit.SECONDS);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
             }
 
             @Override
@@ -156,7 +158,7 @@ public class BblwheelClient {
                     .putAllOther(provider.getStats())
                     .build();
             Bblwheel.Service srv = provider.getService().toBuilder().setStats(stats).build();
-            provider.service=srv;
+            provider.service = srv;
             streamReq.onNext(Bblwheel.Event.newBuilder()
                     .setType(Bblwheel.Event.EventType.KEEPALIVE)
                     .setService(srv)
@@ -204,32 +206,8 @@ public class BblwheelClient {
             @Override
             public void run() {
                 run = false;
-                if (channel != null) {
-                    channel.shutdownNow();
-                }
+                disconnect();
             }
         });
     }
-
-//    synchronized final ManagedChannel connect(List<String> endpoints) {
-//        return ManagedChannelBuilder.forTarget("etcd")
-//                .nameResolverFactory(new SimpleEtcdNameResolverFactory(
-//                        endpoints.stream()
-//                                .map(BblwheelClient::endpointToUri)
-//                                .collect(Collectors.toList())
-//                ))
-//                .usePlaintext(true).build();
-////        return channel;
-//    }
-//
-//    static URI endpointToUri(String endpoint) {
-//        try {
-//            if (!endpoint.startsWith("http://")) {
-//                endpoint = "http://" + endpoint;
-//            }
-//            return new URI(endpoint);
-//        } catch (URISyntaxException e) {
-//            throw new IllegalArgumentException(e);
-//        }
-//    }
 }
